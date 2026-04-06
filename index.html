@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="BATTERY">
+<meta name="description" content="Transforme conhecimento em energia. Cada habilidade é uma bateria que carrega com o que você aprende.">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>BATTERY — Transforme Conhecimento em Energia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════ */
+:root {
+  --bg:        #0a0a0a;
+  --surface:   #141414;
+  --surface2:  #1c1c1c;
+  --border:    rgba(255,255,255,0.07);
+  --text:      #f0ede6;
+  --muted:     #6b6960;
+  --dim:       #3a3830;
+
+  --red:    #e84040;
+  --yellow: #f5a623;
+  --green:  #4caf50;
+
+  --red-bg:    rgba(232,64,64,0.12);
+  --yellow-bg: rgba(245,166,35,0.12);
+  --green-bg:  rgba(76,175,80,0.12);
+
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body:    'Barlow', sans-serif;
+
+  --radius:  12px;
+  --radius-sm: 8px;
+  --tab-h:   64px;
+  --safe-b:  env(safe-area-inset-bottom, 0px);
+}
+
+/* ═══════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+button { font-family: var(--font-body); cursor: pointer; border: none; background: none; }
+input  { font-family: var(--font-body); }
+
+/* ═══════════════════════════════════════════
+   APP SHELL
+═══════════════════════════════════════════ */
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  max-width: 430px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ═══════════════════════════════════════════
+   SCREENS
+═══════════════════════════════════════════ */
+.screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+}
+.screen.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.screen-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 0 calc(var(--tab-h) + var(--safe-b) + 16px);
+}
+.screen-body::-webkit-scrollbar { display: none; }
+
+/* ═══════════════════════════════════════════
+   ONBOARDING (screens before main app)
+═══════════════════════════════════════════ */
+#screen-splash,
+#screen-pick,
+#screen-first-win {
+  background: var(--bg);
+  z-index: 100;
+}
+
+/* SPLASH */
+#screen-splash {
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.splash-logo {
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--red) 0%, var(--yellow) 55%, var(--green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: pulseIn .6s ease forwards;
+}
+.splash-tagline {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  animation: fadeUp .6s ease .3s both;
+}
+@keyframes pulseIn {
+  0%   { transform: scale(.7); opacity: 0; }
+  70%  { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes fadeUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+/* PICK BATTERIES */
+#screen-pick {
+  padding: 0 20px;
+  justify-content: center;
+  gap: 0;
+}
+.pick-heading {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+.pick-sub {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+.pick-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.pick-btn {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: all .2s;
+  position: relative;
+  overflow: hidden;
+}
+.pick-btn.selected {
+  border-color: var(--yellow);
+  background: var(--yellow-bg);
+}
+.pick-btn.selected::after {
+  content: '✓';
+  position: absolute;
+  top: 6px; right: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--yellow);
+}
+.pick-btn .pick-icon { font-size: 28px; }
+.pick-btn .pick-name {
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--text);
+}
+.pick-counter {
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.pick-counter span { color: var(--yellow); font-weight: 700; }
+.btn-primary {
+  width: 100%;
+  background: var(--yellow);
+  color: #0a0a0a;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 16px;
+  border-radius: var(--radius);
+  transition: transform .15s, opacity .15s;
+}
+.btn-primary:active { transform: scale(.97); opacity: .9; }
+.btn-primary:disabled { background: var(--dim); color: var(--muted); }
+
+/* FIRST WIN */
+#screen-first-win {
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  gap: 0;
+}
+.win-battery-name {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.win-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 6px;
+  text-align: center;
+}
+.win-sub {
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+/* Large battery visual */
+.big-battery {
+  width: 100%;
+  max-width: 280px;
+  margin-bottom: 32px;
+}
+.big-bat-shell {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 6px;
+  position: relative;
+}
+.big-bat-shell::after {
+  content: '';
+  position: absolute;
+  right: -10px; top: 50%;
+  transform: translateY(-50%);
+  width: 8px; height: 20px;
+  background: var(--border);
+  border-radius: 0 4px 4px 0;
+}
+.big-bat-track {
+  height: 48px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.big-bat-fill {
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 12px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 900;
+  color: #0a0a0a;
+  transition: width 1s cubic-bezier(.16,1,.3,1);
+  min-width: 0;
+  width: 0;
+}
+.first-lesson-item {
+  width: 100%;
+  max-width: 320px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: all .2s;
+  margin-bottom: 24px;
+}
+.first-lesson-item:active { transform: scale(.98); }
+.first-lesson-item.tapped {
+  border-color: var(--green);
+  background: var(--green-bg);
+}
+.check-circle {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+  transition: all .3s;
+}
+.check-circle.done {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+.lesson-text { font-size: 15px; font-weight: 500; }
+.reward-toast {
+  background: var(--surface2);
+  border: 1px solid rgba(76,175,80,0.3);
+  border-radius: var(--radius);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all .4s ease;
+  margin-bottom: 24px;
+  width: 100%;
+  max-width: 320px;
+}
+.reward-toast.show { opacity: 1; transform: translateY(0); }
+.reward-toast .reward-icon { font-size: 20px; }
+
+/* ═══════════════════════════════════════════
+   BOTTOM NAV
+═══════════════════════════════════════════ */
+#bottom-nav {
+  position: fixed;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  height: calc(var(--tab-h) + var(--safe-b));
+  padding-bottom: var(--safe-b);
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border);
+  display: none;
+  align-items: flex-start;
+  justify-content: space-around;
+  z-index: 50;
+  padding-top: 0;
+}
+#bottom-nav.visible { display: flex; }
+.nav-item {
+  flex: 1;
+  height: var(--tab-h);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  opacity: .45;
+  transition: opacity .2s;
+}
+.nav-item.active { opacity: 1; }
+.nav-icon {
+  width: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-icon svg { width: 22px; height: 22px; stroke: var(--text); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.nav-item.active .nav-icon svg { stroke: var(--yellow); }
+.nav-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.nav-item.active .nav-label { color: var(--yellow); }
+
+/* ═══════════════════════════════════════════
+   MAIN SCREENS (with nav)
+═══════════════════════════════════════════ */
+#screen-home,
+#screen-baterias,
+#screen-progresso,
+#screen-perfil {
+  bottom: calc(var(--tab-h) + var(--safe-b));
+}
+
+/* ── Screen Header ── */
+.s-header {
+  padding: 20px 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.s-header-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+.streak-pill {
+  background: rgba(245,166,35,0.12);
+  border: 1px solid rgba(245,166,35,0.25);
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--yellow);
+}
+
+/* ── HOME ── */
+.home-level {
+  margin: 20px 20px 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+.home-level-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.home-level-name {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--yellow);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.xp-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.xp-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.xp-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--yellow), var(--green));
+  border-radius: 6px;
+  transition: width .6s ease;
+}
+.xp-label { font-size: 12px; color: var(--muted); font-weight: 600; white-space: nowrap; }
+
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 20px 20px 10px;
+}
+.battery-list { padding: 0 20px; display: flex; flex-direction: column; gap: 10px; }
+
+/* Battery Card */
+.bat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: all .2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.bat-card:active { transform: scale(.99); background: var(--surface2); }
+.bat-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.bat-card-left { display: flex; align-items: center; gap: 10px; }
+.bat-card-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.bat-card-name { font-size: 15px; font-weight: 600; }
+.bat-card-lessons { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.bat-pct-label {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 900;
+}
+.bat-track {
+  height: 8px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.bat-fill {
+  height: 100%;
+  border-radius: 8px;
+  transition: width .8s cubic-bezier(.16,1,.3,1);
+}
+/* color states */
+.state-red  .bat-fill { background: var(--red); }
+.state-red  .bat-pct-label { color: var(--red); }
+.state-red  .bat-card-icon { background: var(--red-bg); }
+.state-yellow .bat-fill { background: var(--yellow); }
+.state-yellow .bat-pct-label { color: var(--yellow); }
+.state-yellow .bat-card-icon { background: var(--yellow-bg); }
+.state-green .bat-fill { background: var(--green); }
+.state-green .bat-pct-label { color: var(--green); }
+.state-green .bat-card-icon { background: var(--green-bg); }
+
+/* ── DETAIL SCREEN ── */
+#screen-detail {
+  z-index: 30;
+  background: var(--bg);
+  bottom: calc(var(--tab-h) + var(--safe-b));
+}
+.detail-header {
+  padding: 16px 20px 0;
+  flex-shrink: 0;
+}
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--yellow);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  padding: 4px 0;
+  -webkit-tap-highlight-color: transparent;
+}
+.back-btn svg { width: 16px; height: 16px; stroke: var(--yellow); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.detail-bat-name {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 4px;
+}
+.detail-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.detail-track {
+  flex: 1;
+  height: 10px;
+  background: var(--surface2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.detail-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 1s cubic-bezier(.16,1,.3,1);
+}
+.detail-pct {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 900;
+  min-width: 52px;
+  text-align: right;
+}
+
+/* Lesson rows */
+.lessons-list { padding: 0 20px; display: flex; flex-direction: column; gap: 8px; }
+.lesson-row {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: all .2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.lesson-row:active { transform: scale(.99); }
+.lesson-row.completed { background: rgba(76,175,80,0.05); border-color: rgba(76,175,80,0.15); }
+.lesson-row.locked { opacity: .35; cursor: not-allowed; }
+.lesson-check {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--dim);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 13px;
+  transition: all .3s;
+}
+.lesson-check.done { background: var(--green); border-color: var(--green); color: #fff; }
+.lesson-row-text { flex: 1; font-size: 14px; font-weight: 500; }
+.lesson-xp {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+}
+.lesson-row.completed .lesson-xp { color: var(--green); }
+
+/* Confetti canvas */
+#confetti-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 200;
+}
+
+/* ── PROGRESSO ── */
+.prog-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 16px 20px 0;
+}
+.stat-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+.stat-box-label { font-size: 11px; color: var(--muted); font-weight: 600; letter-spacing: .5px; text-transform: uppercase; margin-bottom: 4px; }
+.stat-box-value {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--yellow);
+  line-height: 1;
+}
+.stat-box-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+.streak-visual {
+  margin: 16px 20px 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+.streak-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.streak-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+.streak-day {
+  aspect-ratio: 1;
+  border-radius: 6px;
+  background: var(--surface2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--muted);
+}
+.streak-day.done { background: var(--yellow-bg); color: var(--yellow); }
+.streak-day.today { border: 1.5px solid var(--yellow); }
+
+/* ── PERFIL ── */
+.profile-header {
+  padding: 24px 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.avatar {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--yellow-bg);
+  border: 2px solid rgba(245,166,35,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--yellow);
+  flex-shrink: 0;
+}
+.profile-name { font-family: var(--font-display); font-size: 24px; font-weight: 900; }
+.profile-level { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+.badges-section { padding: 20px 20px 0; }
+.badges-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin-top: 8px; }
+.badge-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.badge-box.locked { opacity: .3; }
+.badge-emoji { font-size: 24px; }
+.badge-name-small { font-size: 10px; color: var(--muted); text-align: center; font-weight: 600; }
+
+.login-nudge {
+  margin: 20px 20px 0;
+  background: var(--yellow-bg);
+  border: 1px solid rgba(245,166,35,0.25);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+.login-nudge-title { font-weight: 700; font-size: 14px; margin-bottom: 4px; color: var(--yellow); }
+.login-nudge-desc { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+.login-options { display: flex; flex-direction: column; gap: 8px; }
+.login-btn {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background .2s;
+}
+.login-btn:active { background: var(--surface); }
+
+/* ── TOAST NOTIFICATION ── */
+#global-toast {
+  position: fixed;
+  top: 16px; left: 50%;
+  transform: translateX(-50%) translateY(-80px);
+  background: var(--surface2);
+  border: 1px solid rgba(245,166,35,0.2);
+  border-radius: 100px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--yellow);
+  z-index: 300;
+  white-space: nowrap;
+  transition: transform .3s cubic-bezier(.16,1,.3,1);
+  pointer-events: none;
+}
+#global-toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ── ANIMATIONS ── */
+@keyframes checkBounce {
+  0%   { transform: scale(0.5); opacity: 0; }
+  60%  { transform: scale(1.3); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.check-bounce { animation: checkBounce .35s cubic-bezier(.16,1,.3,1) forwards; }
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.bat-fill.charging {
+  background-size: 200% 100%;
+  animation: shimmer .8s ease;
+}
+</style>
+</head>
+<body>
+
+<canvas id="confetti-canvas"></canvas>
+<div id="global-toast">⚡ +10% de energia mental</div>
+
+<div id="app">
+
+  <!-- ══════════════ ONBOARDING ══════════════ -->
+
+  <!-- SPLASH -->
+  <div id="screen-splash" class="screen active">
+    <div class="splash-logo">BATTERY</div>
+    <div class="splash-tagline">Transforme conhecimento em energia</div>
+  </div>
+
+  <!-- PICK BATTERIES -->
+  <div id="screen-pick" class="screen" style="overflow-y:auto;">
+    <div style="padding: 48px 20px 32px; display:flex; flex-direction:column;">
+      <div class="pick-heading">Escolha suas<br>primeiras baterias.</div>
+      <div class="pick-sub">Selecione 3 áreas que quer desenvolver</div>
+      <div class="pick-grid" id="pick-grid"></div>
+      <div class="pick-counter">Selecionadas: <span id="pick-count">0</span> / 3</div>
+      <button class="btn-primary" id="btn-start-pick" disabled>Carregar energia →</button>
+    </div>
+  </div>
+
+  <!-- FIRST WIN -->
+  <div id="screen-first-win" class="screen" style="overflow-y:auto;">
+    <div style="padding: 40px 24px; display:flex; flex-direction:column; align-items:center;">
+      <div class="win-battery-name" id="first-win-bat-name">INGLÊS</div>
+      <div class="win-title">Sua primeira<br>vitória.</div>
+      <div class="win-sub">Complete a primeira habilidade<br>para carregar sua bateria.</div>
+
+      <div class="big-battery">
+        <div class="big-bat-shell">
+          <div class="big-bat-track">
+            <div class="big-bat-fill" id="big-bat-fill" style="background:var(--red);">0%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="first-lesson-item" id="first-lesson-item">
+        <div class="check-circle" id="first-check">☐</div>
+        <span class="lesson-text" id="first-lesson-text">Aprender "Hello"</span>
+      </div>
+
+      <div class="reward-toast" id="reward-toast">
+        <span class="reward-icon">⚡</span>
+        <span id="reward-text">+10% de energia mental</span>
+      </div>
+
+      <button class="btn-primary" id="btn-enter-app" style="display:none; max-width:320px;">
+        Entrar no app →
+      </button>
+    </div>
+  </div>
+
+  <!-- ══════════════ MAIN APP ══════════════ -->
+
+  <!-- HOME -->
+  <div id="screen-home" class="screen">
+    <div class="s-header">
+      <div class="s-header-title">Início</div>
+      <div class="streak-pill" id="home-streak">🔥 0 dias</div>
+    </div>
+    <div class="screen-body" id="home-body">
+      <div class="home-level" id="home-level">
+        <div class="home-level-label">Nível de energia mental</div>
+        <div class="home-level-name" id="home-level-name">LEVEL 1 SPARK</div>
+        <div class="xp-bar-wrap">
+          <div class="xp-bar"><div class="xp-bar-fill" id="home-xp-bar" style="width:0%"></div></div>
+          <div class="xp-label" id="home-xp-label">0 XP</div>
+        </div>
+      </div>
+      <div class="section-label">Suas baterias</div>
+      <div class="battery-list" id="home-bat-list"></div>
+      <div style="height:16px;"></div>
+    </div>
+  </div>
+
+  <!-- BATERIAS (all batteries) -->
+  <div id="screen-baterias" class="screen">
+    <div class="s-header">
+      <div class="s-header-title">Baterias</div>
+    </div>
+    <div class="screen-body">
+      <div class="section-label">Todas as áreas</div>
+      <div class="battery-list" id="all-bat-list"></div>
+      <div style="height:16px;"></div>
+    </div>
+  </div>
+
+  <!-- DETAIL (battery inside) -->
+  <div id="screen-detail" class="screen">
+    <div class="detail-header">
+      <button class="back-btn" id="back-btn">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Voltar
+      </button>
+      <div class="detail-bat-name" id="detail-name">Inglês</div>
+      <div class="detail-progress-row">
+        <div class="detail-track">
+          <div class="detail-fill" id="detail-fill" style="width:0%"></div>
+        </div>
+        <div class="detail-pct" id="detail-pct">0%</div>
+      </div>
+    </div>
+    <div class="screen-body" style="padding-top:16px;">
+      <div class="lessons-list" id="lessons-list"></div>
+      <div style="height:16px;"></div>
+    </div>
+  </div>
+
+  <!-- PROGRESSO -->
+  <div id="screen-progresso" class="screen">
+    <div class="s-header"><div class="s-header-title">Progresso</div></div>
+    <div class="screen-body">
+      <div class="prog-stats">
+        <div class="stat-box">
+          <div class="stat-box-label">Total XP</div>
+          <div class="stat-box-value" id="prog-xp">0</div>
+          <div class="stat-box-sub">pontos</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box-label">Streak</div>
+          <div class="stat-box-value" id="prog-streak">0</div>
+          <div class="stat-box-sub">dias seguidos</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box-label">Habilidades</div>
+          <div class="stat-box-value" id="prog-lessons">0</div>
+          <div class="stat-box-sub">aprendidas</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box-label">Baterias</div>
+          <div class="stat-box-value" id="prog-bats">0</div>
+          <div class="stat-box-sub">ativas</div>
+        </div>
+      </div>
+      <div class="streak-visual">
+        <div class="streak-title">🔥 Últimos 7 dias</div>
+        <div class="streak-days" id="streak-days-grid"></div>
+      </div>
+      <div class="section-label">Todas as baterias</div>
+      <div class="battery-list" id="prog-bat-list"></div>
+      <div style="height:16px;"></div>
+    </div>
+  </div>
+
+  <!-- PERFIL -->
+  <div id="screen-perfil" class="screen">
+    <div class="screen-body" style="padding-top:0;">
+      <div class="profile-header">
+        <div class="avatar" id="avatar-initials">?</div>
+        <div>
+          <div class="profile-name" id="profile-name">Usuário</div>
+          <div class="profile-level" id="profile-level-text">Level 1 Spark</div>
+        </div>
+      </div>
+      <div class="badges-section">
+        <div class="section-label" style="padding: 16px 0 0;">Conquistas</div>
+        <div class="badges-grid" id="badges-grid"></div>
+      </div>
+      <div id="login-nudge-wrap" style="display:none;">
+        <div class="login-nudge">
+          <div class="login-nudge-title">Salve seu progresso</div>
+          <div class="login-nudge-desc">Crie uma conta para não perder sua energia acumulada.</div>
+          <div class="login-options">
+            <button class="login-btn" onclick="showToast('Login em breve! 🚀')">
+              <span>G</span> Entrar com Google
+            </button>
+            <button class="login-btn" onclick="showToast('Login em breve! 🚀')">
+              <span>✉</span> Entrar com Email
+            </button>
+          </div>
+        </div>
+      </div>
+      <div style="height:24px;"></div>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <nav id="bottom-nav">
+    <div class="nav-item active" data-target="home">
+      <div class="nav-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="nav-label">Início</div>
+    </div>
+    <div class="nav-item" data-target="baterias">
+      <div class="nav-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2"/><line x1="22" y1="11" x2="22" y2="13"/><line x1="6" y1="11" x2="10" y2="11"/><line x1="6" y1="13" x2="12" y2="13"/></svg>
+      </div>
+      <div class="nav-label">Baterias</div>
+    </div>
+    <div class="nav-item" data-target="progresso">
+      <div class="nav-icon">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      </div>
+      <div class="nav-label">Progresso</div>
+    </div>
+    <div class="nav-item" data-target="perfil">
+      <div class="nav-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <div class="nav-label">Perfil</div>
+    </div>
+  </nav>
+
+</div><!-- #app -->
+
+<script>
+/* ═══════════════════════════════════════════
+   DATA — BATTERIES & LESSONS
+═══════════════════════════════════════════ */
+const BATTERIES = [
+  { id:'ingles',      name:'Inglês',               icon:'🇺🇸', lessons:[
+    'Aprender "Hello"','Verbo To Be','Saudações básicas','Números 1–10','Cores em inglês',
+    'Frases do dia a dia','Presente simples','Perguntas básicas','Phrasal Verbs essenciais','Conversação fluente'
+  ]},
+  { id:'vendas',      name:'Vendas',                icon:'💰', lessons:[
+    'O que é valor percebido','Rapport com o cliente','Técnica SPIN Selling','Superar objeções',
+    'Fechamento consultivo','Follow-up estratégico','Proposta de valor','Venda por ancoragem',
+    'Gatilhos mentais','Fidelização de clientes'
+  ]},
+  { id:'comunicacao', name:'Comunicação',           icon:'🎙️', lessons:[
+    'Escuta ativa','Linguagem corporal','Tom de voz','Comunicação não-violenta',
+    'Storytelling pessoal','Falar em público','Feedback construtivo','Comunicação assertiva',
+    'Influência & persuasão','Comunicação executiva'
+  ]},
+  { id:'lideranca',   name:'Liderança',             icon:'🦁', lessons:[
+    'O que é liderar','Tipos de liderança','Delegação eficaz','Dar e receber feedback',
+    'Gestão de conflitos','Visão estratégica','Motivar equipes','Decisão sob pressão',
+    'Cultura de alta performance','Liderança servidora'
+  ]},
+  { id:'marketing',   name:'Marketing',             icon:'📣', lessons:[
+    'Fundamentos de branding','Persona e ICP','Funil de vendas','Marketing de conteúdo',
+    'SEO básico','Tráfego pago','E-mail marketing','Métricas essenciais',
+    'Growth hacking','Posicionamento de marca'
+  ]},
+  { id:'financas',    name:'Finanças',              icon:'📈', lessons:[
+    'Fluxo de caixa','Orçamento pessoal','Controle de gastos','Reserva de emergência',
+    'Tipos de investimento','Renda variável x fixa','Imposto de renda','Crédito inteligente',
+    'Independência financeira','Mentalidade de investidor'
+  ]},
+  { id:'produtividade', name:'Produtividade',       icon:'⚡', lessons:[
+    'Método GTD','Deep Work','Técnica Pomodoro','Priorização (matriz Eisenhower)',
+    'Eliminar distrações','Gestão de energia','Rotina de alta performance','Síndrome do impostor',
+    'Automação de tarefas','Review semanal'
+  ]},
+  { id:'emocional',   name:'Inteligência Emocional',icon:'🧠', lessons:[
+    'O que é IE','Autoconhecimento','Autogestão emocional','Empatia',
+    'Gestão de relacionamentos','Controle do estresse','Resiliência','Mindfulness',
+    'Comunicação emocional','Equilíbrio mente-corpo'
+  ]},
+  { id:'programacao', name:'Programação',           icon:'💻', lessons:[
+    'Lógica de programação','Variáveis e tipos','Condicionais (if/else)','Laços (for, while)',
+    'Funções','Arrays e objetos','HTML & CSS básico','JavaScript essencial',
+    'Git & GitHub','APIs REST'
+  ]},
+  { id:'saude',       name:'Saúde',                 icon:'💪', lessons:[
+    'Hábitos fundamentais','Sono de qualidade','Hidratação','Alimentação anti-inflamatória',
+    'Exercício e cognição','Gestão do estresse','Meditação prática','Postura e ergonomia',
+    'Check-ups essenciais','Longevidade ativa'
+  ]},
+  { id:'negociacao',  name:'Negociação',            icon:'🤝', lessons:[
+    'BATNA: sua alternativa','Barganha colaborativa','Ancoragem de valor','Silêncio estratégico',
+    'Concessões inteligentes','Negociação por interesses','Leitura do outro lado','Timing ideal',
+    'Fechar acordos win-win','Negociação em grupo'
+  ]},
+  { id:'empreend',    name:'Empreendedorismo',      icon:'🚀', lessons:[
+    'Validação de ideia','MVP enxuto','Business Model Canvas','Product Market Fit',
+    'Precificação estratégica','Captação de clientes','Pitch eficaz','Métricas de startup',
+    'Escalar o negócio','Cultura e time'
+  ]},
+];
+
+const LEVELS = [
+  {min:0,    name:'LEVEL 1 SPARK'},
+  {min:100,  name:'LEVEL 2 IGNITE'},
+  {min:250,  name:'LEVEL 3 WIRE'},
+  {min:500,  name:'LEVEL 4 CHARGE'},
+  {min:800,  name:'LEVEL 5 VOLTAGE'},
+  {min:1200, name:'LEVEL 6 CURRENT'},
+  {min:1700, name:'LEVEL 7 HUMAN'},
+  {min:2300, name:'LEVEL 8 POWER'},
+  {min:3000, name:'LEVEL 9 SURGE'},
+  {min:4000, name:'LEVEL 10 MASTERMIND'},
+];
+
+const BADGES_DEF = [
+  {id:'first_charge',  name:'1ª Carga',     emoji:'⚡', cond: s => s.totalLessons >= 1},
+  {id:'streak_7',      name:'7 dias',        emoji:'🔥', cond: s => s.streak >= 7},
+  {id:'streak_30',     name:'30 dias',       emoji:'💎', cond: s => s.streak >= 30},
+  {id:'lessons_10',    name:'10 habilidades',emoji:'🌟', cond: s => s.totalLessons >= 10},
+  {id:'lessons_50',    name:'50 habilidades',emoji:'🏹', cond: s => s.totalLessons >= 50},
+  {id:'lessons_100',   name:'100 habilidades',emoji:'👑',cond: s => s.totalLessons >= 100},
+  {id:'bat_full',      name:'Bateria 100%',  emoji:'🔋', cond: s => s.fullBatteries >= 1},
+  {id:'bat_5',         name:'5 baterias',    emoji:'🚀', cond: s => s.activeBatteries >= 5},
+];
+
+/* ═══════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════ */
+let STATE = {
+  onboarded: false,
+  selectedBatteries: [],
+  progress: {},     // { batId: { completed: Set<lessonIdx>, pct: 0-100 } }
+  xp: 0,
+  streak: 0,
+  lastActivity: null,
+  badges: [],
+  totalLessons: 0,
+};
+
+function saveState() {
+  const save = {...STATE};
+  save.progress = {};
+  for (const [k,v] of Object.entries(STATE.progress)) {
+    save.progress[k] = { completed: [...v.completed], pct: v.pct };
+  }
+  localStorage.setItem('battery_state', JSON.stringify(save));
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem('battery_state');
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    STATE = data;
+    STATE.progress = {};
+    for (const [k,v] of Object.entries(data.progress || {})) {
+      STATE.progress[k] = { completed: new Set(v.completed || []), pct: v.pct || 0 };
+    }
+    checkStreakDecay();
+  } catch(e) { /* fresh start */ }
+}
+
+function checkStreakDecay() {
+  if (!STATE.lastActivity) return;
+  const now = Date.now();
+  const lastMs = new Date(STATE.lastActivity).getTime();
+  const diffDays = Math.floor((now - lastMs) / 86400000);
+  if (diffDays >= 2) { STATE.streak = 0; }
+}
+
+function getLevel() {
+  let l = LEVELS[0];
+  for (const lvl of LEVELS) { if (STATE.xp >= lvl.min) l = lvl; }
+  return l;
+}
+
+function getNextLevel() {
+  for (const lvl of LEVELS) { if (STATE.xp < lvl.min) return lvl; }
+  return null;
+}
+
+function getBatState(pct) {
+  if (pct >= 70) return 'state-green';
+  if (pct >= 35) return 'state-yellow';
+  return 'state-red';
+}
+
+function getBatColor(pct) {
+  if (pct >= 70) return 'var(--green)';
+  if (pct >= 35) return 'var(--yellow)';
+  return 'var(--red)';
+}
+
+function getMyBatteries() {
+  return BATTERIES.filter(b => STATE.selectedBatteries.includes(b.id));
+}
+
+function getStats() {
+  const totalLessons = Object.values(STATE.progress).reduce((a,v) => a + v.completed.size, 0);
+  const fullBatteries = Object.values(STATE.progress).filter(v => v.pct >= 100).length;
+  const activeBatteries = STATE.selectedBatteries.length;
+  return { totalLessons, fullBatteries, activeBatteries, xp: STATE.xp, streak: STATE.streak };
+}
+
+function checkBadges() {
+  const stats = getStats();
+  stats.totalLessons = STATE.totalLessons;
+  let newBadge = null;
+  for (const bd of BADGES_DEF) {
+    if (!STATE.badges.includes(bd.id) && bd.cond(stats)) {
+      STATE.badges.push(bd.id);
+      newBadge = bd;
+    }
+  }
+  if (newBadge) showToast('🏆 Conquista: ' + newBadge.name);
+  saveState();
+}
+
+function markActivity() {
+  const today = new Date().toDateString();
+  const last = STATE.lastActivity ? new Date(STATE.lastActivity).toDateString() : null;
+  if (last !== today) {
+    const yesterday = new Date(Date.now() - 86400000).toDateString();
+    if (last === yesterday) { STATE.streak++; }
+    else if (last === null) { STATE.streak = 1; }
+    STATE.lastActivity = new Date().toISOString();
+  }
+}
+
+/* ═══════════════════════════════════════════
+   CONFETTI
+═══════════════════════════════════════════ */
+function fireConfetti(x, y) {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const colors = ['#e84040','#f5a623','#4caf50','#ffffff','#f5a623'];
+  const particles = Array.from({length:40}, () => ({
+    x, y,
+    vx: (Math.random()-0.5)*8,
+    vy: -(Math.random()*6+3),
+    r: Math.random()*5+3,
+    color: colors[Math.floor(Math.random()*colors.length)],
+    alpha: 1,
+    gravity: .18,
+  }));
+  let frame;
+  function animate() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy; p.vy += p.gravity; p.alpha -= 0.02;
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, p.alpha);
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fill();
+      ctx.restore();
+    });
+    if (particles.some(p => p.alpha > 0)) frame = requestAnimationFrame(animate);
+    else { ctx.clearRect(0,0,canvas.width,canvas.height); cancelAnimationFrame(frame); }
+  }
+  animate();
+}
+
+/* ═══════════════════════════════════════════
+   TOAST
+═══════════════════════════════════════════ */
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('global-toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+/* ═══════════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════════ */
+const SCREENS = ['home','baterias','progresso','perfil'];
+let currentMain = 'home';
+let detailBatId = null;
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById('screen-' + id);
+  if (el) el.classList.add('active');
+
+  document.querySelectorAll('.nav-item').forEach(n => {
+    n.classList.toggle('active', n.dataset.target === id);
+  });
+
+  if (SCREENS.includes(id)) currentMain = id;
+}
+
+function showDetail(batId) {
+  detailBatId = batId;
+  renderDetail(batId);
+  showScreen('detail');
+}
+
+// Nav items
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const t = item.dataset.target;
+    refreshScreens();
+    showScreen(t);
+  });
+});
+
+document.getElementById('back-btn').addEventListener('click', () => {
+  refreshScreens();
+  showScreen(currentMain);
+});
+
+/* ═══════════════════════════════════════════
+   RENDER FUNCTIONS
+═══════════════════════════════════════════ */
+function renderBatCard(bat, container, showAll) {
+  const p = STATE.progress[bat.id] || {pct:0, completed: new Set()};
+  const pct = p.pct;
+  const stateClass = getBatState(pct);
+  const done = p.completed.size;
+  const total = bat.lessons.length;
+
+  const card = document.createElement('div');
+  card.className = 'bat-card ' + stateClass;
+  card.innerHTML = `
+    <div class="bat-card-top">
+      <div class="bat-card-left">
+        <div class="bat-card-icon">${bat.icon}</div>
+        <div>
+          <div class="bat-card-name">${bat.name}</div>
+          <div class="bat-card-lessons">${done}/${total} habilidades</div>
+        </div>
+      </div>
+      <div class="bat-pct-label">${Math.round(pct)}%</div>
+    </div>
+    <div class="bat-track"><div class="bat-fill" style="width:${pct}%"></div></div>
+  `;
+  card.addEventListener('click', () => showDetail(bat.id));
+  container.appendChild(card);
+}
+
+function renderHome() {
+  const lv = getLevel();
+  const next = getNextLevel();
+  document.getElementById('home-level-name').textContent = lv.name;
+  document.getElementById('home-streak').textContent = `🔥 ${STATE.streak} dias`;
+
+  const xpInLevel = next ? STATE.xp - lv.min : 9999;
+  const xpToNext  = next ? next.min - lv.min : 9999;
+  const pct = next ? Math.min(100, (xpInLevel / xpToNext) * 100) : 100;
+  document.getElementById('home-xp-bar').style.width = pct + '%';
+  document.getElementById('home-xp-label').textContent = STATE.xp + ' XP';
+
+  const list = document.getElementById('home-bat-list');
+  list.innerHTML = '';
+  getMyBatteries().forEach(b => renderBatCard(b, list));
+}
+
+function renderAllBats() {
+  const list = document.getElementById('all-bat-list');
+  list.innerHTML = '';
+  BATTERIES.forEach(b => {
+    const isSelected = STATE.selectedBatteries.includes(b.id);
+    const card = document.createElement('div');
+    card.className = 'bat-card ' + getBatState((STATE.progress[b.id]||{pct:0}).pct);
+    const p = STATE.progress[b.id] || {pct:0, completed:new Set()};
+    card.innerHTML = `
+      <div class="bat-card-top">
+        <div class="bat-card-left">
+          <div class="bat-card-icon">${b.icon}</div>
+          <div>
+            <div class="bat-card-name">${b.name}</div>
+            <div class="bat-card-lessons">${isSelected ? p.completed.size + '/' + b.lessons.length + ' habilidades' : 'Toque para ativar'}</div>
+          </div>
+        </div>
+        <div class="bat-pct-label">${Math.round(p.pct)}%</div>
+      </div>
+      <div class="bat-track"><div class="bat-fill" style="width:${p.pct}%"></div></div>
+    `;
+    card.addEventListener('click', () => {
+      if (!isSelected) {
+        STATE.selectedBatteries.push(b.id);
+        if (!STATE.progress[b.id]) STATE.progress[b.id] = {pct:0, completed:new Set()};
+        saveState();
+        renderAllBats();
+        showToast('⚡ Bateria ' + b.name + ' ativada!');
+      } else {
+        showDetail(b.id);
+      }
+    });
+    list.appendChild(card);
+  });
+}
+
+function renderDetail(batId) {
+  const bat = BATTERIES.find(b => b.id === batId);
+  if (!bat) return;
+  const p = STATE.progress[batId] || {pct:0, completed:new Set()};
+
+  document.getElementById('detail-name').textContent = bat.name;
+  document.getElementById('detail-fill').style.width = p.pct + '%';
+  document.getElementById('detail-fill').style.background = getBatColor(p.pct);
+  document.getElementById('detail-pct').textContent = Math.round(p.pct) + '%';
+  document.getElementById('detail-pct').style.color = getBatColor(p.pct);
+
+  const list = document.getElementById('lessons-list');
+  list.innerHTML = '';
+  bat.lessons.forEach((lesson, idx) => {
+    const done = p.completed.has(idx);
+    const row = document.createElement('div');
+    row.className = 'lesson-row' + (done ? ' completed' : '');
+    row.innerHTML = `
+      <div class="check-circle${done?' done':''}">
+        ${done ? '✓' : ''}
+      </div>
+      <div class="lesson-row-text">${lesson}</div>
+      <div class="lesson-xp">${done ? '+10 XP ✓' : '+10 XP'}</div>
+    `;
+    if (!done) {
+      row.addEventListener('click', e => completLesson(batId, idx, e, row));
+    }
+    list.appendChild(row);
+  });
+}
+
+function completLesson(batId, idx, event, rowEl) {
+  if (!STATE.progress[batId]) STATE.progress[batId] = {pct:0, completed:new Set()};
+  const p = STATE.progress[batId];
+  if (p.completed.has(idx)) return;
+
+  p.completed.add(idx);
+  const bat = BATTERIES.find(b => b.id === batId);
+  const step = 100 / bat.lessons.length;
+  p.pct = Math.min(100, p.completed.size * step);
+
+  STATE.xp += 10;
+  STATE.totalLessons++;
+  markActivity();
+  checkBadges();
+  saveState();
+
+  // UI feedback
+  rowEl.classList.add('completed');
+  const check = rowEl.querySelector('.check-circle');
+  check.classList.add('done','check-bounce');
+  check.textContent = '✓';
+  rowEl.querySelector('.lesson-xp').textContent = '+10 XP ✓';
+  rowEl.querySelector('.lesson-xp').style.color = 'var(--green)';
+
+  // Confetti at tap point
+  const rect = rowEl.getBoundingClientRect();
+  fireConfetti(rect.left + rect.width/2, rect.top + rect.height/2);
+
+  showToast('⚡ +10% de energia mental');
+
+  // Update detail bar
+  document.getElementById('detail-fill').style.width = p.pct + '%';
+  document.getElementById('detail-fill').style.background = getBatColor(p.pct);
+  document.getElementById('detail-pct').textContent = Math.round(p.pct) + '%';
+  document.getElementById('detail-pct').style.color = getBatColor(p.pct);
+
+  // Show login nudge at 30% total progress
+  const totalPct = STATE.selectedBatteries.reduce((sum, id) => {
+    return sum + (STATE.progress[id]?.pct || 0);
+  }, 0) / (STATE.selectedBatteries.length || 1);
+  if (totalPct >= 30 && !STATE.onboarded) {
+    document.getElementById('login-nudge-wrap').style.display = 'block';
+  }
+
+  // Check streak display
+  document.getElementById('home-streak').textContent = `🔥 ${STATE.streak} dias`;
+}
+
+function renderProgresso() {
+  const stats = getStats();
+  document.getElementById('prog-xp').textContent = STATE.xp;
+  document.getElementById('prog-streak').textContent = STATE.streak;
+  document.getElementById('prog-lessons').textContent = STATE.totalLessons;
+  document.getElementById('prog-bats').textContent = STATE.selectedBatteries.length;
+
+  // Streak grid
+  const grid = document.getElementById('streak-days-grid');
+  grid.innerHTML = '';
+  const days = ['D','S','T','Q','Q','S','S'];
+  const today = new Date().getDay();
+  for (let i = 6; i >= 0; i--) {
+    const dayIdx = (today - i + 7) % 7;
+    const isToday = i === 0;
+    const isDone = i < STATE.streak;
+    const cell = document.createElement('div');
+    cell.className = 'streak-day' + (isDone?' done':'') + (isToday?' today':'');
+    cell.textContent = days[dayIdx];
+    grid.appendChild(cell);
+  }
+
+  // All batteries mini list
+  const list = document.getElementById('prog-bat-list');
+  list.innerHTML = '';
+  getMyBatteries().forEach(b => renderBatCard(b, list));
+}
+
+function renderPerfil() {
+  const lv = getLevel();
+  const initials = STATE.userName ? STATE.userName[0].toUpperCase() : '?';
+  document.getElementById('avatar-initials').textContent = initials;
+  document.getElementById('profile-name').textContent = STATE.userName || 'Usuário';
+  document.getElementById('profile-level-text').textContent = lv.name;
+
+  const grid = document.getElementById('badges-grid');
+  grid.innerHTML = '';
+  BADGES_DEF.forEach(bd => {
+    const earned = STATE.badges.includes(bd.id);
+    const box = document.createElement('div');
+    box.className = 'badge-box' + (earned ? '' : ' locked');
+    box.innerHTML = `<div class="badge-emoji">${bd.emoji}</div><div class="badge-name-small">${bd.name}</div>`;
+    grid.appendChild(box);
+  });
+
+  // Show login nudge if significant progress
+  if (STATE.totalLessons >= 3) {
+    document.getElementById('login-nudge-wrap').style.display = 'block';
+  }
+}
+
+function refreshScreens() {
+  renderHome();
+  renderAllBats();
+  renderProgresso();
+  renderPerfil();
+}
+
+/* ═══════════════════════════════════════════
+   ONBOARDING FLOW
+═══════════════════════════════════════════ */
+const PICK_OPTIONS = BATTERIES.slice(0, 8);
+
+function initPickScreen() {
+  const grid = document.getElementById('pick-grid');
+  grid.innerHTML = '';
+  let selected = [];
+
+  PICK_OPTIONS.forEach(bat => {
+    const btn = document.createElement('button');
+    btn.className = 'pick-btn';
+    btn.innerHTML = `<div class="pick-icon">${bat.icon}</div><div class="pick-name">${bat.name}</div>`;
+    btn.addEventListener('click', () => {
+      const sel = btn.classList.contains('selected');
+      if (sel) {
+        btn.classList.remove('selected');
+        selected = selected.filter(id => id !== bat.id);
+      } else {
+        if (selected.length < 3) {
+          btn.classList.add('selected');
+          selected.push(bat.id);
+        } else {
+          showToast('Máximo 3 baterias para começar');
+          return;
+        }
+      }
+      document.getElementById('pick-count').textContent = selected.length;
+      document.getElementById('btn-start-pick').disabled = selected.length === 0;
+    });
+    grid.appendChild(btn);
+  });
+
+  document.getElementById('btn-start-pick').addEventListener('click', () => {
+    if (selected.length === 0) return;
+    STATE.selectedBatteries = selected;
+    selected.forEach(id => {
+      if (!STATE.progress[id]) STATE.progress[id] = {pct:0, completed:new Set()};
+    });
+
+    // Setup first win screen
+    const firstBat = BATTERIES.find(b => b.id === selected[0]);
+    document.getElementById('first-win-bat-name').textContent = firstBat.name.toUpperCase();
+    document.getElementById('first-lesson-text').textContent = firstBat.lessons[0];
+    currentFirstWinBat = firstBat;
+
+    showScreen('first-win');
+  });
+}
+
+let currentFirstWinBat = null;
+let firstWinDone = false;
+
+document.getElementById('first-lesson-item').addEventListener('click', () => {
+  if (firstWinDone) return;
+  firstWinDone = true;
+
+  const check = document.getElementById('first-check');
+  check.classList.add('done','check-bounce');
+  check.textContent = '✓';
+  document.getElementById('first-lesson-item').classList.add('tapped');
+
+  // Animate battery
+  setTimeout(() => {
+    const fill = document.getElementById('big-bat-fill');
+    fill.style.width = '10%';
+    fill.textContent = '10%';
+    fill.style.background = 'var(--red)';
+  }, 300);
+
+  // Toast
+  setTimeout(() => {
+    const toast = document.getElementById('reward-toast');
+    document.getElementById('reward-text').textContent = '+10% de energia mental';
+    toast.classList.add('show');
+    fireConfetti(window.innerWidth/2, window.innerHeight/2);
+  }, 800);
+
+  // Register in state
+  if (currentFirstWinBat) {
+    const batId = currentFirstWinBat.id;
+    STATE.progress[batId] = STATE.progress[batId] || {pct:0, completed:new Set()};
+    STATE.progress[batId].completed.add(0);
+    STATE.progress[batId].pct = 10;
+    STATE.xp += 10;
+    STATE.totalLessons = 1;
+    STATE.streak = 1;
+    STATE.lastActivity = new Date().toISOString();
+    saveState();
+  }
+
+  setTimeout(() => {
+    document.getElementById('btn-enter-app').style.display = 'block';
+  }, 1600);
+});
+
+document.getElementById('btn-enter-app').addEventListener('click', () => {
+  STATE.onboarded = true;
+  saveState();
+  document.getElementById('bottom-nav').classList.add('visible');
+  refreshScreens();
+  showScreen('home');
+});
+
+/* ═══════════════════════════════════════════
+   BOOT
+═══════════════════════════════════════════ */
+loadState();
+
+if (STATE.onboarded) {
+  document.getElementById('bottom-nav').classList.add('visible');
+  refreshScreens();
+  showScreen('home');
+  // Still show splash briefly
+  setTimeout(() => {
+    document.getElementById('screen-splash').classList.remove('active');
+    document.getElementById('screen-home').classList.add('active');
+  }, 1000);
+} else {
+  // Show splash then pick
+  setTimeout(() => {
+    initPickScreen();
+    showScreen('pick');
+  }, 1800);
+}
+
+/* Service Worker registration */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+      .catch(() => {});
+  });
+}
+</script>
+</body>
+</html>
