@@ -424,7 +424,7 @@ O essencial que resolve tudo:
 • Eventos: element.addEventListener('click', fn)
 • Fetch API: buscar dados de uma API
 • JSON: JSON.parse() e JSON.stringify()
-• Template literals: \`Olá, ${nome}!\`
+• Template literals: \`Olá, \${nome}!\`
 • Promises e async/await para código assíncrono
 
 Padrão moderno:
