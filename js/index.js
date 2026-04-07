@@ -1,37 +1,45 @@
 /* ═══════════════════════════════════════════
    index.js — Monta BATTERY_CONTENT + inicializa o app
-   Carregue APÓS todos os outros scripts
 ═══════════════════════════════════════════ */
 
+// Função de segurança para evitar que variáveis faltantes travem o site
+const safeGet = (variable) => typeof variable !== 'undefined' ? variable : [];
+
 const BATTERY_CONTENT = {
-  ingles:        CONTENT_INGLES,
-  vendas:        CONTENT_VENDAS,
-  comunicacao:   CONTENT_COMUNICACAO,
-  lideranca:     CONTENT_LIDERANCA,
-  marketing:     CONTENT_MARKETING,
-  financas:      CONTENT_FINANCAS,
-  produtividade: CONTENT_PRODUTIVIDADE,
-  emocional:     CONTENT_EMOCIONAL,
-  programacao:   CONTENT_PROGRAMACAO,
-  saude:         CONTENT_SAUDE,
-  negociacao:    CONTENT_NEGOCIACAO,
-  empreend:      CONTENT_EMPREEND,
+  ingles:        safeGet(window.CONTENT_INGLES),
+  vendas:        safeGet(window.CONTENT_VENDAS),
+  comunicacao:   safeGet(window.CONTENT_COMUNICACAO),
+  lideranca:     safeGet(window.CONTENT_LIDERANCA),
+  marketing:     safeGet(window.CONTENT_MARKETING),
+  financas:      safeGet(window.CONTENT_FINANCAS),
+  produtividade: safeGet(window.CONTENT_PRODUTIVIDADE),
+  emocional:     safeGet(window.CONTENT_EMOCIONAL),
+  programacao:   safeGet(window.CONTENT_PROGRAMACAO),
+  saude:         safeGet(window.CONTENT_SAUDE),
+  negociacao:    safeGet(window.CONTENT_NEGOCIACAO),
+  empreend:      safeGet(window.CONTENT_EMPREEND),
 };
 
 /* ── Boot ── */
-loadState();
+// Garante que o estado seja carregado antes de decidir a tela
+if (typeof loadState === 'function') {
+  loadState();
+}
 
-if (STATE.onboarded) {
-  document.getElementById('bottom-nav').classList.add('visible');
-  refreshScreens();
-  showScreen('home');
+const splash = document.getElementById('screen-splash');
+const bottomNav = document.getElementById('bottom-nav');
+
+if (typeof STATE !== 'undefined' && STATE.onboarded) {
+  if (bottomNav) bottomNav.classList.add('visible');
+  if (typeof refreshScreens === 'function') refreshScreens();
+  
   setTimeout(() => {
-    document.getElementById('screen-splash').classList.remove('active');
-    document.getElementById('screen-home').classList.add('active');
+    if (splash) splash.classList.remove('active');
+    showScreen('home');
   }, 1000);
 } else {
   setTimeout(() => {
-    initPickScreen();
+    if (typeof initPickScreen === 'function') initPickScreen();
     showScreen('pick');
   }, 1800);
 }
@@ -39,15 +47,18 @@ if (STATE.onboarded) {
 /* ── Navegação ── */
 document.querySelectorAll('.nav-item').forEach(item => {
   item.addEventListener('click', () => {
-    refreshScreens();
+    if (typeof refreshScreens === 'function') refreshScreens();
     showScreen(item.dataset.target);
   });
 });
 
-document.getElementById('back-btn').addEventListener('click', () => {
-  refreshScreens();
-  showScreen(currentMain);
-});
+const backBtn = document.getElementById('back-btn');
+if (backBtn) {
+  backBtn.addEventListener('click', () => {
+    if (typeof refreshScreens === 'function') refreshScreens();
+    showScreen(typeof currentMain !== 'undefined' ? currentMain : 'home');
+  });
+}
 
 /* Service Worker */
 if ('serviceWorker' in navigator) {
