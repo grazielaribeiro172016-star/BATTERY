@@ -1,9 +1,10 @@
 /* ═══════════════════════════════════════════
-   content-3.js — Produtividade · Emocional · Programação · Saúde · Negociação · Empreendedorismo
+   content-3.js — Produtividade · IE · Programação
+             · Saúde · Negociação · Empreendedorismo
 ═══════════════════════════════════════════ */
 
 const CONTENT_PRODUTIVIDADE = [
-  { title:"Método GTD", summary:`GTD (Getting Things Done) de David Allen: seu cérebro é para ter ideias, não para guardar listas. Quem domina esse sistema para de viver no caos.
+  { title:"Método GTD", summary:`GTD (Getting Things Done) de David Allen: seu cérebro é para ter ideias, não para guardar listas. Domine esse sistema e libere capacidade mental.
 
 Os 5 passos:
 1. Capturar — registre tudo em uma "caixa de entrada"
@@ -12,13 +13,14 @@ Os 5 passos:
 4. Revisar — revise semanalmente
 5. Engajar — faça o que está na lista
 
-A regra dos 2 minutos: se uma tarefa leva menos de 2 minutos, faça agora.
+A regra dos 2 minutos: se uma tarefa leva menos de 2 minutos, faça agora. Registrar custa mais do que fazer.
 
-A revisão semanal é o coração do GTD. Sem ela, o sistema colapsa em 2 semanas. Reserve 60 minutos toda sexta ou domingo.` },
+A revisão semanal é o coração do GTD. Sem ela, o sistema colapsa em 2 semanas.` },
 
-  { title:"Deep Work", summary:`Deep Work de Cal Newport: foco sem distração em tarefas cognitivamente exigentes — cada vez mais raro e valioso. Quem domina isso produz em 3 horas o que outros tentam em 10.
+  { title:"Deep Work", summary:`Deep Work de Cal Newport: foco sem distração em tarefas cognitivamente exigentes é cada vez mais raro e valioso. Quem domina isso tem vantagem competitiva real.
 
 A equação: Resultado = Tempo × Intensidade do foco.
+1 hora de deep work supera 4 horas de trabalho fragmentado.
 
 Como praticar:
 • Blocos de 90–120 minutos sem interrupção
@@ -32,7 +34,7 @@ Os inimigos do deep work:
 
 3–4 horas de deep work por dia superam a produtividade de quem trabalha 10 horas em modo reativo.` },
 
-  { title:"Técnica Pomodoro", summary:`A Técnica Pomodoro usa a pressão do tempo para combater a procrastinação. Quem a domina começa tarefas que antes ficavam para amanhã.
+  { title:"Técnica Pomodoro", summary:`A Técnica Pomodoro usa a pressão do tempo para combater a procrastinação — e funciona porque torna o início psicologicamente fácil.
 
 O método:
 1. Escolha uma tarefa
@@ -49,7 +51,7 @@ Por que funciona:
 
 Use Pomodoro especificamente para tarefas que você tende a procrastinar.` },
 
-  { title:"Priorização (matriz Eisenhower)", summary:`A Matriz de Eisenhower divide tarefas por urgência × importância. Quem a domina para de ser urgente para os outros e começa a ser importante para si mesmo.
+  { title:"Priorização (matriz Eisenhower)", summary:`A Matriz de Eisenhower divide tarefas em 4 quadrantes: urgência × importância. Quem domina isso para de apagar incêndios e começa a construir.
 
 Os 4 quadrantes:
 • Q1 — Urgente + Importante: faça agora. Crises, prazos reais.
@@ -61,7 +63,7 @@ O problema da maioria: vivem no Q1 e Q3, ignoram o Q2.
 
 Reduzir Q4 e Q3 em 50% e redirecionar para Q2 transforma a trajetória em 12 meses.` },
 
-  { title:"Eliminar Distrações", summary:`Uma interrupção de 3 minutos custa 23 minutos de recuperação de foco. Quem elimina as distrações principais multiplica o que produz sem trabalhar mais horas.
+  { title:"Eliminar distrações", summary:`Uma interrupção de 3 minutos custa 23 minutos de recuperação de foco. O custo real das distrações é invisível mas devastador.
 
 As maiores fontes:
 • Notificações de smartphone — média de 80 desbloqueios por dia
@@ -74,24 +76,28 @@ Estratégias que funcionam:
 • Headphones com cancelamento de ruído — sinalizam foco
 • Extensões de bloqueio de sites (Cold Turkey, Freedom)
 
-A regra fundamental: o ambiente determina o comportamento. Configure o ambiente para facilitar o foco.` },
+A regra fundamental: o ambiente determina o comportamento. Configure o ambiente para facilitar o foco.
 
-  { title:"Gestão de Energia", summary:`Produtividade não é gestão de tempo — é gestão de energia. Quem entende isso para de trabalhar mais e começa a trabalhar melhor.
+Desativar todas as notificações é a mudança de maior impacto na produtividade diária.` },
 
-Os 4 tipos (Tony Schwartz):
+  { title:"Gestão de energia", summary:`Produtividade não é gestão de tempo — é gestão de energia. Você pode ter 8 horas livres e nenhuma energia para aproveitá-las.
+
+Os 4 tipos de energia (Tony Schwartz):
 • Física — sono, alimentação, exercício
 • Emocional — relações, motivação, estado de ânimo
 • Mental — foco, clareza
 • Espiritual — propósito, valores
 
-Picos de energia: a maioria tem pico cognitivo pela manhã (9h–12h), queda após o almoço. Faça seu trabalho mais importante no pico.
+Picos de energia: a maioria tem pico cognitivo pela manhã (9h–12h). Faça seu trabalho mais importante no pico.
+
+Recuperação é tão importante quanto a produção: intervalos e sono não são preguiça — são manutenção necessária.
 
 Dormir 7–8 horas tem mais impacto na produtividade total do que qualquer hack ou sistema.` },
 
-  { title:"Rotina de Alta Performance", summary:`Alta performance não é intensidade — é consistência. Quem constrói rituais sólidos entrega resultados mesmo nos dias difíceis.
+  { title:"Rotina de alta performance", summary:`Alta performance não é intensidade — é consistência. Quem tem sistema consistente supera quem age por impulso.
 
 Componentes de uma rotina matinal eficaz:
-• Acordar sem olhar o celular por 30 minutos
+• Acordar sem olhar o celular por 30 minutos — você define o tom do dia antes de ser reativo
 • Movimento físico — 20 minutos de exercício aumentam foco nas horas seguintes
 • Intenção do dia — qual é a única tarefa que torna o dia bem-sucedido?
 
@@ -101,23 +107,25 @@ Rituais de encerramento:
 • Planeje as 3 prioridades do dia seguinte
 • Desligue mentalmente — "o trabalho de hoje está feito"
 
-Experimente por 21 dias, meça o impacto, e ajuste. Consistência supera qualquer rotina ideal que você não consegue manter.` },
+Experimente por 21 dias, meça o impacto no foco e energia, e ajuste.` },
 
-  { title:"Síndrome do Impostor", summary:`Síndrome do impostor: a sensação persistente de que você não merece seu sucesso. 70% das pessoas já experimentaram — incluindo CEOs e acadêmicos reconhecidos.
+  { title:"Síndrome do impostor", summary:`Síndrome do impostor é a sensação persistente de que você não merece seu sucesso. Quem aprende a lidar com ela para de se sabotar.
+
+70% das pessoas já experimentaram isso — incluindo CEOs e acadêmicos reconhecidos.
 
 Por que acontece:
 • Você compara seu interior (inseguranças) com o exterior dos outros (o que mostram)
 • Competência real cria consciência das próprias lacunas
 
 Como lidar:
-• Documente evidências reais de competência — um arquivo de conquistas e feedbacks positivos
+• Documente evidências reais de competência — um arquivo de conquistas e feedbacks
 • Normalize a sensação — tê-la não significa que é verdade
 • Ação apesar do medo — não espere se sentir pronto
 • Compartilhe com pares — a maioria vai dizer "eu também sinto isso"
 
 A síndrome do impostor é um sinal de que você se importa com qualidade. O problema não é sentir — é deixar paralisar.` },
 
-  { title:"Automação de Tarefas", summary:`Se você faz a mesma tarefa mais de 3 vezes, provavelmente dá para automatizar. Quem domina automação ganha tempo que nunca mais precisa gastar.
+  { title:"Automação de tarefas", summary:`Se você faz a mesma tarefa mais de 3 vezes, provavelmente dá para automatizar. Cada hora automatizada se multiplica para sempre.
 
 O que automatizar primeiro:
 • E-mails repetitivos — templates, respostas automáticas, filtros
@@ -128,9 +136,9 @@ O que automatizar primeiro:
 
 Ordem de decisão: Eliminar → Simplificar → Automatizar → Delegar.
 
-Automatizar agendamento e e-mails de acompanhamento geralmente poupa 5–10 horas semanais sem complexidade técnica.` },
+Automatizar agendamento e e-mails de acompanhamento geralmente poupa 5–10 horas semanais.` },
 
-  { title:"Review Semanal", summary:`A revisão semanal é o ritual mais poderoso de produtividade de longo prazo. Quem a pratica consistentemente avança muito mais rápido que quem trabalha no automático.
+  { title:"Review semanal", summary:`A revisão semanal é o ritual mais importante de produtividade de longo prazo. Quem não faz é reativo. Quem faz, pilota.
 
 O que fazer (60 minutos toda sexta ou domingo):
 1. Esvazie — caixa de entrada de e-mail, notas, pendências
@@ -139,14 +147,16 @@ O que fazer (60 minutos toda sexta ou domingo):
 4. Planeje — quais são as 3 prioridades da próxima semana?
 5. Bloqueie — adicione blocos de deep work na agenda
 
-Perguntas essenciais:
+Perguntas poderosas:
 • "O que funcionou e preciso repetir?"
 • "O que desperdicei tempo fazendo?"
-• "Estou no caminho certo em relação aos meus objetivos de 90 dias?"` },
+• "Estou no caminho certo em relação aos meus objetivos de 90 dias?"
+
+Pessoas que fazem review semanal avançam 3–4x mais rápido do que quem trabalha sem reflexão.` },
 ];
 
 const CONTENT_EMOCIONAL = [
-  { title:"O que é IE", summary:`IE é a capacidade de reconhecer, entender e gerenciar suas próprias emoções e as dos outros. Quem domina inteligência emocional lidera melhor, vende mais e tem relacionamentos mais sólidos.
+  { title:"O que é IE", summary:`Inteligência emocional (IE) é a capacidade de reconhecer, entender e gerenciar suas próprias emoções e as dos outros.
 
 Daniel Goleman identificou 5 componentes:
 1. Autoconsciência — reconhecer suas emoções e como afetam seu comportamento
@@ -155,11 +165,11 @@ Daniel Goleman identificou 5 componentes:
 4. Empatia — perceber e entender as emoções dos outros
 5. Habilidades sociais — gerenciar relacionamentos com eficácia
 
-IE responde por 90% da diferença entre líderes de alta e baixa performance.
+Por que importa: IE responde por 90% da diferença entre líderes de alta e baixa performance. QI te leva até a porta. IE te faz avançar depois dela.
 
-Autoconsciência é a base de tudo. Sem ela, os outros componentes não se desenvolvem.` },
+Autoconsciência é a base de toda IE. Sem ela, os outros componentes não se desenvolvem.` },
 
-  { title:"Autoconhecimento", summary:`Você não pode gerenciar o que não conhece. Quem se conhece de verdade toma decisões melhores e para de repetir os mesmos erros.
+  { title:"Autoconhecimento", summary:`Você não pode gerenciar o que não conhece. Autoconhecimento é a fundação de toda mudança real.
 
 O que autoconhecimento inclui:
 • Seus gatilhos — o que te irrita, entristece, anima?
@@ -174,21 +184,19 @@ Ferramentas práticas:
 
 O momento após uma reação intensa é um espelho. Pergunte: "O que essa reação me diz sobre mim?"` },
 
-  { title:"Autogestão Emocional", summary:`Autogestão é o espaço entre o estímulo e a resposta. Quem domina esse espaço para de ser reativo e começa a ser intencional.
-
-Viktor Frankl: "Nesse espaço está nosso poder."
+  { title:"Autogestão emocional", summary:`Autogestão é o espaço entre o estímulo e a resposta. Viktor Frankl: "Nesse espaço está nosso poder."
 
 Técnicas comprovadas:
 
 Pausa fisiológica: respire por 4 segundos, segure por 4, solte por 6. Ativa o sistema nervoso parassimpático e reduz reatividade.
 
-Nomeie a emoção: nomear o que você sente ("Estou com raiva") reduz a intensidade no cérebro.
+Nomeie a emoção: nomear o que você sente ("Estou com raiva") reduz a intensidade no cérebro — é o que pesquisas de neuroimagem mostram.
 
 Distância psicológica: trate-se na terceira pessoa. "Por que [seu nome] está ansioso com isso?" — cria perspectiva e acessa mais recursos racionais.
 
-Identifique seus 3 principais gatilhos e tenha um plano para cada um. Isso resolve a maioria das situações onde você perde o controle.` },
+Identificar seus 3 principais gatilhos e ter um plano para cada um resolve a maioria das situações onde você perde o controle.` },
 
-  { title:"Empatia", summary:`Empatia não é sentir pena — é entender o mundo a partir da perspectiva do outro. Quem domina empatia conecta, influencia e lidera sem esforço aparente.
+  { title:"Empatia", summary:`Empatia não é sentir pena — é a capacidade de entender o mundo a partir da perspectiva do outro, sem necessariamente concordar.
 
 Brené Brown distingue:
 • Empatia — sentir com a pessoa, conectar-se com a experiência dela
@@ -197,15 +205,16 @@ Brené Brown distingue:
 O que empatia não é:
 • Concordar com o que a pessoa faz
 • Resolver o problema dela
-• Minimizar o que ela sente ("poderia ser pior")
+• Minimizar o que ela sente
 
 Como praticar:
 • Pergunte antes de aconselhar — "Você quer que eu ouça ou que eu ajude a resolver?"
 • Valide antes de contradizer — "Faz sentido você se sentir assim porque..."
+• Fique presente no desconforto
 
 A maioria que diz "não tenho empatia" tem, mas está com pressa. Empatia requer lentidão e presença.` },
 
-  { title:"Gestão de Relacionamentos", summary:`Relacionamentos são o maior ativo ou maior passivo de uma carreira. Quem os cultiva com intenção colhe oportunidades que os outros nem sabem que existem.
+  { title:"Gestão de relacionamentos", summary:`Relacionamentos são o maior ativo ou maior passivo de uma carreira. Pessoas bem-sucedidas investem neles intencionalmente.
 
 Os 3 tipos que todo profissional precisa:
 • Mentores — quem já passou onde você quer chegar
@@ -213,17 +222,17 @@ Os 3 tipos que todo profissional precisa:
 • Pessoas que você mentora — ensinar consolida o que sabe
 
 Como nutrir relacionamentos:
-• Dê antes de pedir — compartilhe valor, conecte pessoas
+• Dê antes de pedir — compartilhe valor, conecte pessoas, reconheça o trabalho do outro
 • Seja consistente — um contato genuíno por trimestre vale mais que 10 pedidos quando precisar
 • Lembre de datas, contextos, conversas
 
 1 hora por semana em relacionamentos tem retorno composto que supera qualquer outra forma de networking.` },
 
-  { title:"Controle do Estresse", summary:`Estresse crônico é o maior inibidor de performance cognitiva, saúde e qualidade de vida. Quem aprende a controlar o estresse mantém clareza quando os outros perdem o rumo.
+  { title:"Controle do estresse", summary:`Estresse crônico é o maior inibidor de performance cognitiva, saúde e qualidade de vida. E é gerenciável com as ferramentas certas.
 
-Tipos:
+Tipos de estresse:
 • Eustresse — estresse positivo, que motiva e mobiliza
-• Distresse — estresse negativo e crônico, que desgasta
+• Distresse — estresse negativo e crônico, que desgasta e adoece
 
 Os 4 pilares do controle:
 1. Fisiológico — exercício, sono e respiração regulam o cortisol
@@ -233,9 +242,9 @@ Os 4 pilares do controle:
 
 Técnica 4-7-8: inspire por 4 segundos, segure por 7, expire por 8. Ativa o nervo vago em minutos.` },
 
-  { title:"Resiliência", summary:`Resiliência não é não cair — é se recuperar quando cai. Quem a domina transforma adversidade em combustível, não em paralisia.
+  { title:"Resiliência", summary:`Resiliência não é não cair — é se recuperar quando cai. É uma habilidade construída, não um traço fixo.
 
-Os 3 fatores centrais (Seligman):
+Os 3 fatores centrais (Martin Seligman):
 • Permanência — "isso vai passar" (vs. "isso é para sempre")
 • Alcance — "esse problema é específico" (vs. "tudo está errado")
 • Personalização — "isso aconteceu" (vs. "eu sou um fracasso")
@@ -248,25 +257,24 @@ Como construir:
 
 A diferença entre pessoas resilientes está na linguagem interna — como interpretam o que aconteceu, não o que aconteceu em si.` },
 
-  { title:"Mindfulness", summary:`Mindfulness é a atenção plena ao momento presente, sem julgamento. Quem pratica consistentemente toma decisões mais claras e reage menos no automático.
-
-Por que a ciência apoia: 8 semanas de prática regular alteram fisicamente a estrutura do cérebro — reduzem a amígdala e fortalecem o córtex pré-frontal.
+  { title:"Mindfulness", summary:`Mindfulness é a atenção plena ao momento presente, sem julgamento. 8 semanas de prática regular alteram fisicamente a estrutura do cérebro.
 
 Benefícios documentados:
 • Redução de ansiedade e estresse
 • Melhora de foco e atenção
 • Maior regulação emocional
+• Mais satisfação com relacionamentos
 
-Como começar:
+Como começar (sem misticismo):
 • 10 minutos pela manhã, sentado, focando na respiração
 • Quando a mente divagar (vai), apenas note e volte — esse é o exercício
 • Apps: Insight Timer (gratuito)
 
+Mindfulness informal: qualquer atividade feita com atenção total é prática.
+
 5 minutos por dia durante 60 dias tem mais impacto do que 30 minutos uma vez por semana.` },
 
-  { title:"Comunicação Emocional", summary:`Comunicação emocional é expressar estados internos de forma que gere conexão em vez de conflito. Quem domina isso para de acumular ressentimento e começa a resolver problemas na origem.
-
-O desafio: somos ensinados a esconder emoções no trabalho. Resultado: acumulam e explodem.
+  { title:"Comunicação emocional", summary:`Comunicação emocional é a capacidade de expressar estados internos de forma que gere conexão em vez de conflito.
 
 Como expressar de forma construtiva:
 • Nomeie com precisão — não "estou mal", mas "estou ansioso sobre o prazo"
@@ -274,15 +282,17 @@ Como expressar de forma construtiva:
 • Conecte ao contexto — "quando acontece X, eu sinto Y"
 • Expresse necessidade — "o que preciso é de Z"
 
-Vulnerabilidade estratégica: mostrar incerteza de forma controlada constrói confiança — as pessoas confiam mais em quem é genuíno.` },
+Vulnerabilidade estratégica no trabalho: mostrar incerteza de forma controlada constrói confiança — as pessoas confiam mais em quem é genuíno do que em quem parece impermeável.
 
-  { title:"Equilíbrio Mente-Corpo", summary:`Mente e corpo não são sistemas separados. Quem entende essa conexão cuida dos dois e tem desempenho que os outros não conseguem sustentar.
+Dizer "estou com dificuldade e preciso de ajuda" em vez de fingir que está tudo bem resolve problemas mais rápido e cria equipes mais coesas.` },
+
+  { title:"Equilíbrio mente-corpo", summary:`Mente e corpo não são sistemas separados. O que acontece em um afeta diretamente o outro.
 
 A bidirecionalidade:
-• Exercício aumenta BDNF — constrói novos neurônios e melhora memória
-• Postura impacta estado emocional — postura aberta aumenta confiança
-• Sono: quando o cérebro elimina toxinas e consolida memórias
-• Alimentação afeta microbioma, que produz 90% da serotonina
+• Exercício aumenta BDNF — constrói novos neurônios e melhora memória e aprendizado
+• Postura impacta estado emocional — postura aberta aumenta confiança e reduz cortisol
+• Sono: quando o cérebro elimina toxinas e consolida memórias — privação de 24h equivale a 0,08% de álcool no sangue
+• Alimentação afeta microbioma, que produz 90% da serotonina do corpo
 
 Práticas de integração:
 • Movimento diário (mínimo 20 minutos)
@@ -293,648 +303,697 @@ Práticas de integração:
 Exercício + sono são as duas alavancas de maior impacto no bem-estar mental.` },
 ];
 
-/* ════════════════════════════════════════════
-   BATERIAS NOVAS — COMPLETAS
-════════════════════════════════════════════ */
-
 const CONTENT_PROGRAMACAO = [
-  { title:"Lógica de Programação", summary:`Lógica de programação é o fundamento de tudo. Quem a domina aprende qualquer linguagem — porque linguagem é só sintaxe, lógica é o raciocínio.
+  { title:"Lógica de programação", summary:`Lógica de programação é a capacidade de decompor um problema em passos que um computador pode executar. Quem domina isso aprende qualquer linguagem mais rápido.
 
-O que é: a capacidade de decompor um problema em passos ordenados que um computador possa executar.
+Os 3 pilares da lógica:
+• Sequência — instruções executadas em ordem
+• Condição — se isso acontecer, faça aquilo (if/else)
+• Repetição — execute esse bloco N vezes (loops)
 
-Conceitos centrais:
-• Sequência — as instruções executam em ordem
-• Condição — "se isso, então aquilo"
-• Repetição — executar até uma condição ser satisfeita
-• Abstração — resolver o problema geral, não só o caso específico
+Algoritmo simples: como fazer um bolo
+1. Pré-aqueça o forno
+2. Misture os ingredientes
+3. Se a mistura estiver homogênea, coloque na forma
+4. Repita a verificação a cada 10 minutos até assar
 
-Exercício prático: antes de escrever código, escreva os passos em português. "1. Receba o número. 2. Se for maior que 10, mostre 'grande'. Caso contrário, mostre 'pequeno'."
+Qualquer programa do mundo é uma combinação desses 3 elementos. Domine a lógica antes de escolher a linguagem.` },
 
-Programadores experientes pensam antes de digitar. Iniciantes digitam antes de pensar.` },
+  { title:"Variáveis e tipos", summary:`Variáveis são caixas que guardam informação. Tipos dizem o que pode entrar em cada caixa. Dominar isso é o primeiro passo real em programação.
 
-  { title:"Variáveis e Tipos", summary:`Variáveis são caixas com nome que guardam informação. Quem as domina para de perder dados e começa a construir programas que funcionam.
+Tipos mais comuns:
+• String (texto) — "Olá, mundo" | "battery@app.com"
+• Number (número) — 42 | 3.14 | -10
+• Boolean (verdadeiro/falso) — true | false
+• Array (lista) — [1, 2, 3] | ["maçã", "banana"]
+• Object (objeto) — { nome: "Paulo", idade: 30 }
 
-Tipos básicos:
-• String — texto: "Olá, Paulo"
-• Number — número: 42, 3.14
-• Boolean — verdadeiro/falso: true, false
-• Array — lista: [1, 2, 3]
-• Object — estrutura com chave:valor: { nome: "Paulo", idade: 30 }
+Em JavaScript:
+• let nome = "Paulo"   // pode mudar
+• const PI = 3.14      // não muda
+• var (evite — escopo imprevisível)
 
-Como nomear bem:
-• Use nomes que descrevem o conteúdo: totalVendas, não x
-• camelCase para variáveis: nomeUsuario
-• UPPER_CASE para constantes: TAXA_IMPOSTO
+Nomes de variáveis devem ser descritivos: "totalVendas" é melhor que "x". Código é lido por humanos, não só por máquinas.` },
 
-A maioria dos bugs vem de dados com tipo errado. Sempre saiba o tipo do que você está manipulando.` },
+  { title:"Condicionais (if/else)", summary:`Condicionais permitem que seu programa tome decisões. Quem domina isso cria lógica dinâmica em qualquer aplicação.
 
-  { title:"Condicionais (if/else)", summary:`Condicionais permitem que seu programa tome decisões. Quem domina isso cria software que responde a situações — não apenas executa em linha reta.
-
-Estrutura básica:
+Estrutura básica em JavaScript:
 if (condição) {
-  // executa se verdadeiro
+  // faz isso se verdadeiro
 } else if (outra condição) {
-  // executa se a segunda for verdadeira
+  // faz isso se a segunda condição for verdadeira
 } else {
-  // executa se nenhuma for verdadeira
+  // faz isso se nenhuma condição for verdadeira
 }
 
-Operadores de comparação:
-• === (igual), !== (diferente)
-• > (maior), < (menor), >= (maior ou igual)
-• && (e), || (ou), ! (não)
+Exemplo prático:
+if (bateria >= 70) {
+  cor = "verde"
+} else if (bateria >= 35) {
+  cor = "amarelo"
+} else {
+  cor = "vermelho"
+}
 
-Dica essencial: use === em vez de == no JavaScript. == compara com conversão de tipo, === compara com tipo exato.
+Operadores de comparação: == (igual), != (diferente), > (maior), < (menor), >= (maior ou igual), && (e), || (ou).
 
-Condicionais complexas demais são sinal de design ruim. Se você tem mais de 3 níveis de if aninhado, repense a estrutura.` },
+Condicionais bem estruturadas tornam o código legível e fácil de manter.` },
 
-  { title:"Laços (for, while)", summary:`Laços repetem código sem que você precise escrever a mesma coisa várias vezes. Quem os domina automatiza o que seria trabalhoso manualmente.
+  { title:"Laços (for, while)", summary:`Laços (loops) permitem executar o mesmo bloco de código múltiplas vezes. Quem domina isso elimina repetição e cria automação real.
 
-For — quando você sabe quantas vezes repetir:
+For loop — quando você sabe quantas vezes repetir:
 for (let i = 0; i < 10; i++) {
-  console.log(i);
+  console.log("Lição " + i)
 }
 
-While — quando você repete até uma condição mudar:
-while (usuarioAtivo) {
-  verificarSessao();
+While loop — quando você repete até uma condição mudar:
+while (bateria < 100) {
+  bateria += 10
 }
 
-forEach — para percorrer arrays de forma legível:
-nomes.forEach(nome => console.log(nome));
+forEach — para percorrer arrays:
+baterias.forEach(bat => {
+  console.log(bat.nome)
+})
 
-O erro mais comum: laço infinito — a condição nunca se torna falsa. Sempre verifique se a variável de controle está sendo atualizada.` },
+Cuidado com loops infinitos: sempre garanta que a condição de parada será alcançada. Um while sem saída trava o programa.` },
 
-  { title:"Funções", summary:`Funções são blocos reutilizáveis de código. Quem as domina escreve menos, erra menos e mantém o código mais fácil de entender.
+  { title:"Funções", summary:`Funções são blocos de código reutilizáveis. Quem domina funções escreve menos código e mantém mais fácil.
 
 Estrutura básica:
-function calcularDesconto(preco, percentual) {
-  return preco - (preco * percentual / 100);
+function nomeDaFuncao(parâmetro1, parâmetro2) {
+  // código aqui
+  return resultado
 }
 
-Arrow functions (ES6):
-const calcularDesconto = (preco, percentual) => preco - (preco * percentual / 100);
-
-Princípios fundamentais:
-• Uma função faz uma coisa só — se o nome precisar de "e", divida em duas
-• Funções pequenas são mais testáveis e reutilizáveis
-• Evite efeitos colaterais — funções puras recebem input e retornam output sem modificar o mundo externo
-
-Nomeie funções com verbos: calcular, buscar, validar, renderizar.` },
-
-  { title:"Arrays e Objetos", summary:`Arrays e objetos são as estruturas de dados mais usadas em qualquer linguagem. Quem as domina manipula qualquer tipo de dado com facilidade.
-
-Arrays — listas ordenadas:
-const frutas = ['maçã', 'banana', 'uva'];
-frutas.push('laranja');        // adiciona no final
-frutas.filter(f => f !== 'uva'); // filtra
-frutas.map(f => f.toUpperCase()); // transforma
-
-Objetos — dados estruturados:
-const usuario = { nome: 'Paulo', idade: 30, ativo: true };
-usuario.email = 'paulo@email.com'; // adiciona propriedade
-const { nome, idade } = usuario;   // destructuring
-
-Métodos essenciais de array: map, filter, reduce, find, some, every.
-
-Aprenda map, filter e reduce bem e você consegue transformar qualquer conjunto de dados.` },
-
-  { title:"HTML & CSS básico", summary:`HTML estrutura o conteúdo. CSS cuida da aparência. Quem domina os fundamentos constrói qualquer interface — frameworks são camadas em cima disso.
-
-HTML essencial:
-• <div> — container genérico
-• <p> — parágrafo | <h1>–<h6> — títulos
-• <a href=""> — link | <img src=""> — imagem
-• <button> — botão | <input> — campo
-• <ul><li> — lista
-
-CSS essencial:
-• Seletores: element, .classe, #id
-• Box model: margin, padding, border, width, height
-• Flexbox: display:flex, justify-content, align-items
-• Cores: color, background-color
-• Tipografia: font-size, font-weight, line-height
-
-Domine Flexbox antes de qualquer outra coisa em CSS. Ele resolve 80% dos problemas de layout.` },
-
-  { title:"JavaScript Essencial", summary:`JavaScript é a linguagem da web — roda no navegador e no servidor. Quem domina os fundamentos cria qualquer tipo de aplicação.
-
-O essencial que resolve tudo:
-• Manipular o DOM: document.getElementById(), querySelector()
-• Eventos: element.addEventListener('click', fn)
-• Fetch API: buscar dados de uma API
-• JSON: JSON.parse() e JSON.stringify()
-• Template literals: \`Olá, \${nome}!\`
-• Promises e async/await para código assíncrono
-
-Padrão moderno:
-const dados = await fetch('https://api.exemplo.com/dados');
-const json = await dados.json();
-console.log(json);
-
-Aprenda async/await bem antes de qualquer framework. React, Vue e Angular são JavaScript — quem não entende JS vai travar nos fundamentos.` },
-
-  { title:"Git & GitHub", summary:`Git é o sistema de controle de versão mais usado do mundo. Quem não sabe Git não existe profissionalmente no mundo de tecnologia.
-
-Comandos essenciais (use todo dia):
-• git init — inicia repositório
-• git add . — prepara arquivos para commit
-• git commit -m "mensagem" — salva snapshot
-• git push — envia para o GitHub
-• git pull — recebe atualizações
-• git branch nome — cria branch
-• git merge nome — une branches
+Arrow function (ES6+):
+const calcularPct = (done, total) => (done / total) * 100
 
 Boas práticas:
-• Commits pequenos e frequentes, não um commit gigante no final
-• Mensagens descritivas: "adiciona validação de e-mail" não "fix"
-• Nunca faça push direto na main em projetos reais
-• .gitignore para não versionar node_modules e segredos
+• Uma função faz UMA coisa — se o nome precisar de "e", divida em duas
+• Nomes de função devem ser verbos: calcular, renderizar, buscar, salvar
+• Funções curtas são mais fáceis de testar e depurar
 
-Git é como um save point do seu código. Use sempre.` },
+DRY (Don't Repeat Yourself): se você escreveu o mesmo código mais de duas vezes, transforme em função.` },
 
-  { title:"APIs REST", summary:`APIs REST permitem que diferentes sistemas se comuniquem. Quem as domina conecta qualquer serviço a qualquer outro — o mundo moderno é feito de APIs.
+  { title:"Arrays e objetos", summary:`Arrays e objetos são as estruturas de dados mais usadas em JavaScript. Quem os domina manipula qualquer dado com facilidade.
 
-Os 4 métodos HTTP essenciais:
-• GET — busca dados
-• POST — cria dados
-• PUT/PATCH — atualiza dados
-• DELETE — remove dados
+Arrays — listas ordenadas:
+const baterias = ["inglês", "vendas", "comunicação"]
+baterias[0]       // "inglês"
+baterias.length   // 3
+baterias.push("liderança")   // adiciona ao final
+baterias.filter(b => b.length > 5)  // filtra
 
-Status codes que você vai ver sempre:
-• 200 — sucesso | 201 — criado
-• 400 — erro do cliente | 401 — não autenticado
-• 404 — não encontrado | 500 — erro do servidor
+Objetos — pares de chave e valor:
+const usuario = {
+  nome: "Paulo",
+  xp: 150,
+  streak: 7
+}
+usuario.nome     // "Paulo"
+usuario.xp += 10 // adiciona XP
 
-Consumindo uma API com fetch:
-const resposta = await fetch('https://api.exemplo.com/usuarios', {
+Array de objetos (o mais comum):
+const progresso = [
+  { batId: "ingles", pct: 30 },
+  { batId: "vendas", pct: 50 }
+]
+
+Dominar filter, map e reduce em arrays resolve 80% das transformações de dados em qualquer app.` },
+
+  { title:"HTML & CSS básico", summary:`HTML estrutura o conteúdo. CSS o apresenta. Quem domina os dois constrói qualquer interface web.
+
+HTML — os elementos essenciais:
+• <div> — container genérico
+• <p> — parágrafo de texto
+• <h1> a <h6> — títulos
+• <button> — botão clicável
+• <input> — campo de entrada
+• <img src="..."> — imagem
+• <a href="..."> — link
+
+CSS — as propriedades que mais importam:
+• display: flex — layout flexível
+• position: relative/absolute — posicionamento
+• margin / padding — espaçamento externo/interno
+• color / background — cores
+• font-size / font-weight — tipografia
+• border-radius — bordas arredondadas
+• transition — animações suaves
+
+Mobile first: comece com a versão mobile e expanda para desktop com media queries (@media).` },
+
+  { title:"JavaScript essencial", summary:`JavaScript é a linguagem que dá vida às interfaces web. Quem domina o essencial constrói qualquer funcionalidade.
+
+O que você mais vai usar:
+
+Manipular o DOM:
+document.getElementById('id')
+document.querySelector('.classe')
+elemento.textContent = "novo texto"
+elemento.classList.add('ativo')
+elemento.style.width = "50%"
+
+Eventos:
+botao.addEventListener('click', () => {
+  // código executado ao clicar
+})
+
+localStorage (salvar dados no navegador):
+localStorage.setItem('chave', JSON.stringify(dados))
+JSON.parse(localStorage.getItem('chave'))
+
+fetch (buscar dados de uma API):
+const dados = await fetch('https://api.exemplo.com/dados')
+const json  = await dados.json()
+
+Esses 4 grupos cobrem a maioria do JavaScript que você vai escrever em qualquer projeto web.` },
+
+  { title:"Git & GitHub", summary:`Git é o sistema de controle de versão mais usado do mundo. Quem domina Git nunca perde código e colabora com qualquer time.
+
+Os comandos essenciais:
+• git init — inicia um repositório
+• git add . — adiciona todas as mudanças
+• git commit -m "mensagem" — salva um snapshot
+• git push — envia para o GitHub
+• git pull — traz as atualizações do remoto
+• git clone URL — copia um repositório
+• git branch nome — cria uma branch
+• git checkout nome — muda para a branch
+
+Fluxo básico:
+1. Faça alterações no código
+2. git add .
+3. git commit -m "o que mudou e por quê"
+4. git push
+
+Mensagens de commit descritivas valem ouro — "fix bug" é inútil, "fix: corrige cálculo de % quando bateria está em 0" é útil.` },
+
+  { title:"APIs REST", summary:`APIs REST são a forma como aplicações se comunicam na internet. Quem entende APIs conecta qualquer serviço a qualquer outro.
+
+Os 4 verbos HTTP:
+• GET — busca dados. "Me dê as baterias do usuário."
+• POST — cria dados. "Crie um novo progresso."
+• PUT/PATCH — atualiza dados. "Atualize o XP do usuário."
+• DELETE — remove dados. "Delete esta conquista."
+
+Status codes importantes:
+• 200 OK — sucesso
+• 201 Created — criado com sucesso
+• 400 Bad Request — erro na requisição
+• 401 Unauthorized — não autenticado
+• 404 Not Found — recurso não existe
+• 500 Server Error — erro no servidor
+
+Exemplo com fetch:
+const res = await fetch('/api/progress', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ nome: 'Paulo' })
-});
+  body: JSON.stringify({ batId: 'ingles', lessonIdx: 0 })
+})
 
-Ferramentas essenciais: Postman ou Insomnia para testar APIs antes de integrar.` },
+Ferramentas para testar APIs: Postman, Insomnia ou Thunder Client (VS Code).` },
 ];
 
 const CONTENT_SAUDE = [
-  { title:"Hábitos Fundamentais", summary:`Saúde não é feita de grandes gestos — é feita de hábitos pequenos e consistentes. Quem os domina protege seu maior ativo: a capacidade de funcionar bem.
+  { title:"Hábitos fundamentais", summary:`Saúde não é um evento — é a soma de hábitos diários. Quem domina os fundamentais previne 80% das doenças crônicas.
 
-Os 5 hábitos com maior impacto comprovado:
-1. Dormir 7–9 horas por noite
-2. Mover o corpo pelo menos 30 minutos por dia
-3. Beber água suficiente (30ml por kg de peso)
-4. Comer comida de verdade na maior parte do tempo
-5. Gerenciar o estresse com alguma prática regular
+Os 5 pilares da saúde:
+1. Sono — 7–8 horas por noite, horários consistentes
+2. Movimento — mínimo 150 minutos de atividade moderada por semana
+3. Alimentação — base em alimentos naturais, mínimo de ultraprocessados
+4. Hidratação — 35ml por kg de peso corporal por dia
+5. Gestão do estresse — uma prática diária de recuperação
 
-O que a pesquisa mostra: esses 5 comportamentos reduzem o risco de doenças crônicas em até 80%.
+O efeito cascata: quando sono melhora, energia melhora, alimentação melhora, humor melhora, produtividade melhora. Comece pelo sono.
 
-Comece por um. O hábito mais fácil de implementar, mantido por 30 dias, cria base para os próximos.` },
+Pequenas mudanças consistentes superam grandes mudanças intermitentes. 1% melhor por dia = 37x melhor em um ano.` },
 
-  { title:"Sono de Qualidade", summary:`Sono não é descanso — é manutenção ativa do cérebro e do corpo. Quem dorme bem pensa mais rápido, decide melhor e tem mais energia sem precisar de estimulantes.
+  { title:"Sono de qualidade", summary:`Sono não é tempo perdido — é manutenção essencial. Privação de sono de 24h equivale a 0,08% de álcool no sangue.
 
-O que acontece enquanto você dorme:
-• O cérebro elimina toxinas acumuladas (incluindo precursores de Alzheimer)
-• A memória consolida o que foi aprendido
-• O sistema imune se fortalece
-• Hormônios de crescimento e reparo são liberados
+O que acontece durante o sono:
+• Consolidação de memória — o cérebro processa o que aprendeu
+• Limpeza cerebral — sistema linfático remove toxinas (incluindo as associadas ao Alzheimer)
+• Recuperação muscular e hormonal
+• Regulação emocional
 
 Como melhorar a qualidade:
-• Mesmo horário para dormir e acordar, inclusive fim de semana
-• Quarto escuro, frio (18–20°C) e silencioso
-• Sem telas 60 minutos antes de dormir
-• Sem cafeína depois das 14h
-• Exposição ao sol pela manhã regula o ciclo circadiano
+• Horário fixo para dormir e acordar (mesmo fins de semana)
+• Temperatura do quarto entre 18–20°C
+• Sem telas 60 minutos antes de dormir — a luz azul suprime melatonina
+• Quarto escuro e silencioso
+• Evitar cafeína após as 14h
 
-Privação de sono de 1 hora por noite equivale a trabalhar levemente embriagado.` },
+Consistência de horário é mais importante do que duração.` },
 
-  { title:"Hidratação", summary:`A desidratação leve (1–2%) já prejudica a cognição, o humor e o desempenho físico. Quem domina a hidratação mantém o cérebro operando no pico.
+  { title:"Hidratação", summary:`Água cobre 60% do corpo e participa de praticamente todos os processos biológicos. Desidratação leve de 2% já reduz performance cognitiva em 20%.
 
-O básico:
-• Meta diária: 35ml por kg de peso corporal
-• Urina amarelo-claro = bem hidratado | amarelo escuro = beba mais
-• A sensação de sede já é sinal de desidratação leve
+Sinais de desidratação:
+• Urina amarela escura (ideal: amarelo claro ou transparente)
+• Dor de cabeça
+• Dificuldade de concentração
+• Boca seca
 
-Como garantir a ingestão:
-• Comece o dia com um copo d'água antes do café
-• Tenha uma garrafa visível na mesa — o que está à vista, você bebe
-• Coma frutas e vegetais — até 20% da hidratação vem dos alimentos
-• Em exercícios ou calor, aumente proporcionalmente
+Quantidade ideal: 35ml por kg de peso. 70kg = 2,45L por dia. Mais em dias quentes ou com exercício.
 
-Café e chá (sem açúcar) contam para a hidratação. Álcool e refrigerante desidratam.` },
+Hábitos práticos:
+• Beba 500ml de água ao acordar (antes do café)
+• Tenha sempre uma garrafa de água à vista
+• Coma alimentos com alto teor de água (melancia, pepino, laranja)
+• Não espere ter sede — sede já é sinal de desidratação leve
 
-  { title:"Alimentação Anti-inflamatória", summary:`Inflamação crônica silenciosa está por trás da maioria das doenças modernas. Quem come de forma anti-inflamatória protege o cérebro, o coração e a disposição.
+Café, chá e sucos contam parcialmente, mas não substituem a água.` },
 
-O que aumenta a inflamação:
-• Açúcar e farinha refinada em excesso
-• Óleos vegetais processados (soja, milho, canola em grandes quantidades)
-• Alimentos ultraprocessados (ingredientes que você não reconhece)
+  { title:"Alimentação anti-inflamatória", summary:`Inflamação crônica é a base de doenças cardíacas, diabetes, obesidade e Alzheimer. Alimentação é a ferramenta mais poderosa de controle.
+
+Alimentos que combatem a inflamação:
+• Peixes gordurosos (salmão, sardinha) — ômega-3
+• Azeite de oliva extra virgem
+• Frutas vermelhas (mirtilo, morango, framboesa)
+• Vegetais folhosos (espinafre, couve, rúcula)
+• Nozes e castanhas
+• Açafrão (cúrcuma) + pimenta-do-reino
+
+Alimentos que aumentam a inflamação:
+• Açúcar refinado e farinha branca
+• Óleos vegetais refinados (soja, milho)
+• Ultraprocessados (biscoito, embutidos, fast food)
 • Álcool em excesso
 
-O que reduz a inflamação:
-• Peixes gordurosos: sardinha, salmão, atum (ômega-3)
-• Azeite de oliva extra virgem
-• Vegetais coloridos — quanto mais cor no prato, melhor
-• Frutas vermelhas: morango, mirtilo, framboesa
-• Oleaginosas: castanhas, nozes, amêndoas
+A regra 80/20 funciona aqui também: coma alimentos naturais 80% do tempo e você já estará muito à frente da média.` },
 
-Regra prática: se tem mais de 5 ingredientes na embalagem, use com moderação.` },
-
-  { title:"Exercício e Cognição", summary:`Exercício físico é o intervenção mais poderosa que existe para saúde cerebral. Quem se move regularmente pensa melhor, aprende mais rápido e envelhece com mais qualidade.
+  { title:"Exercício e cognição", summary:`Exercício não é só para o corpo — é o maior nootrópico natural disponível. Quem se exercita pensa melhor.
 
 O que o exercício faz no cérebro:
-• Aumenta BDNF — fator de crescimento neural, literalmente constrói neurônios
-• Melhora fluxo sanguíneo cerebral
+• Aumenta BDNF (fator neurotrófico derivado do cérebro) — literalmente constrói novos neurônios
+• Melhora memória e aprendizado — especialmente aeróbico de intensidade moderada
 • Reduz cortisol (hormônio do estresse)
-• Aumenta dopamina, serotonina e noradrenalina
+• Aumenta serotonina, dopamina e noradrenalina — melhora humor e foco
+• Previne declínio cognitivo associado ao envelhecimento
 
-Quanto é suficiente:
-• 150 minutos de exercício moderado por semana (caminhada rápida, ciclismo)
-• OU 75 minutos de exercício intenso (corrida, treino funcional)
-• + 2 dias de força por semana
+Para performance cognitiva, o melhor exercício:
+• 20–30 min de aeróbico moderado (caminhada rápida, corrida leve, bicicleta)
+• De manhã, antes do trabalho intelectual — efeito cognitivo dura 2–4 horas
 
-O melhor exercício é o que você faz. Consistência supera intensidade.` },
+Qualquer movimento é melhor que nenhum. Comece com 20 minutos por dia.` },
 
-  { title:"Gestão do Estresse", summary:`Estresse crônico envelhece o cérebro, suprime o sistema imune e aumenta o risco de doenças cardiovasculares. Quem aprende a gerenciar o estresse protege a saúde no longo prazo.
+  { title:"Gestão do estresse", summary:`Estresse agudo é útil — te prepara para desafios. Estresse crônico mata — literalmente deteriora o cérebro e o sistema imune.
 
-Como o estresse funciona: o cortisol é útil em doses curtas (fuga de perigo), mas prejudicial quando cronicamente elevado.
+Marcadores fisiológicos do estresse crônico:
+• Cortisol cronicamente elevado
+• Pressão arterial alta
+• Inflamação sistêmica
+• Distúrbios de sono
 
-Técnicas com evidência científica:
-• Respiração diafragmática — 5 minutos ativa o sistema nervoso parassimpático
-• Exercício físico — destrói cortisol literalmente
-• Conexão social — conversar com quem você gosta reduz estresse rapidamente
-• Natureza — 20 minutos em ambiente verde reduz cortisol mensurável
-• Escrever sobre o estressor — externalizar organiza o pensamento
+As práticas com maior evidência científica:
+• Exercício físico — reduz cortisol por horas
+• Respiração controlada — ativa o sistema nervoso parassimpático em minutos
+• Meditação — reduz amígdala (centro do medo) com 8 semanas de prática
+• Exposição à natureza — reduz cortisol em 15 minutos
+• Conexão social — o mais poderoso amortecedor de estresse conhecido
 
-Diferencie o que está sob seu controle. Marcus Aurélio: "Preocupe-se apenas com o que você pode mudar."` },
+Você não pode eliminar o estresse — mas pode aumentar sua capacidade de recuperação.` },
 
-  { title:"Meditação Prática", summary:`Meditação não é esvaziar a mente — é observar os pensamentos sem se deixar arrastar por eles. Quem pratica regularmente ganha controle sobre reações automáticas.
+  { title:"Meditação prática", summary:`Meditação não é esvaziar a mente — é observar os pensamentos sem ser arrastado por eles. É uma habilidade treinável como qualquer outra.
 
-O que a ciência confirma:
-• Reduz ansiedade e depressão em intensidade equivalente a alguns medicamentos
-• Melhora foco e atenção
-• Aumenta espessura do córtex pré-frontal (sede da tomada de decisão)
-• Reduz a reatividade da amígdala (sede das respostas de medo)
+Por que funciona: estudos de neuroimagem mostram que 8 semanas de prática regular encolhem a amígdala (centro do medo e ansiedade) e fortalecem o córtex pré-frontal (pensamento racional).
 
 Como começar agora:
-1. Sente-se confortavelmente, coluna ereta
-2. Feche os olhos. Respire naturalmente.
-3. Foque na sensação da respiração
-4. Quando um pensamento aparecer, note e volte à respiração — isso é o exercício
-5. Comece com 5 minutos. Aumente gradualmente.
+1. Sente em posição confortável
+2. Feche os olhos
+3. Foque na sensação da respiração — o ar entrando e saindo
+4. Quando um pensamento vier (virá), observe-o sem julgamento e volte à respiração
+5. Continue por 5–10 minutos
 
-Apps: Insight Timer (gratuito), Headspace, Calm.` },
+Esse ato de perceber que divagou e voltar ao foco É o exercício. Não é falhar — é praticar.
 
-  { title:"Postura e Ergonomia", summary:`Postura ruim cria dor crônica, reduz capacidade pulmonar e afeta o estado emocional. Quem cuida da ergonomia protege o corpo de danos que se acumulam silenciosamente.
+Apps gratuitos: Insight Timer. 5 minutos por dia por 30 dias já cria diferença mensurável.` },
 
-Trabalho em home office / mesa:
-• Monitor na altura dos olhos — sem curvar o pescoço
-• Cotovelos a 90° — sem tensionar os ombros
-• Pés no chão — quadris levemente acima dos joelhos
-• Tela a 50–70cm dos olhos
-• Regra 20-20-20: a cada 20 minutos, olhe para algo a 20 pés por 20 segundos
+  { title:"Postura e ergonomia", summary:`Adultos passam em média 8–10 horas por dia sentados. Postura e ergonomia ruins causam dor crônica, fadiga e até impactam produtividade e humor.
 
-Postura em pé:
-• Orelhas sobre os ombros, ombros sobre os quadris
-• Núcleo levemente ativado
-• Peso distribuído nos dois pés
+Setup ergonômico ideal:
+• Monitor na altura dos olhos — pescoço neutro
+• Cotovelos em 90° — ombros relaxados
+• Pés planos no chão — quadris em 90°
+• Tela a ~50–70cm dos olhos
+• Cadeira com suporte lombar
 
-Exercício de 1 minuto: role os ombros para trás e para baixo. Abra o peito. Faça isso toda hora.` },
+Os 4 exercícios de maior impacto (30 segundos cada):
+1. Retração cervical — empurre a cabeça para trás (double chin)
+2. Abertura de peito — braços para trás, ombros para baixo
+3. Rotação de quadril em pé
+4. Alongamento de psoas (músculo do hip flexor)
 
-  { title:"Check-ups Essenciais", summary:`Prevenção custa uma fração do que custa o tratamento. Quem faz check-ups regulares detecta problemas quando ainda são resolvíveis.
+Regra 20-20-20: a cada 20 minutos de tela, olhe para algo a 20 pés (6m) por 20 segundos. Previne fadiga ocular.` },
 
-Exames anuais para adultos saudáveis:
-• Hemograma completo — avalia anemia e infecções
-• Glicemia de jejum + HbA1c — rastreia diabetes
-• Perfil lipídico — colesterol total, LDL, HDL, triglicerídeos
+  { title:"Check-ups essenciais", summary:`Prevenção custa 10x menos do que tratamento. Quem faz check-ups regulares detecta problemas cedo quando ainda são simples de resolver.
+
+Exames de base (adultos, todo ano):
+• Hemograma completo — saúde geral do sangue
+• Glicemia em jejum + HbA1c — diabetes
+• Perfil lipídico — colesterol e triglicerídeos
 • TSH — função da tireoide
-• Vitamina D — deficiência afeta humor, imunidade e ossos
-• Pressão arterial — aferição regular
+• Vitamina D — deficiência afeta 75% dos brasileiros
+• Vitamina B12 — especialmente para vegetarianos
+• Pressão arterial
 
-A partir dos 40: adicione PSA (homens), mamografia (mulheres), colonoscopia.
+Adicionais por faixa etária:
+• 30+: testosterona (homens), hormônios femininos (mulheres)
+• 40+: PSA (homens), mamografia (mulheres), colonoscopia
+• 50+: densitometria óssea
 
-Dentista: semestralmente. Audição e visão: anualmente ou quando perceber mudança.
+Dentista 2x por ano. Oftalmo 1x por ano se usa tela muito. Dermatologista 1x por ano (mapeamento de pintas).` },
 
-Anote sua história familiar — condições em parentes de primeiro grau mudam o protocolo de rastreio.` },
+  { title:"Longevidade ativa", summary:`Longevidade não é apenas viver mais — é viver bem. Os estudos de zonas azuis (lugares com mais centenários saudáveis) revelam padrões consistentes.
 
-  { title:"Longevidade Ativa", summary:`Longevidade não é só viver mais — é viver bem por mais tempo. Quem domina os princípios de longevidade ativa mantém capacidade física e mental nas décadas seguintes.
+Os 9 fatores das zonas azuis (Dan Buettner):
+1. Movimento natural — não academia, mas movimento constante no dia a dia
+2. Propósito — ter uma razão para acordar (Ikigai)
+3. Desaceleração — rituais de recuperação do estresse
+4. Regra dos 80% — parar de comer quando está 80% saciado
+5. Base vegetal — leguminosas como alimento central
+6. Vinho moderado — apenas com refeição e amigos (algumas zonas)
+7. Pertencimento — fazer parte de uma comunidade
+8. Família em primeiro lugar
+9. Tribo saudável — seu círculo social impacta seus hábitos mais do que qualquer força de vontade
 
-Os pilares das Zonas Azuis (regiões onde as pessoas vivem mais):
-• Movimento natural — não academia, mas caminhar, subir escadas, jardinagem
-• Propósito — ter um motivo para levantar de manhã (ikigai em Okinawa)
-• Desaceleração — rituais para reduzir estresse crônico
-• Alimentação de origem vegetal na maior parte do tempo
-• Pertencimento — comunidade e relações sociais fortes
-• Moderação — comer até 80% da saciedade (hara hachi bu)
-
-O que a pesquisa mostra: relações sociais sólidas aumentam a expectativa de vida mais do que parar de fumar.
-
-Invista em amizades com a mesma seriedade que investe em finanças.` },
+O ambiente constrói ou destrói a saúde. Estruture sua vida para que os comportamentos saudáveis sejam o caminho de menor resistência.` },
 ];
 
 const CONTENT_NEGOCIACAO = [
-  { title:"BATNA: sua alternativa", summary:`BATNA (Best Alternative To a Negotiated Agreement) é sua melhor alternativa caso a negociação não chegue a um acordo. Quem conhece o próprio BATNA nunca negocia com medo.
+  { title:"BATNA: sua alternativa", summary:`BATNA (Best Alternative To a Negotiated Agreement) é a sua melhor opção caso a negociação falhe. Quem conhece seu BATNA entra em qualquer negociação com poder real.
 
-Por que é fundamental: seu poder em uma negociação é proporcional à qualidade da sua alternativa.
+Por que o BATNA importa:
+• Sem alternativa, você aceita qualquer acordo — mesmo ruim
+• Com um BATNA forte, você tem poder de dizer não
+• O outro lado tenta adivinhar seu BATNA — nunca revele se for fraco
 
 Como usar:
-• Antes de qualquer negociação, defina: "O que faço se não chegarmos a um acordo?"
-• Fortaleça seu BATNA antes de negociar — tenha mais de uma alternativa
-• Descubra o BATNA do outro lado — quem tem alternativas piores, cede mais
+1. Antes de qualquer negociação, defina seu BATNA
+2. Tente fortalecer seu BATNA (crie mais alternativas)
+3. Estime o BATNA do outro lado — isso define o campo possível de acordo
 
-Exemplo prático: ao negociar salário, ter outra oferta em mãos é o BATNA mais poderoso que existe.
+Exemplo: antes de negociar salário, tenha outra oferta em mãos. Isso não é traição — é preparação. Você não precisa usar. Só de ter muda sua postura.
 
-Nunca revele seu BATNA se ele for fraco. E nunca aceite um acordo pior do que sua alternativa.` },
+ZOPA (Zone of Possible Agreement): a faixa entre o mínimo aceitável para cada lado. Todo acordo acontece nessa zona.` },
 
-  { title:"Barganha Colaborativa", summary:`Barganha colaborativa busca um resultado bom para os dois lados. Quem a domina fecha acordos que se sustentam — e mantém relacionamentos.
+  { title:"Barganha colaborativa", summary:`Barganha colaborativa (win-win) produz acordos melhores e relacionamentos mais duradouros do que barganha distributiva (eu ganho, você perde).
 
-A diferença:
-• Distributiva (ganha-perde): o ganho de um é a perda do outro. Funciona para transações únicas.
-• Colaborativa (ganha-ganha): expande o que está na mesa antes de dividir. Funciona para relações contínuas.
+A diferença fundamental:
+• Distributiva — foca em dividir um bolo fixo. Cada ganho seu é perda do outro.
+• Colaborativa — foca em expandir o bolo. Busca soluções que atendam os interesses de ambos.
 
 Como praticar:
-• Foque em interesses, não em posições. "Por que você quer isso?" vs. "O que você quer?"
-• Separe as pessoas do problema — ataque o problema, não o negociador
-• Crie opções antes de avaliar
-• Use critérios objetivos — preços de mercado, precedentes, laudos
+1. Separe pessoas de problemas — ataque o problema, não a pessoa
+2. Foque em interesses, não em posições. "Por que você quer isso?" é mais útil do que "O que você quer?"
+3. Crie opções antes de decidir — brainstorm de soluções sem julgamento
+4. Use critérios objetivos — referências de mercado, precedentes, normas
 
-Em relacionamentos contínuos (fornecedores, parceiros, equipe), sempre busque o colaborativo.` },
+A posição é o que a pessoa pede. O interesse é o que ela realmente precisa. Acordos duradouros atendem interesses, não posições.` },
 
-  { title:"Ancoragem de Valor", summary:`A âncora é o primeiro número apresentado na negociação — e influencia todo o restante. Quem controla a âncora, controla o piso da conversa.
+  { title:"Ancoragem de valor", summary:`A âncora é o primeiro número lançado na negociação. Quem ancora bem controla o campo de batalha.
 
-Como usar a seu favor:
-• Seja o primeiro a apresentar um número — quem ancora primeiro, ancora melhor
-• Âncoras altas funcionam: partindo de um número maior, o resultado final tende a ser mais alto
-• Justifique a âncora — "esse valor reflete o resultado entregue + prazo acelerado"
-• Não reaja exageradamente à âncora do outro — isso revela seu limite
+Como ancorar eficazmente:
+• Ancora primeiro — pesquisas mostram que a primeira oferta exerce influência desproporcional
+• Ancora alto (se vendendo) ou baixo (se comprando) — deixe margem para concessões
+• Justifique a âncora — um número com razão é mais difícil de rejeitar do que um número nu
 
-O que não fazer:
-• Partir de um número que parece absurdo sem justificativa — perde credibilidade
-• Aceitar a âncora do outro como ponto de partida neutro
+Como responder a uma âncora ruim:
+• Não negocie a partir dela — faça uma contra-âncora forte
+• Rejeite explicitamente: "Esse número não reflete a realidade do mercado."
+• Redirecione com dados: "Segundo [referência], o valor praticado é..."
 
-Após a âncora do outro, responda com "Isso está bem distante do que esperamos. Deixe-me explicar nosso racional."` },
+Âncoras funcionam porque o cérebro usa o primeiro número como ponto de referência, mesmo sabendo que é arbitrário — efeito demonstrado em dezenas de estudos.` },
 
-  { title:"Silêncio Estratégico", summary:`O silêncio é uma das ferramentas mais poderosas de negociação — e a menos usada. Quem domina o silêncio cria pressão sem dizer uma palavra.
+  { title:"Silêncio estratégico", summary:`Silêncio é uma das ferramentas mais poderosas na negociação — e a mais subutilizada. Quem domina o silêncio nunca cede desnecessariamente.
 
-Por que funciona: desconforto com o silêncio leva as pessoas a preencher o vazio — frequentemente com concessões.
+Por que silêncio funciona:
+• Desconforto com silêncio faz a maioria das pessoas falar — e revelar informação ou fazer concessões
+• Silêncio após uma oferta sinaliza que a oferta não é satisfatória, sem você dizer nada
+• Silêncio após uma pergunta pressiona a resposta
 
-Como usar:
-• Após fazer uma oferta: aguarde. Não explique, não justifique — espere a resposta.
-• Após uma objeção: pause 3–5 segundos antes de responder. Parece longo, mas é poderoso.
-• Após o outro falar: resuma o que ouviu e silencie novamente. "Então você está dizendo que... [silêncio]"
+Como usar na prática:
+• Após fazer uma proposta, cale-se completamente. Quem falar primeiro tende a ceder.
+• Após receber uma proposta ruim, espere 5–10 segundos antes de responder. A outra parte frequentemente melhora sozinha.
+• Em momentos de pressão emocional, pause antes de responder.
 
-O erro mais comum: a pessoa faz uma oferta e imediatamente começa a justificá-la — sinalizando insegurança.
+O desconforto com silêncio é treinável. Pratique em conversas cotidianas: faça uma pergunta e espere.` },
 
-Aprenda a ficar confortável com o silêncio. O desconforto é do outro, não seu.` },
+  { title:"Concessões inteligentes", summary:`Concessões mal feitas destroem valor. Quem faz concessões com estratégia fecha acordos melhores e mantém o respeito.
 
-  { title:"Concessões Inteligentes", summary:`Concessões mal feitas destroem valor. Quem as faz com estratégia mantém o que importa e usa o resto como moeda de troca.
+Princípios das concessões inteligentes:
 
-Princípios das concessões estratégicas:
-• Nunca conceda sem receber algo em troca — "posso ajustar o prazo se você antecipar o pagamento"
-• Concessões decrescentes — a primeira maior, as seguintes menores. Sinalize que está chegando ao limite.
-• Não conceda rápido demais — velocidade de concessão sinaliza que tinha mais espaço
-• Valorize o que está cedendo — "isso é um ajuste significativo para nós"
+1. Concessões devem diminuir em tamanho — primeira concessão maior, próximas menores. Isso sinaliza que você está chegando ao limite.
 
-O que não conceder:
-• Itens que parecem pequenos mas criam precedente
-• Anything no calor emocional da negociação
-• Sem entender o que o outro está cedendo em troca
+2. Nunca conceda sem receber algo em troca — "Se eu fizer isso, o que você pode fazer por mim?"
 
-Prepare-se: liste o que você pode ceder e o que é inegociável antes de começar.` },
+3. Dê valor ao que você cede — "Estou abrindo mão de X, o que tem custo real para mim."
 
-  { title:"Negociação por Interesses", summary:`Posição é o que você pede. Interesse é o porquê. Quem domina negociação por interesses encontra saídas que ninguém via.
+4. Não conceda por pressão emocional — "Me dá um desconto que sou bom cliente" não é argumento.
 
-O clássico das laranjas: dois chefs disputam a última laranja. Solução óbvia: dividir ao meio. Mas um queria o suco e o outro queria a casca. Ambos poderiam ter ficado com 100% do que queriam.
+5. Última concessão não deve ser grande — uma concessão grande no final sinaliza que havia margem escondida, destruindo a credibilidade.
 
-Como aplicar:
-• Pergunte "por quê?" mais de uma vez — interesses reais geralmente estão por trás dos interesses declarados
-• Separe o problema em componentes — prazo, preço, escopo, qualidade, pagamento podem ser negociados independentemente
-• Identifique o que você valoriza mais e o que o outro valoriza mais
-• Troque itens de alto valor para um por itens de alto valor para o outro
+Concessão não é fraqueza — é estratégia quando bem gerenciada.` },
 
-A maioria dos impasses não é sobre escassez real — é sobre falta de informação sobre o que cada parte realmente precisa.` },
+  { title:"Negociação por interesses", summary:`Posições são o que as pessoas pedem. Interesses são o que elas realmente precisam. Quem negocia por interesses encontra acordos impossíveis para quem negocia por posições.
 
-  { title:"Leitura do Outro Lado", summary:`Negociação é comunicação — e parte dela é não-verbal. Quem lê o outro lado com precisão adapta a estratégia em tempo real.
+O exemplo clássico da laranja:
+Duas pessoas querem a mesma laranja. Posição: cada uma quer a laranja inteira. Parece impossível.
+Interesses: uma quer o suco. A outra quer a casca para fazer bolo. Solução: uma pega o interior, a outra a casca. Ambas ganham 100%.
 
-Sinais de interesse real:
-• Faz perguntas detalhadas sobre implementação
-• Propõe datas e próximos passos
-• Traz outras pessoas para a conversa
-• Linguagem corporal aberta, inclinado para frente
+Como descobrir os interesses:
+• Pergunte "por quê?" ou "o que você precisa alcançar com isso?"
+• Ouça o que não foi dito — hesitações e emoções revelam muito
+• Liste os possíveis interesses antes da negociação: econômico, de relacionamento, de status, de tempo
 
-Sinais de resistência:
-• Respostas curtas, pouca energia
-• Olha para o lado ou para baixo ao falar de preço
-• "Vamos pensar e te retornamos" sem agendar uma data
-• Traz objeções repetidamente após já terem sido respondidas
+Em toda negociação difícil, pergunte-se: "O que a outra parte realmente precisa que eu possa ajudar a fornecer?"` },
 
-Calibre as perguntas:
-• "Isso faz sentido para vocês até agora?"
-• "O que precisaria acontecer para avançarmos?"
-• "Quem mais precisaria estar nessa conversa?"` },
+  { title:"Leitura do outro lado", summary:`A melhor informação numa negociação é entender o estado, as pressões e os interesses da outra parte. Quem lê bem o outro lado cria acordos que o outro lado aceita.
 
-  { title:"Timing Ideal", summary:`O momento certo pode valer mais do que qualquer argumento. Quem entende o timing negocia com o vento a favor, não contra.
+O que observar:
+• Linguagem corporal — tensão, alívio, hesitação, entusiasmo
+• Velocidade de resposta — respostas rápidas sinalizam preparo ou ansiedade; lentas, reflexão ou desconforto
+• O que perguntam — as perguntas revelam o que importa para eles
+• Mudanças de comportamento — quando ficam mais rígidos ou mais flexíveis
 
-Quando negociar:
-• Quando você tem alternativas — nunca negocie desesperado
-• Quando o outro precisa de você — identifique o momento de maior dependência
-• Quando o relacionamento está positivo — não no meio de um conflito
-• Antes do fim do trimestre/ano — empresas têm pressão por fechar negócios
+Perguntas de diagnóstico:
+• "O que seria um sucesso para você nessa negociação?"
+• "O que tornaria esse acordo impossível para você?"
+• "Quais são suas principais restrições?"
 
-Quando não negociar:
-• Quando você está emocional — raiva e ansiedade destroem resultados
-• Quando não tem informação suficiente — pesquise antes
-• Quando o outro está sob alta pressão — acordos feitos sob pressão são revistos
+Faça perguntas abertas e ouça com atenção. A outra parte vai te dar as informações que você precisa para fechar um acordo que ela vai aceitar.` },
 
-A deadline cria urgência — mas use com cuidado. Se a outra parte descobrir que é artificial, perde credibilidade.` },
+  { title:"Timing ideal", summary:`Na negociação, quando você age é tão importante quanto o que você propõe. O timing certo abre portas que o melhor argumento não abre.
 
-  { title:"Fechar Acordos win-win", summary:`Um acordo que o outro lado não quer cumprir não é um bom acordo. Quem fecha acordos sólidos pensa no dia seguinte, não só no fechamento.
+Princípios de timing:
 
-O que torna um acordo duradouro:
-• Ambos os lados sentiram que foram ouvidos
-• As concessões foram percebidas como justas
-• Os termos estão claros e documentados
-• Existe um mecanismo para lidar com imprevistos
+Negocie quando a outra parte precisa fechar — fim de trimestre, fim de prazo, pressão interna. O poder muda com o tempo.
 
-Técnicas de fechamento:
-• Resumo final: "Recapitulando o que acordamos: X, Y e Z. Isso reflete nossa conversa?"
-• Próximo passo concreto: "Posso enviar o contrato até quinta-feira?"
-• Senso de conclusão: "Acho que chegamos a um ponto que funciona bem para os dois lados."
+Não negocie com pressa — quem está com urgência cede mais. Nunca revele prazo a menos que seja uma tática.
 
-Depois do fechamento: envie um e-mail resumindo os termos. Memórias são seletivas — documentação protege todo mundo.` },
+Primeiro rapport, depois proposta — acordos feitos antes de estabelecer confiança são frágeis.
 
-  { title:"Negociação em Grupo", summary:`Negociar com múltiplas partes ou em equipe tem dinâmicas próprias. Quem domina o grupo vence negociações que no individual seriam impossíveis.
+Saiba quando parar — negociar além do ponto de acordo pode destruir o que foi construído. Quando chegou em algo bom, feche.
 
-Quando você tem uma equipe:
-• Defina papéis antes: quem fala, quem observa, quem anota
-• O observador capta linguagem corporal e diz o que o negociador não percebe
-• Nunca contradiga seu colega na frente do outro lado — sinalize discordância com um sinal combinado
-• Timeout estratégico: "Preciso de 5 minutos para conversar com minha equipe"
+A recapitulação fecha — "Então combinamos X, Y e Z. Está correto?" Verbalizar o acordo consolida e reduz arrependimento posterior.` },
 
-Quando o outro lado é um grupo:
-• Identifique quem realmente decide — pode não ser quem mais fala
-• Observe as dinâmicas internas — tensões entre eles são oportunidades
-• Dirija seus argumentos mais fortes ao tomador de decisão, não ao mais vocal
+  { title:"Fechar acordos win-win", summary:`Um acordo win-win não é quando ambos ficam felizes — é quando ambos atendem seus interesses principais. Quem fecha assim cria relacionamentos de longo prazo.
 
-Coalizão: em negociações multilaterais, quem forma aliança antes da mesa, vence.` },
+Checklist do bom fechamento:
+
+1. Todos os pontos principais foram discutidos?
+2. Ambas as partes entendem o que foi acordado da mesma forma?
+3. Os interesses principais de cada lado foram atendidos?
+4. O acordo é realizável — ambos conseguem cumprir?
+5. Foi documentado por escrito?
+
+Documentação importa: um e-mail de confirmação após qualquer acordo verbal, mesmo informal. "Como combinamos hoje: [resumo]." Isso previne mal-entendidos e cria responsabilização.
+
+Após um bom acordo, celebre com a outra parte — mesmo que brevemente. Isso ancorará a memória do processo como positivo para futuras negociações.` },
+
+  { title:"Negociação em grupo", summary:`Negociações com múltiplos participantes têm dinâmicas próprias. Quem domina isso não perde acordos por falta de alinhamento interno.
+
+Desafios únicos das negociações em grupo:
+• Coalização — grupos adversários podem se alinhar contra você
+• Agendas ocultas — cada pessoa tem seus próprios interesses além do resultado coletivo
+• Dinâmica de status — quem tem poder informal pode não ser quem fala mais alto
+
+Estratégias:
+• Identifique o real tomador de decisão — nem sempre é quem fala mais
+• Faça pré-reuniões 1:1 — alinhe os principais antes da reunião geral
+• Endereçe cada pessoa pelo seu interesse individual
+• Cuidado com a dinâmica de grupo — pessoas mudam de posição quando há plateia
+
+Em grupos grandes, acordos são feitos em conversas de corredor, não em salas de reunião. Invista nas relações bilaterais.` },
 ];
 
 const CONTENT_EMPREEND = [
-  { title:"Validação de Ideia", summary:`A maioria das startups falha não porque o produto era ruim — mas porque ninguém queria o produto. Quem valida antes de construir economiza meses de trabalho e recursos.
+  { title:"Validação de ideia", summary:`A maioria dos negócios falha não por falta de execução — mas por construir algo que ninguém quer. Validar antes de construir salva anos de trabalho.
 
-Validar é descobrir se alguém tem o problema que você quer resolver — antes de construir a solução.
+O que validar:
+1. O problema existe? As pessoas realmente sofrem com isso?
+2. As pessoas pagariam pela solução?
+3. Você consegue chegar até esses clientes?
 
-Como validar em 2 semanas:
-1. Escreva a hipótese: "Acredito que [perfil] tem [problema] e pagaria [valor] por [solução]"
-2. Fale com 10 pessoas do perfil. Pergunte sobre o problema, não sobre sua solução.
-3. Observe comportamento: alguém já paga por uma solução alternativa? Isso é sinal de mercado.
-4. Presell: antes de construir, venda. Se ninguém compra a ideia, talvez não comprem o produto.
+Como validar sem código, sem produto:
+• Entreviste 10–20 potenciais clientes sobre o problema (não sobre a solução)
+• Crie uma landing page simples e meça cliques no "comprar"
+• Venda manualmente antes de automatizar — um pedido real vale mais que 1000 pesquisas
+• Pré-venda: aceite pagamento antes de construir o produto
 
-Pergunta que revela tudo: "Como você resolve esse problema hoje?" Se a resposta for "não resolvo", o problema pode não doer o suficiente.` },
+A pergunta que separa entusiasmo de validação: "Alguém já pagou por isso?" Se não, você tem uma hipótese, não um negócio.` },
 
-  { title:"MVP Enxuto", summary:`MVP (Produto Mínimo Viável) não é um produto simples — é o menor experimento que responde à pergunta mais importante sobre o seu negócio. Quem domina isso aprende rápido sem gastar muito.
+  { title:"MVP enxuto", summary:`MVP (Minimum Viable Product) é a versão mais simples do produto que entrega valor suficiente para validar suas hipóteses principais.
 
-O objetivo: aprender, não impressionar.
+O objetivo do MVP não é impressionar — é aprender.
 
-Tipos de MVP:
-• Landing page — descreve o produto e captura interesse (sem construir nada)
-• Concierge — entrega o resultado manualmente antes de automatizar
-• Wizard of Oz — parece automatizado, mas é feito por pessoas por trás
-• Protótipo clicável — simula o fluxo sem código funcional
-• Smoke test — vende antes de ter o produto, mede demanda real
+O que um MVP não é:
+• Não é um produto incompleto que vai ser melhorado depois
+• Não é uma versão com metade das features planejadas
+• Não é algo que você se envergonha de mostrar (se não tiver vergonha, esperou demais)
 
-O erro mais comum: construir um MVP que é, na prática, um produto completo "menor". Pergunte: "O que é o mínimo que aprende o máximo?"
+Como definir seu MVP:
+1. Liste todas as features que você quer construir
+2. Para cada uma, pergunte: "Sem isso, o produto ainda entrega o valor central?"
+3. Corte tudo que não for essencial para o valor central
+4. Construa isso — só isso
 
-Dropbox validou com um vídeo. Airbnb começou alugando o próprio apartamento.` },
+O loop: Construir → Medir → Aprender → Repetir. O MVP inicia o ciclo. A velocidade desse ciclo determina quem vence.` },
 
-  { title:"Business Model Canvas", summary:`O Business Model Canvas é uma ferramenta visual para desenhar, testar e iterar modelos de negócio em uma única página. Quem o domina visualiza o negócio inteiro de uma vez.
+  { title:"Business Model Canvas", summary:`O Business Model Canvas (BMC) é uma ferramenta de 9 blocos que mapeia todo o modelo de negócio em uma única página. Quem pensa pelo BMC evita pontos cegos.
 
 Os 9 blocos:
-1. Segmentos de clientes — para quem você cria valor?
-2. Proposta de valor — qual problema você resolve?
-3. Canais — como você alcança os clientes?
-4. Relacionamento — como você se relaciona?
-5. Fontes de receita — como você monetiza?
-6. Recursos-chave — o que você precisa para funcionar?
-7. Atividades-chave — o que você faz todos os dias?
-8. Parcerias-chave — quem te ajuda a entregar?
-9. Estrutura de custos — onde você gasta?
+1. Segmentos de clientes — quem são seus clientes?
+2. Proposta de valor — o que você entrega de diferente?
+3. Canais — como chega até o cliente?
+4. Relacionamento com clientes — como você retém?
+5. Fontes de receita — como ganha dinheiro?
+6. Recursos-chave — o que você precisa ter?
+7. Atividades-chave — o que você precisa fazer?
+8. Parceiros-chave — quem pode ajudar?
+9. Estrutura de custos — o que custa mais?
 
-Use post-its — cada bloco é uma hipótese a ser testada, não uma certeza.
+Use post-its em papel ou Miro online. Cada bloco deve caber em 1–3 linhas. Se precisar de mais, você ainda não entendeu seu próprio negócio.` },
 
-Revise o Canvas a cada 3 meses. Negócios que sobrevivem geralmente pivotam pelo menos uma vez.` },
-
-  { title:"Product Market Fit", summary:`Product Market Fit (PMF) é quando o seu produto serve tão bem a um mercado que ele cresce por si mesmo. Antes do PMF, tudo é difícil. Depois, tudo fica mais fácil.
+  { title:"Product Market Fit", summary:`Product Market Fit (PMF) é o momento em que você encontrou um produto que um mercado realmente quer. Antes do PMF, nada escala. Depois do PMF, tudo acelera.
 
 Como saber se você tem PMF:
-• Pergunta de Sean Ellis: "Como você se sentiria se não pudesse mais usar este produto?" Se mais de 40% responder "muito desapontado" — você tem PMF.
-• Churn baixo — os clientes ficam e voltam
-• Crescimento orgânico — clientes indicam sem incentivo
-• Você não precisa empurrar — a demanda puxa
+• Clientes chegam sem você fazer esforço ativo de vendas
+• A retenção é alta — as pessoas voltam e continuam usando
+• Clientes ficam chateados quando você menciona tirar o produto do mercado
+• A maioria dos novos clientes vêm por indicação
 
-O que fazer antes do PMF:
-• Não escale — escalar sem PMF amplifica problemas, não soluções
-• Fale com clientes toda semana
-• Meça retenção, não aquisição
+O teste de Sean Ellis: "Como você se sentiria se não pudesse mais usar esse produto?" Se 40%+ respondem "muito desapontado" — você tem PMF.
 
-PMF não é permanente. Mercados mudam. O que serviu bem ontem pode não servir amanhã.` },
+Antes do PMF: foque em aprender, não em crescer. Crescimento antes do PMF só amplifica os problemas. Após o PMF: foque em escalar o que já está funcionando.` },
 
-  { title:"Precificação Estratégica", summary:`Preço é posicionamento. Quem domina precificação para de competir por centavos e começa a vender valor.
+  { title:"Precificação estratégica", summary:`Preço não é só o que você cobra — é o que comunica sobre o valor do seu produto. Quem precifica estrategicamente vende mais e ganha mais.
+
+Os 3 erros mais comuns:
+1. Precificar baseado em custo + margem — ignora o valor percebido
+2. Precificar abaixo dos concorrentes para "ganhar mercado" — inicia uma guerra que destrói margens
+3. Não testar preços — o único preço certo é o que o mercado aceita
 
 Modelos de precificação:
-• Por custo + margem — o mínimo. Funciona mas não captura valor máximo.
-• Por valor percebido — cobra o que o cliente ganha, não o que você gasta.
-• Por concorrência — perigoso como bússola principal, útil como referência.
-• Por camadas (tiers) — basic, pro, enterprise. Maximiza diferentes perfis.
-• Freemium — gratuito com upgrade pago. Funciona se o free cria hábito.
+• Por valor — quanto o cliente economiza ou ganha com o produto
+• Por projeto — escopo definido, preço fechado
+• Recorrente (SaaS) — assinatura mensal/anual. Previsibilidade de receita.
+• Freemium — gratuito com limite, pago sem limite
 
-Dica de ouro: pesquise o custo do problema que você resolve. Se o cliente perde R$50k por mês com o problema, cobrar R$2k/mês é barato.
+Âncora de preço: mostre sempre uma versão mais cara primeiro. O preço do meio parece razoável em comparação.
 
-Nunca reduza preço sem reduzir escopo. Desconto sem troca cria precedente ruim.` },
+Dobre seu preço e veja o que acontece. A maioria descobre que poderia cobrar mais.` },
 
-  { title:"Captação de Clientes", summary:`Sem clientes não existe negócio. Quem domina os primeiros canais de aquisição cria momentum — os outros vêm depois.
+  { title:"Captação de clientes", summary:`Sem clientes, não há negócio. A captação é o sistema que garante que novos clientes continuam chegando — independentemente de você.
 
-Os canais que mais funcionam para early-stage:
-• Vendas diretas — o fundador vende. Sempre. Até ter PMF.
-• Comunidades — grupos no WhatsApp, Slack, Discord, LinkedIn onde seu ICP já está
-• Conteúdo — artigos, posts, vídeos que atraem clientes enquanto você dorme
-• Indicação — o mais barato e eficaz. Crie um programa formal cedo.
-• Parcerias — quem já atende seu cliente com outro produto
+Os 3 canais que mais funcionam para novos negócios:
 
-Regra do canal: teste 3 canais em paralelo com 30 dias cada. Dobre o que funcionar. Mate o que não funcionar.
+Orgânico — conteúdo, SEO, comunidades. Lento para iniciar, mas o mais barato a longo prazo.
 
-Os primeiros 10 clientes são os mais valiosos — eles validam, refinam e indicam. Trate-os como parceiros, não apenas como compradores.` },
+Indicação — o canal mais eficiente. CAC baixo, conversão alta, clientes mais fiéis. Crie um mecanismo formal: peça indicações, incentive.
 
-  { title:"Pitch Eficaz", summary:`Um pitch ruim desperdiça boas ideias. Um pitch eficaz abre portas que nenhum currículo ou produto abre. Quem domina isso comunica valor em qualquer contexto.
+Direto — cold email, cold call, LinkedIn outreach. Funciona quando a mensagem é personalizada e o produto tem clareza de quem serve.
 
-Estrutura do pitch de 60 segundos:
-1. Problema — "X% de [perfil] sofre com [problema]"
-2. Solução — "Nós [o que fazemos] para [quem]"
-3. Tração — "Já temos X clientes / R$Y de receita / Z% de crescimento"
-4. Por que agora — o que mudou que torna isso possível hoje
-5. O pedido — o que você quer de quem está ouvindo
+Regra dos 3 canais: teste 3 canais ao mesmo tempo. Escale os 2 que funcionam, mate o que não funciona. Depois repita com 3 novos canais.
 
-Para investidores, adicione:
-• Tamanho de mercado (TAM/SAM/SOM)
-• Modelo de negócio
-• Uso do capital
+O maior erro: depender de um único canal. Quando ele para, o negócio para.` },
 
-O que mata um pitch:
-• Muito tempo no problema, pouco na solução
-• Slides com texto demais
-• Não saber os números de memória
+  { title:"Pitch eficaz", summary:`Um pitch eficaz não é apresentação de slides — é a capacidade de comunicar o valor do negócio de forma que mova o interlocutor à ação.
 
-Pratique em voz alta até parecer natural. Leitura de slide não é pitch.` },
+A estrutura que funciona (elevator pitch de 60 segundos):
+1. O problema — "Sabe quando [situação frustrante]?"
+2. A solução — "Nós criamos [produto] que [resultado específico]."
+3. A tração — "Em X meses, [prova: clientes, receita, crescimento]."
+4. O pedido — "Estou buscando [o que você quer: investimento, parceria, cliente]."
 
-  { title:"Métricas de Startup", summary:`Você não pode melhorar o que não mede. Quem domina as métricas certas toma decisões que os outros tomam por intuição — e erra menos.
+Para pitch a investidores, adicione: mercado, modelo de negócio, time, uso do capital.
 
-Métricas que importam (North Star Metric):
-• Uma única métrica que representa o valor entregue ao cliente. Ex: Uber — viagens completadas; Spotify — tempo de escuta; Airbnb — noites reservadas.
+O que mata pitches:
+• Começar pelo produto, não pelo problema
+• Muitos números sem contexto
+• Não ter um pedido claro no final
+• Defender quando questionado em vez de aprender
 
-Financeiras essenciais:
-• MRR (receita recorrente mensal) e sua taxa de crescimento
-• CAC — custo de aquisição de cliente
-• LTV — valor do cliente ao longo do tempo
-• LTV:CAC ≥ 3:1 para negócio saudável
-• Churn rate — % de clientes que cancelam por mês
-• Runway — quantos meses de caixa restam
+Pratique até poder fazer o pitch sem slides.` },
 
-Produto:
-• DAU/MAU — usuários ativos diários vs. mensais
-• NPS — satisfação do cliente
-• Retenção em cohorte — o que os clientes fazem depois de 30, 60, 90 dias
+  { title:"Métricas de startup", summary:`Você não pode melhorar o que não mede. As métricas certas mostram a saúde real do negócio — não o que parece bem.
 
-Revise semanalmente. Decida mensalmente. Reporte trimestralmente.` },
+As métricas que mais importam:
 
-  { title:"Escalar o Negócio", summary:`Escalar é crescer receita mais rápido do que os custos. Quem entende isso não contrata para crescer — contrata depois de crescer.
+MRR (Monthly Recurring Revenue) — receita recorrente mensal. A métrica central de todo SaaS.
 
-Condições para escalar:
-• PMF confirmado — retenção boa, NPS alto, crescimento orgânico
-• Unidade econômica positiva — LTV > CAC
-• Processos documentados — o negócio funciona sem depender 100% de você
-• Canal de aquisição repetível
+Churn — % de clientes ou receita perdida por mês. Acima de 5% ao mês é problema grave.
 
-Alavancas de crescimento:
-• Produto — funcionalidades que aumentam retenção e expansão
-• Vendas — time que replica o que o fundador fazia
-• Marketing — canais pagos que convertem com ROAS positivo
-• Parcerias — acesso ao cliente de outra empresa
+CAC (Custo de Aquisição de Cliente) — quanto custa para trazer um novo cliente.
 
-O que mata o crescimento:
-• Contratar antes de ter processo — o time repete o caos
-• Escalar canal antes de validar a unidade econômica
-• Crescer geográfica ou verticalmente antes de dominar o mercado principal` },
+LTV (Lifetime Value) — quanto um cliente gera ao longo do relacionamento.
 
-  { title:"Cultura e Time", summary:`Cultura não é o que você escreve na parede — é o que você tolera. Quem domina a construção de cultura cria um time que recruta, retém e performa sem precisar de microgestão.
+LTV:CAC ≥ 3:1 é o mínimo para um modelo saudável.
 
-Os princípios que criam cultura forte:
-• Clareza de valores — não "integridade", mas comportamentos específicos que a representam
-• Quem você contrata define quem você é — uma contratação errada custa 10 vezes o salário em produtividade e moral
-• Rituais criam cultura — reuniões, celebrações, retrospectivas
+NPS (Net Promoter Score) — de 0 a 10, quanto recomendaria? Abaixo de 30 é sinal de alerta.
 
-Como contratar bem no early-stage:
-• Prefira alguém que já resolveu o problema a alguém com currículo impecável
-• Culture fit ≠ similaridade — diversidade de pensamento é vantagem
-• Peça para fazer o trabalho antes de contratar — uma semana de teste vale mais que 5 entrevistas
+Métricas de vaidade (evite como foco): seguidores, downloads, usuários cadastrados que não ativaram.` },
 
-A maior alavanca de um fundador não é o produto — é o time. Invista desproporcionalmente em encontrar as pessoas certas.` },
+  { title:"Escalar o negócio", summary:`Crescimento e escala são coisas diferentes. Crescimento é aumentar a receita. Escala é aumentar a receita sem aumentar custos na mesma proporção.
+
+O que você precisa para escalar:
+
+Produto validado com PMF — sem isso, escalar apenas acelera a falha.
+
+Sistema de aquisição — pelo menos um canal previsível e replicável de clientes.
+
+Operações documentadas — processos que qualquer pessoa da equipe consegue executar sem você.
+
+Time — você não escala sozinho. Cada etapa de escala exige delegar uma função crítica.
+
+Capital ou lucratividade — escalar queima caixa. Tenha um plano.
+
+O paradoxo da escala: o que te trouxe até aqui provavelmente não te levará ao próximo nível. O fundador que faz tudo precisa virar o CEO que constrói o sistema que faz tudo.` },
+
+  { title:"Cultura e time", summary:`Time é o único ativo que gera todos os outros ativos. A cultura que você cria determina quem fica, quem você atrai e o que você consegue construir.
+
+Contratação: habilidade é ensinável, atitude é difícil de mudar. Contrate atitude + potencial antes de habilidade completa.
+
+Cultura se define pelo que você tolera, não pelo que você prega. Se você tolera fofoca, você tem uma cultura de fofoca. Se você tolera atrasos, tem uma cultura de atraso.
+
+Os sinais de uma cultura forte:
+• Pessoas tomam boas decisões sem você estar presente
+• Conflitos são discutidos abertamente, não ignorados
+• As pessoas recrutam naturalmente pessoas parecidas com elas
+• Alta retenção nos primeiros talentos
+
+A cultura do fundador vira a cultura da empresa. Você não pode terceirizar cultura — você precisa vivê-la.
+
+Contrate devagar, demita rápido. Uma pessoa errada no lugar errado custa 10 pessoas certas de moral.` },
 ];
+
+/* ── Registra no mapa global ── */
+registerContent({
+  produtividade: CONTENT_PRODUTIVIDADE,
+  emocional:     CONTENT_EMOCIONAL,
+  programacao:   CONTENT_PROGRAMACAO,
+  saude:         CONTENT_SAUDE,
+  negociacao:    CONTENT_NEGOCIACAO,
+  empreend:      CONTENT_EMPREEND,
+});
