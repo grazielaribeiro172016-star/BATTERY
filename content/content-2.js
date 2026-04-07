@@ -3,7 +3,7 @@
 ═══════════════════════════════════════════ */
 
 const CONTENT_LIDERANCA = [
-  { title:"O que é Liderar", summary:`Liderança não é cargo — é influência. Quem entende isso para de esperar uma posição e começa a liderar agora.
+  { title:"O que é liderar", summary:`Liderança não é cargo — é influência. Você pode ter o título de gerente e não liderar ninguém, ou não ter título algum e mover pessoas.
 
 A definição que importa: liderança é a capacidade de fazer as pessoas quererem ir a um lugar que elas não iriam sozinhas.
 
@@ -19,19 +19,24 @@ As duas perguntas que definem um líder:
 
 A maioria confunde gestão (fazer as coisas acontecerem) com liderança (fazer as pessoas quererem que as coisas aconteçam). Desenvolva os dois, mas saiba a diferença.` },
 
-  { title:"Tipos de Liderança", summary:`Não existe um estilo certo — existe o certo para cada situação. Líderes que dominam vários estilos chegam mais longe.
+  { title:"Tipos de liderança", summary:`Não existe um estilo certo de liderança — existe o certo para cada situação e cada pessoa.
 
 Os 6 estilos de Goleman:
-• Visionário — inspira com a direção. Funciona em mudanças.
+• Visionário — inspira com a direção. Funciona em mudanças e crises.
 • Treinador — desenvolve individualmente. Funciona com quem quer crescer.
 • Afiliativo — prioriza harmonia. Funciona para curar conflitos.
 • Democrático — busca consenso. Funciona com equipes experientes.
 • Marcador de ritmo — lidera pelo exemplo. Funciona com equipes motivadas, mas esgota se usado em excesso.
-• Coercitivo — ordena. Funciona apenas em crises reais.
+• Coercitivo — ordena. Funciona apenas em crises reais — destrói clima se usado cronicamente.
 
-Líderes eficazes usam 3–4 estilos diferentes. Rigidez de estilo é um dos maiores limitadores de liderança.` },
+Líderes eficazes usam pelo menos 3–4 estilos diferentes dependendo do contexto. A rigidez de estilo é um dos maiores limitadores de liderança.` },
 
-  { title:"Delegação Eficaz", summary:`Delegação é a alavanca mais poderosa de um líder. Quem não delega cria um gargalo — ele mesmo.
+  { title:"Delegação eficaz", summary:`Delegação é a alavanca mais poderosa de um líder. Quem não delega cria um gargalo — ele mesmo.
+
+Por que líderes não delegam:
+• Acha que ninguém faz tão bem quanto ele
+• Medo de perder controle ou relevância
+• Não investe tempo em treinar
 
 Como delegar bem:
 1. Defina o resultado esperado, não o método
@@ -40,14 +45,9 @@ Como delegar bem:
 4. Aceite que a pessoa vai fazer diferente de você — e tudo bem
 5. Dê crédito publicamente, assuma erros em conjunto
 
-Matriz:
-• Tarefas rotineiras → delegue totalmente
-• Tarefas estratégicas → decida com input da equipe
-• Tarefas de desenvolvimento → delegue com acompanhamento
-
 Um líder que delega bem multiplica seu impacto. Um líder que não delega limita seu crescimento ao número de horas que tem.` },
 
-  { title:"Dar e Receber Feedback", summary:`A maior responsabilidade de um líder é ajudar as pessoas a crescerem. Quem domina essa habilidade forma equipes que se desenvolvem sozinhas.
+  { title:"Dar e receber feedback", summary:`A maior responsabilidade de um líder é ajudar as pessoas a crescerem. Isso não acontece sem feedback honesto e consistente.
 
 Regras para líderes:
 • Feedback positivo em público, desenvolvimento em privado
@@ -56,13 +56,13 @@ Regras para líderes:
 • Peça permissão em contextos sensíveis
 • Receba feedback da equipe também
 
-One-on-one semanal de 30 minutos por pessoa é a ferramenta mais subutilizada de desenvolvimento.
+One-on-one semanal de 30 minutos por pessoa é a ferramenta mais subutilizada de desenvolvimento de equipes.
 
 Consistência supera intensidade. Um feedback por semana por pessoa transforma equipes em 6 meses.` },
 
-  { title:"Gestão de Conflitos", summary:`Conflito não é problema — é sinal de pessoas engajadas. Quem domina a gestão de conflitos transforma tensão em crescimento.
+  { title:"Gestão de conflitos", summary:`Conflito não é problema — é sinal de pessoas engajadas. O problema é o conflito mal gerenciado.
 
-Tipos:
+Tipos de conflito:
 • Conflito de tarefa — discordância sobre como fazer. Geralmente saudável.
 • Conflito de relacionamento — tensão pessoal. Sempre prejudicial se não resolvido.
 • Conflito de processo — quem faz o quê. Resolve-se com clareza de papéis.
@@ -76,7 +76,7 @@ Como intervir:
 
 A maioria dos conflitos persiste porque o líder evita a conversa difícil. Endereçar cedo resolve em 20 minutos o que evitado dura meses.` },
 
-  { title:"Visão Estratégica", summary:`Visão é enxergar aonde chegar e comunicar isso de forma que as pessoas queiram ir junto. Líderes que dominam isso nunca faltam seguidores.
+  { title:"Visão estratégica", summary:`Visão é a capacidade de enxergar aonde a equipe precisa chegar e comunicar isso de forma que as pessoas queiram ir junto.
 
 Uma boa visão tem:
 • Clareza — todos entendem o que significa
@@ -91,9 +91,9 @@ Como comunicar visão:
 
 A maioria dos líderes tem visão na cabeça mas não a comunica com frequência suficiente. A equipe não pode se alinhar com o que não ouviu repetidamente.` },
 
-  { title:"Motivar Equipes", summary:`Motivação extrínseca (dinheiro) funciona para tarefas mecânicas. Para trabalho criativo, quem domina a motivação intrínseca lidera equipes imparáveis.
+  { title:"Motivar equipes", summary:`Motivação extrínseca (dinheiro) funciona para tarefas mecânicas. Para trabalho criativo, motivação intrínseca é o que move pessoas.
 
-Os 3 drivers (Daniel Pink):
+Os 3 drivers de Daniel Pink:
 • Autonomia — as pessoas querem controle sobre seu trabalho.
 • Maestria — as pessoas querem melhorar em algo que importa.
 • Propósito — as pessoas querem contribuir para algo maior.
@@ -106,12 +106,12 @@ O que desmotiva mais:
 
 Reconhecimento frequente e específico é o motivador de maior impacto e menor custo que um líder tem à disposição.` },
 
-  { title:"Decisão sob Pressão", summary:`A qualidade das suas decisões sob pressão define sua eficácia como líder. Quem domina isso vale ouro em qualquer organização.
+  { title:"Decisão sob pressão", summary:`A qualidade das suas decisões sob pressão define sua eficácia como líder. Pressão comprime o pensamento — por isso é preciso ter sistemas.
 
 Framework para decisões difíceis:
 1. Qual é o pior resultado possível de cada opção? Você consegue viver com ele?
 2. Essa decisão é reversível? Se sim, decida rápido e ajuste.
-3. Quem tem informação que você não tem? Consulte, mas não use para procrastinar.
+3. Quem tem informação que você não tem? Consulte antes de decidir.
 4. Qual opção você consegue defender daqui a 10 anos?
 
 Armadilhas comuns:
@@ -119,9 +119,9 @@ Armadilhas comuns:
 • Paralisia por análise
 • Decisão por consenso em crises
 
-Em crises, a decisão boa o suficiente que chega rápido geralmente supera a decisão perfeita que chegou tarde.` },
+Em crises, a decisão boa o suficiente que chega rápido supera a decisão perfeita que chegou tarde.` },
 
-  { title:"Cultura de Alta Performance", summary:`Equipes de alta performance são construídas com cultura e sistemas deliberados. Quem domina isso escala resultados sem depender de indivíduos.
+  { title:"Cultura de alta performance", summary:`Equipes de alta performance não acontecem por acaso. São construídas com cultura e sistemas deliberados.
 
 Os 5 elementos de Lencioni:
 1. Confiança — segurança para ser vulnerável
@@ -137,7 +137,7 @@ Como construir:
 
 O principal inibidor de alta performance é a falta de confiança. Invista nos primeiros meses em criar segurança psicológica.` },
 
-  { title:"Liderança Servidora", summary:`Liderança servidora inverte a pirâmide: o líder existe para servir a equipe. Quem domina esse modelo alcança resultados que nenhum estilo autoritário alcança.
+  { title:"Liderança servidora", summary:`Liderança servidora inverte a pirâmide: o líder existe para servir a equipe, não o contrário.
 
 O que significa na prática:
 • Remover obstáculos — seu trabalho é destravar as pessoas
@@ -146,16 +146,18 @@ O que significa na prática:
 • Dar crédito — compartilhar o sucesso publicamente
 • Absorver críticas — proteger a equipe de pressão desnecessária
 
-Não confunda com ser passivo — exige coragem para conversas difíceis e responsabilização, feitas com respeito genuíno.
+Paradoxo: líderes servidores alcançam resultados superiores porque suas equipes são mais engajadas e criativas.
 
-A pergunta que mais muda uma equipe, dita com sinceridade: "O que posso fazer para facilitar o seu trabalho?"` },
+Não confunda com ser passivo — exige coragem para conversas difíceis, feitas com respeito genuíno.
+
+A pergunta que mais muda uma equipe: "O que posso fazer para facilitar o seu trabalho?"` },
 ];
 
 const CONTENT_MARKETING = [
-  { title:"Fundamentos de Branding", summary:`Marca não é logo — é a percepção que existe na mente das pessoas quando pensam em você. Quem domina branding compete em outro nível.
+  { title:"Fundamentos de branding", summary:`Marca não é logo — é a percepção que existe na mente das pessoas quando pensam em você ou no seu negócio.
 
-Os 3 pilares:
-• Posicionamento — qual espaço único você ocupa? Você não pode ser tudo para todos.
+Os 3 pilares de uma marca forte:
+• Posicionamento — qual espaço único você ocupa na mente do cliente?
 • Personalidade — se sua marca fosse uma pessoa, como ela falaria e se comportaria?
 • Promessa — o que as pessoas podem sempre esperar de você?
 
@@ -164,13 +166,13 @@ Como construir marca sem orçamento:
 • Tenha uma perspectiva clara — marcas genéricas não são lembradas
 • Entregue mais do que promete
 
-Clareza de posicionamento resolve a maioria dos problemas de branding. Uma marca que tenta agradar todo mundo não fica na memória de ninguém.` },
+Clareza de posicionamento resolve 80% dos problemas de branding. Uma marca que tenta agradar todo mundo não fica na memória de ninguém.` },
 
-  { title:"Persona e ICP", summary:`ICP (Ideal Customer Profile) é quem você quer como cliente. Persona é a representação humanizada. Quem domina isso para de desperdiçar energia com quem nunca vai comprar.
+  { title:"Persona e ICP", summary:`ICP (Ideal Customer Profile) é quem você quer como cliente. Persona é a representação humanizada dessa pessoa.
 
-Por que importa: toda comunicação só funciona quando direcionada a alguém específico. "Todo mundo" não é público.
+Por que isso importa: toda comunicação só funciona quando direcionada a alguém específico. "Todo mundo" não é público.
 
-Como construir:
+Como construir uma persona:
 • Dados demográficos: idade, cargo, renda, localização
 • Problemas: quais as 3 maiores dores que você resolve?
 • Objetivos: o que essa pessoa quer alcançar?
@@ -179,7 +181,7 @@ Como construir:
 
 Entrevistar 10 clientes atuais é mais valioso do que qualquer pesquisa cara. Eles já compraram — entender por quê é o maior ativo de marketing que você tem.` },
 
-  { title:"Funil de Vendas", summary:`O funil representa a jornada do cliente desde o primeiro contato até a compra. Quem domina o funil nunca depende de sorte para vender.
+  { title:"Funil de vendas", summary:`O funil representa a jornada do cliente desde o primeiro contato até a compra e fidelização.
 
 Etapas:
 • Topo (ToFu) — Awareness: a pessoa descobre que você existe. Conteúdo educativo, SEO.
@@ -187,12 +189,12 @@ Etapas:
 • Fundo (BoFu) — Decisão: pronta para comprar. Oferta, prova social, garantia.
 • Pós-venda — Retenção e indicação.
 
-Métricas por etapa:
-ToFu: alcance, tráfego | MoFu: leads, conversão visitante→lead | BoFu: taxa de fechamento, CAC
+Métricas:
+ToFu: alcance, tráfego | MoFu: leads, conversão | BoFu: taxa de fechamento, CAC
 
 A maioria foca em topo de funil quando o maior problema está no meio — leads que entram mas não avançam por falta de nutrição.` },
 
-  { title:"Marketing de Conteúdo", summary:`Marketing de conteúdo é atrair clientes entregando valor antes de pedir qualquer coisa em troca. Quem domina isso constrói uma audiência que compra com confiança.
+  { title:"Marketing de conteúdo", summary:`Marketing de conteúdo é atrair clientes entregando valor antes de pedir qualquer coisa em troca.
 
 Por que funciona: as pessoas confiam em quem as educou.
 
@@ -200,13 +202,13 @@ O framework:
 • Um canal principal com publicação consistente (blog, YouTube, LinkedIn)
 • Conteúdo que responde perguntas que seu ICP já está fazendo
 • Distribuição em canais secundários
-• Uma oferta para capturar o lead (e-book, webinar, lista)
+• Uma oferta para capturar o lead
 
 O erro mais comum: publicar sem consistência. Algoritmos e audiências respondem à regularidade, não à perfeição.
 
 Uma peça profunda por semana supera dez peças superficiais. Profundidade constrói autoridade; superficialidade cria ruído.` },
 
-  { title:"SEO Básico", summary:`SEO faz seu conteúdo aparecer no Google quando as pessoas buscam pelo que você oferece. Quem domina os fundamentos cria tráfego que não precisa ser pago.
+  { title:"SEO básico", summary:`SEO faz seu conteúdo aparecer no Google quando as pessoas buscam pelo que você oferece.
 
 Os fundamentos:
 • Palavras-chave — o que seu cliente busca? Use Google Search ou Ubersuggest.
@@ -218,7 +220,7 @@ Resultado realista: SEO leva 3–6 meses para mostrar resultados. É um ativo qu
 
 Criar conteúdo que responde perguntas específicas (cauda longa) gera tráfego qualificado mais rápido. "Como fazer X para Y" converte melhor que apenas "X".` },
 
-  { title:"Tráfego Pago", summary:`Tráfego pago é comprar atenção — do Google, Meta, LinkedIn ou outras plataformas. Quem domina os fundamentos faz o dinheiro trabalhar a favor, não contra.
+  { title:"Tráfego pago", summary:`Tráfego pago é a capacidade de comprar atenção — do Google, Meta, LinkedIn ou outras plataformas.
 
 Conceitos essenciais:
 • CPC — custo por clique
@@ -230,9 +232,11 @@ Conceitos essenciais:
 Estrutura de campanha:
 Público → Criativo → Oferta → Página de destino → Métricas
 
-O criativo (o que aparece para a pessoa) tem mais impacto no resultado do que qualquer configuração técnica. Teste criativos diferentes antes de mexer em públicos.` },
+O erro mais comum: mudar variáveis antes de ter dados suficientes. Uma campanha precisa de 50–100 conversões para o algoritmo otimizar.
 
-  { title:"E-mail Marketing", summary:`E-mail tem o maior ROI do marketing digital — em média R$38 de retorno para cada R$1 investido. Quem domina e-mail constrói uma audiência que nenhum algoritmo pode tirar.
+O criativo (o que aparece para a pessoa) tem mais impacto no resultado do que qualquer configuração técnica. Teste criativos antes de mexer em públicos.` },
+
+  { title:"E-mail marketing", summary:`E-mail tem o maior ROI do marketing digital — em média R$38 de retorno para cada R$1 investido.
 
 Por que funciona: é o único canal onde você possui a audiência.
 
@@ -246,9 +250,9 @@ Métricas:
 • Taxa de clique: acima de 2,5% é bom
 • Taxa de descadastro: acima de 0,5% é sinal de problema
 
-O assunto do e-mail determina metade do resultado. Teste dois assuntos diferentes para cada campanha.` },
+O assunto do e-mail determina 50% do resultado. Teste dois assuntos diferentes para cada campanha.` },
 
-  { title:"Métricas Essenciais", summary:`Sem métricas, marketing é opinião. Com métricas, é ciência. Quem domina os números toma decisões que os outros só adivinham.
+  { title:"Métricas essenciais", summary:`Sem métricas, marketing é opinião. Com métricas, é ciência.
 
 As métricas que importam:
 • CAC — total investido / novos clientes
@@ -258,11 +262,11 @@ As métricas que importam:
 • Conversão — % de visitantes → leads → clientes
 • ROAS — receita / investimento em anúncios
 
-A armadilha das métricas de vaidade: seguidores, curtidas e visualizações não pagam contas.
+A armadilha das métricas de vaidade: seguidores, curtidas e visualizações não pagam contas. Foque nas métricas conectadas à receita.
 
 Defina 3–5 métricas-chave e revise semanalmente. Quem mede o certo, melhora o certo.` },
 
-  { title:"Growth Hacking", summary:`Growth hacking é encontrar formas escaláveis e criativas de crescer com baixo custo. Quem domina isso cresce mais rápido com menos recurso.
+  { title:"Growth hacking", summary:`Growth hacking é encontrar formas escaláveis, criativas e de baixo custo de crescer um negócio.
 
 O loop viral do Dropbox: "Indique um amigo e ganhe 500MB grátis." Esse único mecanismo fez a empresa crescer 3900% em 15 meses.
 
@@ -273,11 +277,14 @@ O framework AARRR:
 • Revenue — como você monetiza?
 • Referral — K-factor > 1 = crescimento viral.
 
-Mentalidade growth: teste hipóteses com experimentos rápidos, meça tudo, escale o que funciona.
+Mentalidade growth:
+• Teste hipóteses com experimentos rápidos
+• Meça tudo
+• Escale o que funciona, mate o que não funciona
 
 Dobrar a retenção tem mais impacto em receita do que dobrar a aquisição. A maioria ignora isso.` },
 
-  { title:"Posicionamento de Marca", summary:`Posicionamento é qual espaço único você ocupa na mente do cliente. Quem domina isso para de competir por preço.
+  { title:"Posicionamento de marca", summary:`Posicionamento é a decisão estratégica de qual espaço único você vai ocupar na mente do cliente.
 
 A fórmula:
 Para [público-alvo], [marca] é a única [categoria] que [benefício único] porque [razão para acreditar].
@@ -288,13 +295,13 @@ Exemplo bom: "Para empreendedores iniciantes, somos a única plataforma que tran
 Erros comuns:
 • Tentar ser o melhor em tudo
 • Copiar o posicionamento do líder
-• Posicionamento baseado em features
+• Posicionamento baseado em features, não em benefícios
 
-Quanto mais específico o posicionamento, maior a conversão real. Nicho não é limitação — é clareza.` },
+Quanto mais específico o posicionamento, menor o mercado aparente, maior a conversão real. Nicho não é limitação — é clareza.` },
 ];
 
 const CONTENT_FINANCAS = [
-  { title:"Fluxo de Caixa", summary:`Mais empresas quebram por falta de caixa do que por falta de lucro. Quem domina o fluxo de caixa nunca é pego de surpresa.
+  { title:"Fluxo de caixa", summary:`Mais empresas quebram por falta de caixa do que por falta de lucro. Dominar o fluxo de caixa é a habilidade financeira mais importante para qualquer negócio.
 
 Fluxo de caixa = dinheiro que entra - dinheiro que sai, no tempo real.
 
@@ -304,34 +311,36 @@ Como controlar:
 • Registre toda entrada e saída com data real de pagamento
 • Projete os próximos 90 dias
 • Identifique meses de caixa negativo com antecedência
-• Separe conta pessoa física de jurídica
+• Separe conta pessoal de empresarial
 
-Controlar fluxo de caixa semanalmente previne a maioria das crises financeiras em pequenos negócios.` },
+Saúde financeira: tenha reserva para pagar pelo menos 3 meses de despesas fixas sem receita nova.` },
 
-  { title:"Orçamento Pessoal", summary:`Orçamento não é restrição — é liberdade. Quem domina o próprio orçamento controla o futuro, não só o presente.
+  { title:"Orçamento pessoal", summary:`Orçamento não é restrição — é liberdade. Quem sabe para onde vai cada real toma decisões com consciência.
 
 O método mais simples que funciona: 50/30/20.
 • 50% para necessidades: moradia, alimentação, transporte, saúde
 • 30% para desejos: lazer, restaurantes, assinaturas
 • 20% para poupança e investimentos
 
-Por que a maioria falha: tenta orçar com perfeição em vez de consciência. Um orçamento que você segue com consistência supera um perfeito que você abandona.
+Por que a maioria falha: tenta orçar com perfeição em vez de consciência. Um orçamento que você segue 80% do tempo supera um perfeito que você abandona.
+
+Ferramentas: planilha simples, Organizze ou Mobills.
 
 Primeiro passo real: levante os últimos 3 meses de extratos e categorize os gastos. A maioria das pessoas se surpreende com o que gasta.` },
 
-  { title:"Controle de Gastos", summary:`Riqueza se constrói gastando menos do que ganha de forma consistente. Quem identifica os grandes vazamentos para de perder dinheiro sem perceber.
+  { title:"Controle de gastos", summary:`Riqueza se constrói gastando menos do que ganha de forma consistente. Quem domina o controle cria espaço para investir.
 
 Os maiores vazamentos invisíveis:
 • Assinaturas esquecidas — revise todos os débitos automáticos todo mês
 • Juros de cartão — pagar o mínimo transforma R$1.000 em R$3.000+
-• Compras por impulso — o intervalo de 48h elimina a maioria delas
+• Compras por impulso — o intervalo de 48h elimina 80% delas
 • Inflação do estilo de vida — quando a renda aumenta e os gastos aumentam junto
 
 Técnica dos envelopes: separe contas por categoria e quando o dinheiro acabar, pare de gastar.
 
-A pergunta que muda comportamento: "Isso me aproxima ou afasta de onde quero estar em 5 anos?"` },
+Eliminar os 3 maiores gastos desnecessários tem mais impacto do que cortar 50 pequenas despesas.` },
 
-  { title:"Reserva de Emergência", summary:`Reserva de emergência é o alicerce de toda vida financeira saudável. Quem tem reserva toma decisões melhores porque não está com medo.
+  { title:"Reserva de emergência", summary:`Reserva de emergência é o alicerce de toda vida financeira saudável. Sem ela, qualquer imprevisto vira dívida.
 
 Quanto ter: 3 a 6 meses das suas despesas mensais fixas. Autônomo e empreendedor: 6 a 12 meses.
 
@@ -343,9 +352,11 @@ Onde manter:
 Como construir:
 • Determine seu número: despesas mensais × 6
 • Automatize uma transferência fixa assim que o salário cair
-• Não invista em renda variável enquanto não tiver a reserva completa` },
+• Não invista em renda variável enquanto não tiver a reserva completa
 
-  { title:"Tipos de Investimento", summary:`O mercado tem opções para todos os perfis. Quem entende as categorias toma decisões com clareza em vez de seguir modas.
+Reserva de emergência é o investimento de maior retorno ajustado ao risco que existe.` },
+
+  { title:"Tipos de investimento", summary:`O mercado financeiro tem opções para todos os perfis. Entender as categorias é o primeiro passo para investir com inteligência.
 
 Renda fixa: retorno previsível, menor risco.
 • Tesouro Direto, CDB, LCI/LCA (isentos de IR)
@@ -360,9 +371,9 @@ Alocação por perfil:
 • Moderado: 60% fixa, 40% variável
 • Arrojado: 40% fixa, 60% variável
 
-Tesouro Selic para reserva + um ETF de índice amplo (BOVA11 ou IVVB11) é suficiente para a maioria das pessoas na maior parte da vida.` },
+Tesouro Selic para reserva + um ETF de índice amplo (BOVA11 ou IVVB11) é suficiente para a maioria das pessoas começar.` },
 
-  { title:"Renda Variável x Fixa", summary:`A confusão entre renda fixa e variável é uma das principais barreiras para investidores iniciantes. Quem domina essa distinção investe com confiança.
+  { title:"Renda variável x fixa", summary:`A confusão entre renda fixa e variável é uma das principais barreiras para iniciantes. Entender a diferença muda a estratégia.
 
 Renda fixa: você sabe de antemão o que vai receber.
 • CDB 100% CDI: rende proporcionalmente à taxa básica
@@ -378,12 +389,12 @@ O erro do iniciante: entrar em renda variável sem reserva e sem horizonte longo
 
 Tempo no mercado supera timing do mercado. Quem investe todo mês por 20 anos supera quem tenta acertar o melhor momento.` },
 
-  { title:"Imposto de Renda", summary:`Entender o básico do IR evita multas e restituições perdidas. Quem domina as deduções recupera dinheiro que outros deixam na mesa.
+  { title:"Imposto de renda", summary:`Entender o básico do IR evita multas e restituições perdidas. Quem domina isso paga menos e recebe mais.
 
 O essencial para pessoa física:
-• Obrigado a declarar se ganhou acima do limite anual (verifique na Receita)
+• Obrigado a declarar se ganhou acima do limite anual
 • Declaração simples vs. completa: compare qual gera menor imposto
-• Deduções que mais importam: saúde, educação, previdência privada, dependentes
+• Deduções que mais importam: saúde, educação, previdência, dependentes
 • Prazo: geralmente abril — declare antes, receba a restituição antes
 
 Investimentos e IR:
@@ -393,7 +404,7 @@ Investimentos e IR:
 
 Guardar todos os recibos de saúde e educação ao longo do ano é o hábito que mais aumenta a restituição.` },
 
-  { title:"Crédito Inteligente", summary:`Crédito bem usado é ferramenta. Crédito mal usado é armadilha. Quem entende as taxas toma decisões que protegem o patrimônio.
+  { title:"Crédito inteligente", summary:`Crédito bem usado é ferramenta. Crédito mal usado é o caminho mais rápido para a armadilha financeira.
 
 As taxas que você precisa conhecer:
 • Cartão rotativo: 300–400% ao ano — nunca pague o mínimo
@@ -408,9 +419,9 @@ Como usar o cartão a favor:
 
 Eliminar dívidas de cartão e cheque especial antes de investir é matematicamente óbvio — nenhum investimento paga 300% ao ano.` },
 
-  { title:"Independência Financeira", summary:`Independência financeira é quando seus investimentos geram renda suficiente sem precisar trabalhar por obrigação. Quem tem o número na cabeça avança com propósito.
+  { title:"Independência financeira", summary:`Independência financeira é o ponto em que seus investimentos geram renda suficiente para cobrir seu estilo de vida sem precisar trabalhar por obrigação.
 
-O número:
+O número da independência:
 Despesas mensais × 12 × 25 = patrimônio necessário.
 (Regra dos 4%: você retira 4% ao ano sem esgotar o patrimônio.)
 
@@ -420,9 +431,11 @@ Como chegar lá:
 • Aumente a taxa de poupança — cada real poupado a mais acelera exponencialmente
 • Invista em ativos que geram renda passiva: dividendos, FIIs
 • Aumente a renda — não só corte gastos
-• Tempo + consistência + aportes regulares = juro composto` },
+• Tempo + consistência + aportes = juro composto
 
-  { title:"Mentalidade de Investidor", summary:`A maior barreira para construir riqueza não é técnica — é comportamental. Quem domina a própria psicologia protege o patrimônio de si mesmo.
+Aumentar a taxa de poupança de 10% para 30% da renda reduz o tempo para independência em quase metade.` },
+
+  { title:"Mentalidade de investidor", summary:`A maior barreira para construir riqueza não é técnica — é comportamental. O inimigo do investidor é o próprio investidor.
 
 Os vieses que destroem retornos:
 • Viés de recência — comprar na alta porque "está subindo"
@@ -436,5 +449,12 @@ Princípios do investidor racional:
 • Pense em décadas, não em trimestres
 • Ignore o ruído — notícias financeiras diárias são irrelevantes para o longo prazo
 
-Automatizar os investimentos elimina a maior parte do comportamento irracional.` },
+Automatizar os investimentos (débito automático no dia do salário) elimina a maior parte do comportamento irracional.` },
 ];
+
+/* ── Registra no mapa global ── */
+registerContent({
+  lideranca: CONTENT_LIDERANCA,
+  marketing:  CONTENT_MARKETING,
+  financas:   CONTENT_FINANCAS,
+});
