@@ -3,6 +3,23 @@
 ═══════════════════════════════════════════ */
 
 const CONTENT_INGLES = [
+  { title:"Aprender \"Hello\"", summary:`A primeira palavra abre a primeira porta. "Hello" é mais do que uma saudação — é o gatilho que inicia qualquer conexão em inglês.
+
+As formas de cumprimentar:
+• Hello / Hi — olá (formal e informal)
+• Hey! — oi (casual, muito comum entre nativos)
+• What's up? — e aí? (muito casual)
+• Good morning / afternoon / evening — bom dia / tarde / noite
+
+Como responder:
+• Fine, thanks. And you? — bem, obrigado. E você?
+• Pretty good! — muito bem!
+• Not bad. — não tão mal.
+
+Por que isso importa: nativos avaliam seu inglês nos primeiros 5 segundos. Uma saudação natural abre a conversa com confiança. Uma travada fecha antes de começar.
+
+Pratique em voz alta hoje: diga "Hello, my name is [seu nome]. Nice to meet you!" três vezes para o espelho.` },
+
   { title:"Verbo To Be", summary:`O verbo "to be" significa ser ou estar. É o mais usado do inglês — domine ele e metade das conversas básicas ficam ao seu alcance.
 
 Presente: I am, You are, He/She/It is, We/They are.
@@ -30,18 +47,34 @@ O que ninguém te conta: nativos raramente dizem "Good morning" no casual. Dizem
 
 Com 10 saudações você cobre 90% das situações sociais em inglês.` },
 
-  { title:"Números e Tempo", summary:`Números e expressões de tempo aparecem em toda conversa prática — e quem domina isso comunica com segurança.
+  { title:"Números 1–10", summary:`Números são usados em toda conversa — preços, horas, quantidades, datas. Dominar os básicos é essencial.
 
-Números 1–20: memorize um por dia. De 20 em diante: twenty-one, thirty-two, etc.
+Os números de 1 a 10:
+• 1 = one | 2 = two | 3 = three | 4 = four | 5 = five
+• 6 = six | 7 = seven | 8 = eight | 9 = nine | 10 = ten
 
-Horas:
-• It's 3 o'clock. — são 3 horas.
-• It's half past 2. — são 2 e meia.
-• It's quarter to 5. — são 15 para as 5.
+De 11 a 20:
+• 11 = eleven | 12 = twelve | 13 = thirteen | 14 = fourteen | 15 = fifteen
+• 16 = sixteen | 17 = seventeen | 18 = eighteen | 19 = nineteen | 20 = twenty
 
-Dias: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday.
+Dezenas:
+• 30 = thirty | 40 = forty | 50 = fifty | 60 = sixty | 70 = seventy | 80 = eighty | 90 = ninety
 
-Foque primeiro em saber dizer sua data de nascimento, seu horário de trabalho e como marcar um encontro. Isso resolve a maioria das situações do dia a dia.` },
+Prática imediata: diga seu número de celular em inglês. Depois seu endereço. Depois sua idade. Três exercícios que cobrem 80% dos usos cotidianos.` },
+
+  { title:"Cores em inglês", summary:`Cores aparecem em descrições, compras, roupas e trabalho. Dominar as básicas dá fluência visual imediata.
+
+As cores essenciais:
+• Red — vermelho | Blue — azul | Green — verde | Yellow — amarelo
+• Orange — laranja | Purple — roxo | Pink — rosa | Brown — marrom
+• Black — preto | White — branco | Gray — cinza
+
+Usando cores em frases:
+• "I like the blue one." — gosto do azul.
+• "Do you have this in red?" — tem isso em vermelho?
+• "The green light is on." — a luz verde está acesa.
+
+Dica de aprendizado: associe cada cor a um objeto do seu dia a dia. "My car is white." "My phone is black." Isso cria memória por contexto, não por decoreba.` },
 
   { title:"Frases do Dia a Dia", summary:`Existe um conjunto de frases que aparecem em praticamente toda conversa. Quem as domina resolve qualquer situação.
 
@@ -71,18 +104,23 @@ Quando usar: rotinas, fatos, opiniões, verdades gerais.
 
 Foque em "I + verbo" e "Do you + verbo?" — essas duas estruturas cobrem a maioria das conversas iniciais. Pratique descrevendo sua rotina em inglês todos os dias.` },
 
-  { title:"Vocabulário de Trabalho", summary:`No ambiente profissional, ~200 palavras cobrem quase tudo. Quem domina esse vocabulário se comunica com confiança em qualquer reunião.
+  { title:"Perguntas Básicas", summary:`Fazer perguntas é a habilidade mais subutilizada por quem aprende inglês. Quem pergunta bem conversa bem.
 
-Essenciais:
-• Meeting — reunião | Deadline — prazo | Report — relatório
-• To schedule — agendar | To cancel — cancelar
-• I'll send you an email. — vou te mandar um e-mail.
-• Let's get started. — vamos começar.
-• Any questions? — alguma dúvida?
-• I'll follow up. — vou dar um retorno.
-• That works for me. — funciona para mim.
+As perguntas mais usadas:
+• What is this? — o que é isso?
+• Where are you from? — de onde você é?
+• How old are you? — quantos anos você tem?
+• What do you do? — o que você faz (profissão)?
+• What time is it? — que horas são?
+• Can I help you? — posso ajudar?
+• How much does it cost? — quanto custa?
+• Do you speak Portuguese? — você fala português?
 
-Aprenda os verbos de ação primeiro — send, receive, schedule, confirm, review, approve, discuss. Com 20 verbos de trabalho você cobre a maioria das situações profissionais.` },
+A fórmula das perguntas:
+• Sim/Não: Do/Does/Is/Are + sujeito + verbo?
+• Informação: What/Where/When/Why/How + do/is/are + sujeito + verbo?
+
+Com essas duas fórmulas você cria qualquer pergunta básica em inglês.` },
 
   { title:"Phrasal Verbs Essenciais", summary:`Phrasal verbs são combinações de verbo + preposição com novo significado. Quem os domina soa natural — quem ignora sempre parece iniciante.
 
@@ -100,59 +138,25 @@ Os 10 mais usados:
 
 Aprenda 2 por semana em contexto de frases completas. Em 6 meses você domina os mais importantes.` },
 
-  { title:"Passado Simples", summary:`O passado simples serve para ações completas no passado. Com ele você conta qualquer história.
+  { title:"Conversação Fluente", summary:`Fluência não é falar inglês perfeito — é se comunicar sem travar. Quem atinge isso muda de patamar na carreira e na vida.
 
-Verbos regulares: adicione -ed.
-• Work → worked | Watch → watched | Talk → talked
+O que separa quem fala de quem estuda:
 
-Irregulares mais usados:
-• Go → went | Have → had | See → saw
-• Get → got | Come → came | Say → said
-• Think → thought | Know → knew
+Conectores naturais:
+• By the way — aliás | Actually — na verdade | I mean — quer dizer
+• Anyway — enfim | That's why — por isso | You know — sabe
 
-Negativa: didn't + verbo base. "I didn't go."
-Pergunta: Did + sujeito + verbo? "Did you see it?"
+Hábitos de quem fala com fluência:
+• Usa contrações — I'm, you're, it's, don't, can't (nunca "I am not" no casual)
+• Pensa em frases, não em palavras isoladas
+• Não traduz — processa em inglês diretamente
+• Aceita não entender 100% e continua a conversa
 
-Memorize os 20 verbos irregulares mais comuns e você consegue contar qualquer história no passado. Pratique contando o que fez ontem, em inglês.` },
-
-  { title:"Conversação Natural", summary:`A diferença entre quem estuda inglês e quem fala inglês está nos conectores. Domine-os e suas frases soam naturais.
-
-Conectores essenciais:
-• By the way — aliás, por falar nisso
-• Actually — na verdade
-• I mean — quer dizer, ou seja
-• You know — sabe, entende
-• Anyway — enfim, de qualquer forma
-• That's why — por isso
-
-Dicas para soar natural:
-• Use contrações: I'm, you're, it's, don't, can't
-• Evite "very" — use "really" ou "so"
-• Responda com mais de uma palavra — "Yes, definitely!"
-
-Com 10 conectores bem usados, suas frases soam naturais mesmo com gramática imperfeita.` },
-
-  { title:"Inglês para Negócios", summary:`Inglês para negócios não exige fluência perfeita — exige clareza e vocabulário específico. Domine esses padrões e você comunica com autoridade.
-
-Emails:
-• I am writing to... — escrevo para...
-• Please find attached... — segue em anexo...
-• I look forward to hearing from you. — aguardo seu retorno.
-
-Reuniões:
-• Shall we get started? — podemos começar?
-• What's your take on this? — qual é sua opinião?
-• To summarize... — resumindo...
-
-Negociação:
-• That's a fair point. — é um ponto válido.
-• Let's meet in the middle. — vamos chegar a um meio-termo.
-
-Domine emails profissionais primeiro — é onde a maioria mais precisa e onde o impacto na carreira é imediato.` },
+A virada acontece quando você para de montar frases e começa a usá-las. Isso vem com exposição diária: séries, podcasts, conversas. 30 minutos por dia por 6 meses é suficiente para mudar de nível.` },
 ];
 
 const CONTENT_VENDAS = [
-  { title:"Valor Percebido", summary:`Ninguém compra um produto. As pessoas compram o resultado que o produto entrega. Domine essa distinção e você nunca mais perderá uma venda por preço.
+  { title:"O que é valor percebido", summary:`Ninguém compra um produto. As pessoas compram o resultado que o produto entrega. Domine essa distinção e você nunca mais perderá uma venda por preço.
 
 O preço que o cliente aceita pagar é proporcional ao valor que ele percebe — não ao seu custo de produção.
 
@@ -164,7 +168,7 @@ Como aumentar valor percebido:
 
 A maioria das objeções de preço é, na verdade, falta de valor percebido. Antes de baixar o preço, pergunte: "Consegui comunicar o resultado que entrego?"` },
 
-  { title:"Rapport", summary:`Rapport é a sensação de conexão e confiança. Nenhuma venda acontece sem ele — e quem domina rapport fecha mais sem esforço.
+  { title:"Rapport com o cliente", summary:`Rapport é a sensação de conexão e confiança. Nenhuma venda acontece sem ele — e quem domina rapport fecha mais sem esforço.
 
 Como criar rapport rapidamente:
 • Espelhe a linguagem corporal sutilmente.
@@ -189,7 +193,7 @@ O segredo: quando o cliente verbaliza o problema e a necessidade, ele se convenc
 
 A pergunta de Implicação é a mais poderosa e a menos usada. Quem a domina fecha muito mais.` },
 
-  { title:"Superar Objeções", summary:`Objeção não é rejeição — é um pedido de mais informação ou segurança. Quem entende isso para de se defender e começa a perguntar.
+  { title:"Superar objeções", summary:`Objeção não é rejeição — é um pedido de mais informação ou segurança. Quem entende isso para de se defender e começa a perguntar.
 
 As 4 mais comuns:
 
@@ -203,7 +207,7 @@ As 4 mais comuns:
 
 A maioria das objeções esconde insegurança, não falta de interesse. Pergunte mais, defenda menos.` },
 
-  { title:"Fechamento Consultivo", summary:`Fechamento não é um momento mágico no final — é o resultado natural de um processo bem conduzido. Quem fecha sem pressão chega lá com menos esforço.
+  { title:"Fechamento consultivo", summary:`Fechamento não é um momento mágico no final — é o resultado natural de um processo bem conduzido. Quem fecha sem pressão chega lá com menos esforço.
 
 Técnicas que funcionam:
 
@@ -217,7 +221,7 @@ Urgência real: "Tenho disponibilidade nesta semana." — só use se for verdade
 
 A razão número 1 pela qual vendas não fecham é porque o vendedor nunca perguntou diretamente. Peça a venda.` },
 
-  { title:"Follow-up Estratégico", summary:`A maioria dos vendedores desiste cedo demais. Quem domina o follow-up cria uma máquina de vendas que trabalha enquanto o concorrente dorme.
+  { title:"Follow-up estratégico", summary:`A maioria dos vendedores desiste cedo demais. Quem domina o follow-up cria uma máquina de vendas que trabalha enquanto o concorrente dorme.
 
 Regras do follow-up eficaz:
 • Termine cada conversa com um próximo passo agendado. Nunca "vou entrar em contato" — "posso te ligar quinta às 10h?"
@@ -229,19 +233,7 @@ Dia 1 → Dia 3 → Dia 7 → Dia 14 → Dia 30
 
 A maioria das oportunidades perdidas não é por falta de interesse do cliente — é por falta de follow-up.` },
 
-  { title:"Gatilhos Mentais", summary:`Gatilhos mentais são atalhos cognitivos que o cérebro usa para decidir. Quem domina os principais fecha mais sem precisar pressionar.
-
-Os 6 mais poderosos em vendas:
-• Reciprocidade — dê valor primeiro.
-• Escassez — "restam 3 vagas" aumenta o desejo. Só use se for real.
-• Autoridade — credenciais, cases, números.
-• Prova social — depoimentos, quantidade de clientes.
-• Afinidade — compramos de quem gostamos.
-• Compromisso — quem diz "sim" em pequenas coisas tende a dizer "sim" no fechamento.
-
-Prova social e escassez são os gatilhos de maior impacto imediato em conversão.` },
-
-  { title:"Proposta de Valor", summary:`Proposta de valor é a resposta para: "Por que eu deveria comprar de você e não do concorrente?" Quem domina isso nunca compete por preço.
+  { title:"Proposta de valor", summary:`Proposta de valor é a resposta para: "Por que eu deveria comprar de você e não do concorrente?" Quem domina isso nunca compete por preço.
 
 Fórmula:
 Nós ajudamos [perfil] a [resultado] através de [diferencial].
@@ -257,7 +249,7 @@ Elementos de uma proposta forte:
 
 Se você não consegue explicar em 10 segundos de forma que o cliente entenda, ainda precisa de trabalho.` },
 
-  { title:"Venda por Ancoragem", summary:`Ancoragem: o primeiro número apresentado influencia todos os seguintes. Quem controla a âncora controla a negociação.
+  { title:"Venda por ancoragem", summary:`Ancoragem: o primeiro número apresentado influencia todos os seguintes. Quem controla a âncora controla a negociação.
 
 Como usar a favor:
 • Apresente o plano mais caro primeiro. O intermediário parece razoável em comparação.
@@ -269,7 +261,19 @@ O efeito decoy: ofereça 3 opções onde a do meio é claramente a melhor relaç
 
 Sempre que possível, seja o primeiro a apresentar um número na negociação.` },
 
-  { title:"Fidelização de Clientes", summary:`Custa 5 a 7x mais caro conquistar um novo cliente do que manter um existente. Quem domina a fidelização constrói uma base que cresce sozinha.
+  { title:"Gatilhos mentais", summary:`Gatilhos mentais são atalhos cognitivos que o cérebro usa para decidir. Quem domina os principais fecha mais sem precisar pressionar.
+
+Os 6 mais poderosos em vendas:
+• Reciprocidade — dê valor primeiro.
+• Escassez — "restam 3 vagas" aumenta o desejo. Só use se for real.
+• Autoridade — credenciais, cases, números.
+• Prova social — depoimentos, quantidade de clientes.
+• Afinidade — compramos de quem gostamos.
+• Compromisso — quem diz "sim" em pequenas coisas tende a dizer "sim" no fechamento.
+
+Prova social e escassez são os gatilhos de maior impacto imediato em conversão.` },
+
+  { title:"Fidelização de clientes", summary:`Custa 5 a 7x mais caro conquistar um novo cliente do que manter um existente. Quem domina a fidelização constrói uma base que cresce sozinha.
 
 Princípios essenciais:
 • Entregue mais do que prometeu — expectativa gerenciada + surpresa positiva = cliente leal.
@@ -282,7 +286,7 @@ Métrica essencial: NPS — "De 0 a 10, quanto você indicaria?" Abaixo de 7 é 
 ];
 
 const CONTENT_COMUNICACAO = [
-  { title:"Escuta Ativa", summary:`A maioria das pessoas não escuta — aguarda a vez de falar. Quem domina a escuta ativa influencia mais sem precisar falar mais.
+  { title:"Escuta ativa", summary:`A maioria das pessoas não escuta — aguarda a vez de falar. Quem domina a escuta ativa influencia mais sem precisar falar mais.
 
 Os 5 elementos:
 • Presença total — guarde o celular, mantenha contato visual.
@@ -295,7 +299,7 @@ O paradoxo: quem escuta mais, influencia mais.
 
 Elimine o hábito de pensar na resposta enquanto o outro fala. Esse único ajuste muda a qualidade de toda conversa.` },
 
-  { title:"Linguagem Corporal", summary:`Mais de 50% da comunicação é não-verbal. Seu corpo fala antes da sua boca — quem domina isso projeta confiança automaticamente.
+  { title:"Linguagem corporal", summary:`Mais de 50% da comunicação é não-verbal. Seu corpo fala antes da sua boca — quem domina isso projeta confiança automaticamente.
 
 Sinais que transmitem confiança:
 • Postura ereta — coluna reta, ombros abertos
@@ -312,7 +316,7 @@ Sinais que destroem credibilidade:
 
 Postura e contato visual são os dois ajustes com maior impacto imediato na percepção que os outros têm de você.` },
 
-  { title:"Tom de Voz", summary:`O que você diz importa menos do que como você diz. Quem controla o tom controla o impacto da mensagem.
+  { title:"Tom de voz", summary:`O que você diz importa menos do que como você diz. Quem controla o tom controla o impacto da mensagem.
 
 Variáveis do tom:
 • Volume — fale para ser ouvido, não para gritar
@@ -325,7 +329,7 @@ Exercício prático: grave-se falando por 2 minutos. Ouça. A maioria das pessoa
 
 Reduzir a velocidade da fala em 20% e usar pausas estratégicas transforma imediatamente a percepção de autoridade.` },
 
-  { title:"Comunicação Não-Violenta", summary:`CNV, de Marshall Rosenberg, é a estrutura mais eficaz para comunicar necessidades sem gerar defensividade. Domine ela e conflitos param antes de começar.
+  { title:"Comunicação não-violenta", summary:`CNV, de Marshall Rosenberg, é a estrutura mais eficaz para comunicar necessidades sem gerar defensividade. Domine ela e conflitos param antes de começar.
 
 A fórmula em 4 passos:
 1. Observação — fato sem julgamento: "Quando você chega atrasado..."
@@ -337,7 +341,7 @@ O erro mais comum: pular para o julgamento. "Você é irresponsável" vs. "Quand
 
 Substituir acusações por sentimentos e pedidos resolve a maioria dos conflitos antes que se tornem grandes problemas.` },
 
-  { title:"Storytelling Pessoal", summary:`Histórias ativam mais áreas do cérebro do que dados. Uma boa história é 22x mais memorável que um fato isolado — quem domina storytelling nunca é esquecido.
+  { title:"Storytelling pessoal", summary:`Histórias ativam mais áreas do cérebro do que dados. Uma boa história é 22x mais memorável que um fato isolado — quem domina storytelling nunca é esquecido.
 
 Estrutura básica:
 • Contexto — onde e quando. "Em 2019, quando eu estava começando do zero..."
@@ -349,7 +353,7 @@ Para contexto profissional, use SAR: Situação → Ação → Resultado.
 
 Toda apresentação fica mais poderosa com uma história real no início. A história cria contexto emocional para os dados que vêm depois.` },
 
-  { title:"Falar em Público", summary:`O medo de falar em público é mais comum do que o medo de morrer. E quem enfrenta isso com método vai longe — melhora com prática deliberada.
+  { title:"Falar em público", summary:`O medo de falar em público é mais comum do que o medo de morrer. E quem enfrenta isso com método vai longe.
 
 O que realmente importa:
 • Prepare a abertura e o fechamento — o resto pode ser flexível
@@ -362,7 +366,7 @@ O paradoxo: quanto mais você tenta parecer confiante, mais nervoso fica. Foque 
 
 Pratique a abertura (primeiros 60 segundos) até saber de cor. Uma abertura forte cria confiança para o resto.` },
 
-  { title:"Feedback Construtivo", summary:`Feedback mal dado é pior do que nenhum feedback. Quem domina a arte de dar feedback transforma equipes inteiras.
+  { title:"Feedback construtivo", summary:`Feedback mal dado é pior do que nenhum feedback. Quem domina a arte de dar feedback transforma equipes inteiras.
 
 O método SCI:
 • Situação — contexto específico: "Na reunião de ontem..."
@@ -375,7 +379,7 @@ Timing: dê feedback o mais próximo possível do evento.
 
 Feedback específico e comportamental é ouvido. Feedback genérico sobre personalidade gera defensividade.` },
 
-  { title:"Comunicação Assertiva", summary:`Assertividade é expressar o que pensa e precisa com clareza e respeito. Quem domina isso resolve conflitos antes que existam.
+  { title:"Comunicação assertiva", summary:`Assertividade é expressar o que pensa e precisa com clareza e respeito. Quem domina isso resolve conflitos antes que existam.
 
 Os 3 estilos:
 • Passivo — evita conflito, não expressa necessidades. Resultado: ressentimento acumulado.
@@ -400,14 +404,21 @@ Os princípios que funcionam:
 
 Entender profundamente o que o outro quer antes de apresentar qualquer argumento é a habilidade mais subestimada de persuasão.` },
 
-  { title:"Comunicação Executiva", summary:`No nível executivo, comunicação é estratégia. Quem domina esse estilo avança mais rápido em qualquer organização.
+  { title:"Comunicação executiva", summary:`No nível executivo, comunicação é estratégia. Quem domina esse estilo avança mais rápido em qualquer organização.
 
 Princípios:
 • Bottom line up front (BLUF) — comece com a conclusão, depois explique.
-• Regra do elevador — se não consegue explicar em 60 segundos, ainda não entendeu bem o suficiente.
+• Regra do elevador — se não consegue explicar em 60 segundos, ainda não entendeu bem.
 • Números e fatos, não opiniões — "Perdemos 15% de margem no Q3" é mais poderoso que "as coisas não vão bem."
 • Saiba o que quer antes de cada conversa — aprovação, informação, decisão ou alinhamento?
 • Documente acordos — e-mail após cada reunião importante.
 
 Estrutura universal: Contexto → Problema → Solução → Próximo passo.` },
 ];
+
+/* ── Registra no mapa global ── */
+registerContent({
+  ingles:      CONTENT_INGLES,
+  vendas:      CONTENT_VENDAS,
+  comunicacao: CONTENT_COMUNICACAO,
+});
