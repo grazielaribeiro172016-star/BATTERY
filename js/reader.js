@@ -94,6 +94,7 @@ function completLessonFromReader() {
   checkBadges();
   saveState();
 
+  playSound(batId); /* ⚡ som sutil ao carregar bateria */
   fireConfetti(window.innerWidth / 2, window.innerHeight / 2);
   showToast('⚡ +10% de energia mental');
 
