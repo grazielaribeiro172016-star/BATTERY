@@ -41,6 +41,133 @@ function fireConfetti(x, y) {
   animate();
 }
 
+/* ── Sons (Web Audio API — sem arquivos externos) ── */
+/*
+  Cada bateria tem um "sabor" sonoro sutil:
+    tech        → bip eletrônico limpo       (programacao)
+    cash        → acorde brilhante           (vendas, financas, negociacao, empreend)
+    human       → nota calorosa e suave      (comunicacao, lideranca, emocional)
+    spark       → faísca energética curta    (produtividade, marketing)
+    zen         → tom puro e sereno          (saude)
+    default     → ding neutro satisfatório   (qualquer outra)
+
+  Mapa batId → sabor:
+*/
+const SOUND_MAP = {
+  programacao:  'tech',
+  vendas:       'cash',
+  financas:     'cash',
+  negociacao:   'cash',
+  empreend:     'cash',
+  comunicacao:  'human',
+  lideranca:    'human',
+  emocional:    'human',
+  produtividade:'spark',
+  marketing:    'spark',
+  saude:        'zen',
+  ingles:       'default',
+};
+
+function playSound(batId) {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const type = SOUND_MAP[batId] || 'default';
+    const master = ctx.createGain();
+    master.gain.setValueAtTime(0.18, ctx.currentTime); /* bem sutil */
+    master.connect(ctx.destination);
+
+    if (type === 'tech') {
+      /* bip eletrônico: dois tons rápidos subindo */
+      [880, 1320].forEach((freq, i) => {
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+        o.type = 'square';
+        o.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.08);
+        g.gain.setValueAtTime(0.4, ctx.currentTime + i * 0.08);
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.08 + 0.12);
+        o.connect(g); g.connect(master);
+        o.start(ctx.currentTime + i * 0.08);
+        o.stop(ctx.currentTime + i * 0.08 + 0.12);
+      });
+
+    } else if (type === 'cash') {
+      /* acorde brilhante: tríade maior */
+      [523, 659, 784].forEach((freq, i) => {
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+        o.type = 'triangle';
+        o.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.04);
+        g.gain.setValueAtTime(0.5, ctx.currentTime + i * 0.04);
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.04 + 0.4);
+        o.connect(g); g.connect(master);
+        o.start(ctx.currentTime + i * 0.04);
+        o.stop(ctx.currentTime + i * 0.04 + 0.4);
+      });
+
+    } else if (type === 'human') {
+      /* nota calorosa: senoide suave com leve vibrato */
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      const lfo = ctx.createOscillator();
+      const lfoGain = ctx.createGain();
+      lfo.frequency.setValueAtTime(5, ctx.currentTime);
+      lfoGain.gain.setValueAtTime(4, ctx.currentTime);
+      lfo.connect(lfoGain); lfoGain.connect(o.frequency);
+      o.type = 'sine';
+      o.frequency.setValueAtTime(528, ctx.currentTime);
+      g.gain.setValueAtTime(0.001, ctx.currentTime);
+      g.gain.linearRampToValueAtTime(0.6, ctx.currentTime + 0.05);
+      g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.55);
+      o.connect(g); g.connect(master);
+      lfo.start(ctx.currentTime); o.start(ctx.currentTime);
+      lfo.stop(ctx.currentTime + 0.55); o.stop(ctx.currentTime + 0.55);
+
+    } else if (type === 'spark') {
+      /* faísca: nota curta com pitch descendo rápido */
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.type = 'sawtooth';
+      o.frequency.setValueAtTime(1000, ctx.currentTime);
+      o.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.15);
+      g.gain.setValueAtTime(0.5, ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.18);
+      o.connect(g); g.connect(master);
+      o.start(ctx.currentTime); o.stop(ctx.currentTime + 0.18);
+
+    } else if (type === 'zen') {
+      /* bowl tibetano simplificado: senoide pura com decay longo */
+      [396, 792].forEach((freq, i) => {
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+        o.type = 'sine';
+        o.frequency.setValueAtTime(freq, ctx.currentTime);
+        g.gain.setValueAtTime(i === 0 ? 0.5 : 0.25, ctx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.2);
+        o.connect(g); g.connect(master);
+        o.start(ctx.currentTime); o.stop(ctx.currentTime + 1.2);
+      });
+
+    } else {
+      /* default: ding neutro — dois sinos rápidos */
+      [660, 880].forEach((freq, i) => {
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+        o.type = 'sine';
+        o.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.1);
+        g.gain.setValueAtTime(0.5, ctx.currentTime + i * 0.1);
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.1 + 0.35);
+        o.connect(g); g.connect(master);
+        o.start(ctx.currentTime + i * 0.1);
+        o.stop(ctx.currentTime + i * 0.1 + 0.35);
+      });
+    }
+
+    /* fecha o contexto após os sons terminarem */
+    setTimeout(() => ctx.close(), 2000);
+
+  } catch(e) { /* silencia qualquer erro — o app continua funcionando */ }
+}
+
 /* ── Navegação ── */
 const MAIN_SCREENS = ['home','baterias','progresso','perfil'];
 let currentMain = 'home';
