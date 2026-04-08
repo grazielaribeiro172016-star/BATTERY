@@ -1,42 +1,55 @@
 /* ═══════════════════════════════════════════
-   index.js — Inicializa o app
+   index.js — Monta BATTERY_CONTENT + inicializa o app
+   Carregue APÓS todos os outros scripts
 ═══════════════════════════════════════════ */
 
+// Usar window evita SyntaxError se outro arquivo declarar BATTERY_CONTENT
+window.BATTERY_CONTENT = {
+  ingles:        CONTENT_INGLES,
+  vendas:        CONTENT_VENDAS,
+  comunicacao:   CONTENT_COMUNICACAO,
+  lideranca:     CONTENT_LIDERANCA,
+  marketing:     CONTENT_MARKETING,
+  financas:      CONTENT_FINANCAS,
+  produtividade: CONTENT_PRODUTIVIDADE,
+  emocional:     CONTENT_EMOCIONAL,
+  programacao:   CONTENT_PROGRAMACAO,
+  saude:         CONTENT_SAUDE,
+  negociacao:    CONTENT_NEGOCIACAO,
+  empreend:      CONTENT_EMPREEND,
+};
+
 /* ── Boot ── */
-// Garante que o estado seja carregado antes de decidir a tela
-if (typeof loadState === 'function') {
-  loadState();
-}
-const splash = document.getElementById('screen-splash');
-const bottomNav = document.getElementById('bottom-nav');
-if (typeof STATE !== 'undefined' && STATE.onboarded) {
-  if (bottomNav) bottomNav.classList.add('visible');
-  if (typeof refreshScreens === 'function') refreshScreens();
-  
+loadState();
+
+if (STATE.onboarded) {
+  document.getElementById('bottom-nav').classList.add('visible');
+  refreshScreens();
+  showScreen('home');
   setTimeout(() => {
-    if (splash) splash.classList.remove('active');
-    showScreen('home');
+    document.getElementById('screen-splash').classList.remove('active');
+    document.getElementById('screen-home').classList.add('active');
   }, 1000);
 } else {
   setTimeout(() => {
-    if (typeof initPickScreen === 'function') initPickScreen();
+    initPickScreen();
     showScreen('pick');
   }, 1800);
 }
+
 /* ── Navegação ── */
 document.querySelectorAll('.nav-item').forEach(item => {
   item.addEventListener('click', () => {
-    if (typeof refreshScreens === 'function') refreshScreens();
+    refreshScreens();
     showScreen(item.dataset.target);
   });
 });
-const backBtn = document.getElementById('back-btn');
-if (backBtn) {
-  backBtn.addEventListener('click', () => {
-    if (typeof refreshScreens === 'function') refreshScreens();
-    showScreen(typeof currentMain !== 'undefined' ? currentMain : 'home');
-  });
-}
+
+document.getElementById('back-btn').addEventListener('click', () => {
+  refreshScreens();
+  showScreen(currentMain);
+});
+
 /* Service Worker */
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
