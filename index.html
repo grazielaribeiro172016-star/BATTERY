@@ -2,94 +2,111 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Battery App</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-html, body {
-  height: 100%;
+body {
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 32px 20px;
   font-family: 'Barlow', sans-serif;
-  background: #000;
-  color: #fff;
-  overflow: hidden;
+  min-height: 100vh;
+  flex-wrap: wrap;
 }
 
-#app {
-  max-width: 480px;
-  height: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+/* ── PHONE SHELL ── */
+.phone {
+  width: 360px;
+  min-height: 720px;
   background: #000;
+  border-radius: 36px;
+  overflow: hidden;
   position: relative;
-  overflow: hidden;
-}
-
-.screen {
-  position: absolute;
-  inset: 0;
   display: flex;
   flex-direction: column;
-  background: #000;
-  transform: translateX(100%);
-  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
+  border: 1.5px solid #2a2a2a;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.8);
 }
-.screen.active { transform: translateX(0); }
-.screen.slide-out { transform: translateX(-30%); }
 
-.screen-body {
+/* ── STATUS BAR ── */
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+/* ── SCREEN WRAPPER ── */
+.screen {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ── SCROLL CONTENT ── */
+.screen-content {
   flex: 1;
   overflow-y: auto;
-  padding: 0 16px 90px;
+  padding: 0 16px 24px;
   scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
 }
-.screen-body::-webkit-scrollbar { display: none; }
+.screen-content::-webkit-scrollbar { display: none; }
 
+/* ── BOTTOM NAV ── */
 .bottom-nav {
   display: flex;
   background: #0a0a0a;
   border-top: 1px solid #1e1e1e;
-  padding: 10px 0 18px;
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  z-index: 50;
+  padding: 10px 0 20px;
+  flex-shrink: 0;
 }
 .nav-item {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
-  padding: 6px 0;
+  gap: 4px;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #555;
   cursor: pointer;
-  border: none;
-  background: none;
-  transition: color 0.15s;
 }
 .nav-item.active { color: #F5A623; }
 .nav-icon { font-size: 20px; line-height: 1; }
 
-/* ── INÍCIO ── */
+/* ── VIEWS (shown/hidden) ── */
+.view { display: none; flex-direction: column; height: 100%; }
+.view.active { display: flex; }
+
+/* ══════════════════════════════════════════
+   TELA 1 — INÍCIO
+══════════════════════════════════════════ */
 .home-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0 18px;
+  padding: 18px 0 20px;
 }
 .home-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 40px;
   color: #fff;
   letter-spacing: 1px;
+  line-height: 1;
 }
 .streak-pill {
   display: flex;
@@ -103,6 +120,7 @@ html, body {
   font-weight: 700;
   color: #F5A623;
 }
+.streak-pill .fire { font-size: 16px; }
 
 .level-card {
   background: #161616;
@@ -127,16 +145,16 @@ html, body {
   line-height: 1;
   margin-bottom: 14px;
 }
-.xp-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.xp-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
 .xp-label { font-size: 13px; font-weight: 600; color: #555; }
 .xp-value { font-size: 14px; font-weight: 700; color: #888; }
 .xp-bar-bg { height: 8px; background: #252525; border-radius: 4px; overflow: hidden; }
-.xp-bar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #F5A623, #4CAF50);
-  border-radius: 4px;
-  transition: width 0.5s ease;
-}
+.xp-bar-fill { height: 100%; width: 28%; background: linear-gradient(90deg, #F5A623, #4CAF50); border-radius: 4px; }
 
 .section-label {
   font-size: 11px;
@@ -154,462 +172,741 @@ html, body {
   padding: 18px 18px 14px;
   margin-bottom: 10px;
   cursor: pointer;
-  transition: border-color 0.15s, transform 0.1s;
-  width: 100%;
-  text-align: left;
-  display: block;
-  color: #fff;
+  transition: border-color 0.15s;
 }
-.battery-card:active { transform: scale(0.98); border-color: #F5A623; }
-.battery-row { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.battery-card:hover { border-color: #F5A623; }
+.battery-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
 .battery-icon {
   width: 46px; height: 46px;
   border-radius: 12px;
   background: #1e1a10;
   display: flex; align-items: center; justify-content: center;
-  font-size: 22px; flex-shrink: 0;
+  font-size: 22px;
+  flex-shrink: 0;
 }
 .battery-info { flex: 1; }
 .battery-name { font-size: 18px; font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 3px; }
 .battery-sub { font-size: 13px; font-weight: 500; color: #555; }
-.battery-pct { font-size: 22px; font-weight: 800; }
+.battery-pct { font-size: 22px; font-weight: 800; color: #E53935; }
 .battery-progress-bg { height: 5px; background: #252525; border-radius: 3px; overflow: hidden; }
-.battery-progress-fill { height: 100%; background: #F5A623; border-radius: 3px; transition: width 0.6s ease; }
+.battery-progress-fill { height: 100%; background: #F5A623; border-radius: 3px; transition: width 0.4s; }
 
-/* ── PÁGINA GENÉRICA ── */
-.page-header { padding: 20px 0 18px; }
-.page-title { font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: #fff; letter-spacing: 1px; }
-
-/* ── DETALHE BATERIA ── */
+/* ══════════════════════════════════════════
+   TELA 2 — DETALHE BATERIA (LISTA DE SKILLS)
+══════════════════════════════════════════ */
 .back-row {
-  display: flex; align-items: center; gap: 6px;
-  padding: 16px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 0 14px;
   cursor: pointer;
-  border: none; background: none; color: #F5A623;
 }
-.back-arrow { font-size: 22px; line-height: 1; }
-.back-label { font-size: 16px; font-weight: 600; }
+.back-arrow { font-size: 18px; color: #F5A623; line-height: 1; }
+.back-label { font-size: 16px; font-weight: 600; color: #F5A623; }
 
 .detail-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 52px; color: #fff; letter-spacing: 1.5px;
-  line-height: 0.95; margin-bottom: 16px;
+  font-size: 52px;
+  color: #fff;
+  letter-spacing: 1.5px;
+  line-height: 0.95;
+  margin-bottom: 16px;
 }
-.detail-progress-row { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+.detail-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
 .detail-bar-bg { flex: 1; height: 8px; background: #252525; border-radius: 4px; overflow: hidden; }
-.detail-bar-fill { height: 100%; background: #F5A623; border-radius: 4px; transition: width 0.6s ease; }
-.detail-pct { font-size: 20px; font-weight: 800; white-space: nowrap; }
+.detail-bar-fill { height: 100%; background: #F5A623; border-radius: 4px; transition: width 0.4s; }
+.detail-pct { font-size: 20px; font-weight: 800; color: #E53935; white-space: nowrap; }
 
-.label-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
 .skills-count { font-size: 13px; font-weight: 600; color: #555; }
 
 .skill-item {
-  display: flex; align-items: center; gap: 14px;
-  background: #161616; border: 1px solid #2a2a2a;
-  border-radius: 14px; padding: 16px; margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #161616;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  padding: 16px 16px;
+  margin-bottom: 8px;
   cursor: pointer;
-  transition: border-color 0.15s, background 0.15s, transform 0.1s;
-  width: 100%; text-align: left; color: #fff;
+  transition: border-color 0.15s, background 0.15s;
 }
-.skill-item:active { transform: scale(0.98); }
-.skill-item.done { border-color: #2a3a1a; background: #141a10; }
+.skill-item:hover { border-color: #3a3a3a; background: #1c1c1c; }
+.skill-item.done { border-color: #2a3a1a; background: #141a10; cursor: default; }
 
 .skill-circle {
-  width: 30px; height: 30px; border-radius: 50%;
-  border: 2px solid #333; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 15px; transition: border-color 0.2s, background 0.2s;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
   color: transparent;
 }
-.skill-item.done .skill-circle { border-color: #4CAF50; background: #1a2e14; color: #4CAF50; }
+.skill-item.done .skill-circle {
+  border-color: #4CAF50;
+  background: #1a2e14;
+  color: #4CAF50;
+}
 .skill-name { flex: 1; font-size: 16px; font-weight: 600; color: #ddd; line-height: 1.2; }
-.skill-item.done .skill-name { color: #666; text-decoration: line-through; }
+.skill-item.done .skill-name { color: #888; text-decoration: line-through; }
 .skill-xp { font-size: 13px; font-weight: 700; color: #F5A623; white-space: nowrap; }
-.skill-xp.earned { color: #4CAF50; }
+.skill-item.done .skill-xp { color: #555; }
 
-/* ── PROGRESSO ── */
-.progress-card { background: #161616; border: 1px solid #2a2a2a; border-radius: 16px; padding: 20px; margin-bottom: 12px; }
-.progress-card-title { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 14px; }
-.stat-row { display: flex; justify-content: space-around; }
-.stat-item { text-align: center; }
-.stat-value { font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: #F5A623; line-height: 1; }
-.stat-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #555; margin-top: 4px; }
+/* ══════════════════════════════════════════
+   TELA 3 — CONTEÚDO DA SKILL (LIÇÃO)
+══════════════════════════════════════════ */
+.lesson-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-/* ── PERFIL ── */
-.profile-avatar {
-  width: 80px; height: 80px; border-radius: 50%;
-  background: #1e1a10; border: 2px solid #F5A623;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 36px; margin: 20px auto 12px;
+.lesson-header {
+  padding: 16px 16px 0;
+  flex-shrink: 0;
 }
-.profile-name { font-family: 'Bebas Neue', sans-serif; font-size: 32px; text-align: center; color: #fff; letter-spacing: 1px; margin-bottom: 4px; }
-.profile-sub { font-size: 13px; color: #555; text-align: center; margin-bottom: 28px; }
-.profile-row {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 16px 0; border-bottom: 1px solid #1e1e1e;
-}
-.profile-row-label { font-size: 15px; font-weight: 600; color: #ccc; }
-.profile-row-value { font-size: 14px; color: #F5A623; font-weight: 700; }
 
-/* ── TOAST ── */
-#toast {
-  position: fixed; bottom: 90px;
-  left: 50%; transform: translateX(-50%);
-  background: #F5A623; color: #000;
-  font-size: 14px; font-weight: 700;
-  padding: 10px 20px; border-radius: 99px;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.3s; z-index: 999;
-  white-space: nowrap;
+.lesson-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 16px 16px;
+  scrollbar-width: none;
 }
-#toast.show { opacity: 1; }
+.lesson-content::-webkit-scrollbar { display: none; }
+
+.lesson-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 34px;
+  color: #fff;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.lesson-battery-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #F5A623;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.lesson-card {
+  background: #161616;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 12px;
+}
+.lesson-card-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #F5A623;
+  margin-bottom: 8px;
+}
+.lesson-card p {
+  font-size: 15px;
+  font-weight: 500;
+  color: #bbb;
+  line-height: 1.65;
+}
+.lesson-card p + p { margin-top: 10px; }
+
+.lesson-quote {
+  border-left: 3px solid #F5A623;
+  padding-left: 14px;
+  margin: 16px 0;
+}
+.lesson-quote p {
+  font-size: 16px;
+  font-style: italic;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+.lesson-example {
+  background: #0d1a0d;
+  border: 1px solid #2a3a1a;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.lesson-example-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #4CAF50;
+  margin-bottom: 6px;
+}
+.lesson-example p {
+  font-size: 14px;
+  color: #8BC34A;
+  line-height: 1.6;
+}
+
+.lesson-tip {
+  background: #1a1000;
+  border: 1px solid #3a2800;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.lesson-tip-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #F5A623;
+  margin-bottom: 6px;
+}
+.lesson-tip p {
+  font-size: 14px;
+  color: #c8922a;
+  line-height: 1.6;
+}
+
+.lesson-footer {
+  padding: 12px 16px 0;
+  flex-shrink: 0;
+}
+
+.btn-complete {
+  width: 100%;
+  background: #F5A623;
+  color: #000;
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 14px;
+  padding: 16px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  margin-bottom: 12px;
+}
+.btn-complete:hover { background: #e09515; }
+.btn-complete:active { transform: scale(0.98); }
+.btn-complete:disabled {
+  background: #2a3a1a;
+  color: #4CAF50;
+  cursor: default;
+}
+
+.xp-toast {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #1a2e14;
+  border: 1px solid #2a4a1a;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #4CAF50;
+}
+.xp-toast.show { display: flex; }
+
 </style>
 </head>
 <body>
-<div id="app">
 
-  <!-- INÍCIO -->
-  <div id="screen-inicio" class="screen active">
-    <div class="screen-body">
-      <div class="home-header">
-        <div class="home-title">Início</div>
-        <div class="streak-pill">🔥 <span id="streak-count">0</span> dias</div>
-      </div>
-      <div class="level-card">
-        <div class="level-eyebrow">Nível de Energia Mental</div>
-        <div class="level-name" id="level-name">Nível 1 — Faísca</div>
-        <div class="xp-row">
-          <div class="xp-label">Progresso</div>
-          <div class="xp-value"><span id="xp-value">0</span> XP</div>
+<!-- ══════════════ PHONE ══════════════ -->
+<div class="phone" id="mainPhone">
+
+  <!-- Status Bar -->
+  <div class="status-bar">
+    <span>08:23</span>
+    <span>📶 4G 🔋</span>
+  </div>
+
+  <!-- SCREEN WRAPPER -->
+  <div class="screen">
+
+    <!-- ─── VIEW: HOME ─── -->
+    <div class="view active" id="view-home">
+      <div class="screen-content">
+        <div class="home-header">
+          <div class="home-title">Início</div>
+          <div class="streak-pill"><span class="fire">🔥</span><span id="streak-label">0 dias</span></div>
         </div>
-        <div class="xp-bar-bg"><div class="xp-bar-fill" id="xp-bar" style="width:0%"></div></div>
-      </div>
-      <div class="section-label">Suas Baterias</div>
-      <div id="home-batteries"></div>
-    </div>
-    <div class="bottom-nav">
-      <button class="nav-item active" onclick="goTo('inicio')"><div class="nav-icon">🏠</div><span>Início</span></button>
-      <button class="nav-item" onclick="goTo('baterias')"><div class="nav-icon">🔋</div><span>Baterias</span></button>
-      <button class="nav-item" onclick="goTo('progresso')"><div class="nav-icon">📊</div><span>Progresso</span></button>
-      <button class="nav-item" onclick="goTo('perfil')"><div class="nav-icon">👤</div><span>Perfil</span></button>
-    </div>
-  </div>
+        <div class="level-card">
+          <div class="level-eyebrow">Nível de Energia Mental</div>
+          <div class="level-name" id="home-level-name">Nível 2 — Ignição</div>
+          <div class="xp-row">
+            <div class="xp-label">Progresso</div>
+            <div class="xp-value" id="home-xp">170 XP</div>
+          </div>
+          <div class="xp-bar-bg"><div class="xp-bar-fill" id="home-xp-bar"></div></div>
+        </div>
 
-  <!-- BATERIAS -->
-  <div id="screen-baterias" class="screen">
-    <div class="screen-body">
-      <div class="page-header"><div class="page-title">Baterias</div></div>
-      <div class="section-label">Todas as categorias</div>
-      <div id="all-batteries"></div>
-    </div>
-    <div class="bottom-nav">
-      <button class="nav-item" onclick="goTo('inicio')"><div class="nav-icon">🏠</div><span>Início</span></button>
-      <button class="nav-item active" onclick="goTo('baterias')"><div class="nav-icon">🔋</div><span>Baterias</span></button>
-      <button class="nav-item" onclick="goTo('progresso')"><div class="nav-icon">📊</div><span>Progresso</span></button>
-      <button class="nav-item" onclick="goTo('perfil')"><div class="nav-icon">👤</div><span>Perfil</span></button>
-    </div>
-  </div>
-
-  <!-- DETALHE BATERIA -->
-  <div id="screen-detalhe" class="screen">
-    <div class="screen-body">
-      <button class="back-row" onclick="voltarDoBateria()">
-        <span class="back-arrow">‹</span>
-        <span class="back-label">Voltar</span>
-      </button>
-      <div class="detail-title" id="detail-title"></div>
-      <div class="detail-progress-row">
-        <div class="detail-bar-bg"><div class="detail-bar-fill" id="detail-bar" style="width:0%"></div></div>
-        <div class="detail-pct" id="detail-pct">0%</div>
+        <div class="section-label">Suas Baterias</div>
+        <div id="home-batteries"></div>
       </div>
-      <div class="label-row">
-        <div class="section-label" style="margin-bottom:0">Habilidades</div>
-        <div class="skills-count" id="skills-count"></div>
+      <div class="bottom-nav">
+        <div class="nav-item active"><div class="nav-icon">🏠</div><span>Início</span></div>
+        <div class="nav-item" onclick="goTo('view-batteries')"><div class="nav-icon">🔋</div><span>Baterias</span></div>
+        <div class="nav-item"><div class="nav-icon">📊</div><span>Progresso</span></div>
+        <div class="nav-item"><div class="nav-icon">👤</div><span>Perfil</span></div>
       </div>
-      <div style="margin-top:10px;" id="skills-list"></div>
     </div>
-    <div class="bottom-nav">
-      <button class="nav-item" onclick="goTo('inicio')"><div class="nav-icon">🏠</div><span>Início</span></button>
-      <button class="nav-item" onclick="goTo('baterias')"><div class="nav-icon">🔋</div><span>Baterias</span></button>
-      <button class="nav-item" onclick="goTo('progresso')"><div class="nav-icon">📊</div><span>Progresso</span></button>
-      <button class="nav-item" onclick="goTo('perfil')"><div class="nav-icon">👤</div><span>Perfil</span></button>
-    </div>
-  </div>
 
-  <!-- PROGRESSO -->
-  <div id="screen-progresso" class="screen">
-    <div class="screen-body">
-      <div class="page-header"><div class="page-title">Progresso</div></div>
-      <div class="progress-card">
-        <div class="progress-card-title">Resumo geral</div>
-        <div class="stat-row">
-          <div class="stat-item"><div class="stat-value" id="stat-xp">0</div><div class="stat-label">XP Total</div></div>
-          <div class="stat-item"><div class="stat-value" id="stat-skills">0</div><div class="stat-label">Habilidades</div></div>
-          <div class="stat-item"><div class="stat-value" id="stat-streak">0</div><div class="stat-label">Dias seguidos</div></div>
+    <!-- ─── VIEW: BATTERIES LIST ─── -->
+    <div class="view" id="view-batteries">
+      <div class="screen-content">
+        <div class="home-header">
+          <div class="home-title">Baterias</div>
+        </div>
+        <div id="batteries-list"></div>
+      </div>
+      <div class="bottom-nav">
+        <div class="nav-item" onclick="goTo('view-home')"><div class="nav-icon">🏠</div><span>Início</span></div>
+        <div class="nav-item active"><div class="nav-icon">🔋</div><span>Baterias</span></div>
+        <div class="nav-item"><div class="nav-icon">📊</div><span>Progresso</span></div>
+        <div class="nav-item"><div class="nav-icon">👤</div><span>Perfil</span></div>
+      </div>
+    </div>
+
+    <!-- ─── VIEW: BATTERY DETAIL (skill list) ─── -->
+    <div class="view" id="view-detail">
+      <div class="screen-content">
+        <div class="back-row" onclick="goBack('view-home')">
+          <span class="back-arrow">‹</span>
+          <span class="back-label">Voltar</span>
+        </div>
+        <div class="detail-title" id="detail-title">Vendas</div>
+        <div class="detail-progress-row">
+          <div class="detail-bar-bg"><div class="detail-bar-fill" id="detail-bar"></div></div>
+          <div class="detail-pct" id="detail-pct">0%</div>
+        </div>
+        <div class="label-row">
+          <div class="section-label" style="margin-bottom:0">Habilidades</div>
+          <div class="skills-count" id="detail-count">0 / 10 concluídas</div>
+        </div>
+        <div style="margin-top:10px;" id="detail-skills-list"></div>
+      </div>
+      <div class="bottom-nav">
+        <div class="nav-item" onclick="goTo('view-home')"><div class="nav-icon">🏠</div><span>Início</span></div>
+        <div class="nav-item active"><div class="nav-icon">🔋</div><span>Baterias</span></div>
+        <div class="nav-item"><div class="nav-icon">📊</div><span>Progresso</span></div>
+        <div class="nav-item"><div class="nav-icon">👤</div><span>Perfil</span></div>
+      </div>
+    </div>
+
+    <!-- ─── VIEW: LESSON (conteúdo da skill) ─── -->
+    <div class="view" id="view-lesson">
+      <div class="lesson-view">
+        <div class="lesson-header">
+          <div class="back-row" id="lesson-back-btn">
+            <span class="back-arrow">‹</span>
+            <span class="back-label">Voltar</span>
+          </div>
+        </div>
+        <div class="lesson-content" id="lesson-body"></div>
+        <div class="lesson-footer">
+          <div class="xp-toast" id="xp-toast">✅ +10 XP ganhos!</div>
+          <button class="btn-complete" id="btn-complete">Marcar como Concluído ✓</button>
         </div>
       </div>
-      <div class="section-label" style="margin-top:20px">Por bateria</div>
-      <div id="progress-batteries"></div>
     </div>
-    <div class="bottom-nav">
-      <button class="nav-item" onclick="goTo('inicio')"><div class="nav-icon">🏠</div><span>Início</span></button>
-      <button class="nav-item" onclick="goTo('baterias')"><div class="nav-icon">🔋</div><span>Baterias</span></button>
-      <button class="nav-item active" onclick="goTo('progresso')"><div class="nav-icon">📊</div><span>Progresso</span></button>
-      <button class="nav-item" onclick="goTo('perfil')"><div class="nav-icon">👤</div><span>Perfil</span></button>
-    </div>
-  </div>
 
-  <!-- PERFIL -->
-  <div id="screen-perfil" class="screen">
-    <div class="screen-body">
-      <div class="profile-avatar">⚡</div>
-      <div class="profile-name" id="profile-level">Nível 1 — Faísca</div>
-      <div class="profile-sub" id="profile-xp">0 XP acumulados</div>
-      <div class="profile-row">
-        <span class="profile-row-label">🔥 Sequência atual</span>
-        <span class="profile-row-value" id="profile-streak">0 dias</span>
-      </div>
-      <div class="profile-row">
-        <span class="profile-row-label">🏆 Habilidades concluídas</span>
-        <span class="profile-row-value" id="profile-skills">0</span>
-      </div>
-      <div class="profile-row">
-        <span class="profile-row-label">🔋 Baterias ativas</span>
-        <span class="profile-row-value" id="profile-batteries">0</span>
-      </div>
-    </div>
-    <div class="bottom-nav">
-      <button class="nav-item" onclick="goTo('inicio')"><div class="nav-icon">🏠</div><span>Início</span></button>
-      <button class="nav-item" onclick="goTo('baterias')"><div class="nav-icon">🔋</div><span>Baterias</span></button>
-      <button class="nav-item" onclick="goTo('progresso')"><div class="nav-icon">📊</div><span>Progresso</span></button>
-      <button class="nav-item active" onclick="goTo('perfil')"><div class="nav-icon">👤</div><span>Perfil</span></button>
-    </div>
-  </div>
-
-  <div id="toast"></div>
-</div>
+  </div><!-- /screen -->
+</div><!-- /phone -->
 
 <script>
-const BATERIAS = [
+// ══════════════════════════════════════════
+// DATA
+// ══════════════════════════════════════════
+
+const batteries = [
   {
-    id: 'vendas', nome: 'Vendas', icone: '💰',
-    habilidades: [
-      'O que é valor percebido','Rapport com o cliente','Técnica SPIN Selling',
-      'Superar objeções','Fechamento consultivo','Follow-up estratégico',
-      'Proposta de valor','Venda por ancoragem','Gatilhos mentais','Pipeline de vendas'
+    id: 'vendas',
+    name: 'Vendas',
+    icon: '💰',
+    skills: [
+      {
+        id: 'valor-percebido',
+        name: 'O que é valor percebido',
+        content: {
+          intro: 'Valor não é o preço que você cobra. É o quanto o cliente acredita que vai ganhar.',
+          body: [
+            { type: 'text', label: 'Conceito', text: 'Valor percebido é a diferença entre o que o cliente recebe e o que ele acredita que está pagando. Quando essa diferença é positiva, a venda acontece naturalmente. Quando é negativa, nem o menor preço do mercado resolve.\n\nO erro mais comum de quem está aprendendo a vender é competir pelo preço. Os melhores vendedores competem pelo valor.' },
+            { type: 'quote', text: 'As pessoas não compram o que você faz. Elas compram o porquê você faz.' },
+            { type: 'example', label: 'Exemplo prático', text: 'Dois cafés idênticos: um a R$5 numa lanchonete, outro a R$18 num café boutique. O produto é o mesmo — o valor percebido é completamente diferente. O segundo vende mais porque a experiência, o ambiente e a embalagem comunicam valor antes mesmo do primeiro gole.' },
+            { type: 'text', label: 'Aplicação', text: 'Antes da sua próxima venda, pergunte a si mesmo: o que o meu cliente vai ganhar com isso? Como posso fazer ele sentir esse ganho antes de fechar?' },
+            { type: 'tip', label: 'Dica de ouro', text: 'Liste 3 benefícios reais que seu produto/serviço entrega. Comunique esses benefícios — não as funcionalidades. Ninguém compra "4 câmeras". As pessoas compram "lembranças perfeitas da sua família".' }
+          ]
+        }
+      },
+      {
+        id: 'rapport',
+        name: 'Rapport com o cliente',
+        content: {
+          intro: 'Antes de vender qualquer coisa, você precisa que a pessoa confie em você.',
+          body: [
+            { type: 'text', label: 'Conceito', text: 'Rapport é o estado de sintonia e confiança mútua entre duas pessoas. Em vendas, é a fundação de tudo. Sem rapport, qualquer técnica de fechamento vai soar forçada.\n\nRapport não é manipulação — é conexão genuína. As pessoas compram de quem elas gostam e em quem confiam.' },
+            { type: 'quote', text: 'As pessoas esquecem o que você disse, mas nunca esquecem como você as fez sentir.' },
+            { type: 'example', label: 'Exemplo prático', text: 'Um vendedor que começa a ligação dizendo "vi que você é fã do Flamengo — que jogo incrível sábado!" e passa 2 minutos conversando antes de falar sobre o produto vai fechar muito mais do que quem vai direto ao ponto.' },
+            { type: 'tip', label: 'Técnica rápida', text: 'Espelhe (com sutileza) o ritmo, o tom e o vocabulário do cliente. Se ele fala devagar, desacelere. Se é informal, seja informal. Isso cria sintonia sem que ele perceba.' }
+          ]
+        }
+      },
+      {
+        id: 'spin',
+        name: 'Técnica SPIN Selling',
+        content: {
+          intro: 'As melhores vendas não começam com uma oferta — começam com as perguntas certas.',
+          body: [
+            { type: 'text', label: 'O que é SPIN?', text: 'SPIN é um método de vendas criado por Neil Rackham baseado em 4 tipos de perguntas:\n\n• Situação — entender o contexto atual do cliente\n• Problema — identificar as dores e dificuldades\n• Implicação — mostrar as consequências do problema\n• Necessidade de solução — fazer o cliente visualizar a solução' },
+            { type: 'quote', text: 'Não tente convencer. Faça as perguntas certas e deixe o cliente convencer a si mesmo.' },
+            { type: 'example', label: 'SPIN em ação', text: 'S: "Como você gerencia seus leads hoje?"\nP: "Alguma dificuldade em acompanhar todos os contatos?"\nI: "E quando um lead cai no esquecimento, o que acontece com aquela venda potencial?"\nN: "Se você tivesse uma forma automática de nunca perder um follow-up, como isso impactaria seu faturamento?"' },
+            { type: 'tip', label: 'Dica', text: 'A mágica do SPIN está nas perguntas de Implicação. Elas fazem o cliente sentir a dor do problema — e é aí que a motivação para comprar surge.' }
+          ]
+        }
+      },
+      {
+        id: 'objecoes',
+        name: 'Superar objeções',
+        content: {
+          intro: 'Objeção não é rejeição. É um pedido de mais informação.',
+          body: [
+            { type: 'text', label: 'Mudança de perspectiva', text: 'Todo vendedor iniciante teme a objeção. O vendedor experiente a celebra — porque ela significa que o cliente ainda está engajado, ainda está considerando.\n\nQuando alguém diz "está caro", o que realmente está dizendo é "ainda não enxergo valor suficiente para justificar o preço".' },
+            { type: 'quote', text: 'A objeção é o início da negociação, não o fim dela.' },
+            { type: 'example', label: 'As 4 objeções mais comuns', text: '1. "Está caro" → "Em relação a quê? Vamos analisar o retorno..."\n2. "Preciso pensar" → "O que falta para você se sentir seguro agora?"\n3. "Já tenho fornecedor" → "O que te faria considerar uma alternativa?"\n4. "Não é o momento" → "Quando seria o momento ideal? O que precisa mudar?"' },
+            { type: 'tip', label: 'Técnica', text: 'Antes de responder uma objeção, sempre valide: "Entendo sua preocupação." Isso desarma defensividade e abre espaço para o diálogo.' }
+          ]
+        }
+      },
+      {
+        id: 'fechamento',
+        name: 'Fechamento consultivo',
+        content: {
+          intro: 'O fechamento não é um momento — é um processo que começa no primeiro contato.',
+          body: [
+            { type: 'text', label: 'Conceito', text: 'O fechamento consultivo abandona as antigas táticas de pressão e substitui pela parceria. Em vez de "fechar" o cliente, você o guia até a decisão que faz sentido para ele.\n\nQuando o processo foi bem conduzido — com rapport, perguntas certas e valor claro — o fechamento é quase natural.' },
+            { type: 'quote', text: 'Vender não é fazer a pessoa comprar. É ajudá-la a tomar uma boa decisão.' },
+            { type: 'example', label: 'Fechamento por resumo', text: '"Então, você me disse que o maior desafio é X, que isso te custa Y por mês, e que se resolver isso você teria Z de resultado. Com base nisso, faz sentido avançarmos?" — Isso não é pressão. É clareza.' },
+            { type: 'tip', label: 'Sinais de compra', text: 'Fique atento: quando o cliente começa a perguntar sobre prazo de entrega, formas de pagamento ou suporte pós-venda, ele já decidiu comprar. Só precisa de um empurrão gentil.' }
+          ]
+        }
+      },
+      {
+        id: 'followup',
+        name: 'Follow-up estratégico',
+        content: {
+          intro: '80% das vendas acontecem após o 5º contato. A maioria dos vendedores desiste no 2º.',
+          body: [
+            { type: 'text', label: 'A regra dos 5 contatos', text: 'Um estudo clássico de vendas mostrou que 48% dos vendedores nunca fazem um segundo contato. Mas 80% das vendas exigem pelo menos 5 follow-ups.\n\nO follow-up não é insistência. É persistência com valor agregado — cada contato deve trazer algo novo: um artigo, um dado relevante, um case de sucesso.' },
+            { type: 'quote', text: 'A fortuna está no follow-up.' },
+            { type: 'example', label: 'Cadência de follow-up', text: 'Dia 1: Proposta enviada\nDia 3: "Alguma dúvida sobre a proposta?"\nDia 7: Compartilhe um case de sucesso relevante\nDia 14: Uma nova perspectiva ou dado do setor\nDia 21: Oferta de uma conversa rápida de 15 min' },
+            { type: 'tip', label: 'CRM simples', text: 'Se você não usa CRM ainda, comece com uma planilha com: nome, último contato, próximo contato e status. Simples, mas já resolve 80% do problema.' }
+          ]
+        }
+      },
+      {
+        id: 'proposta',
+        name: 'Proposta de valor',
+        content: {
+          intro: 'Se você não consegue explicar o que faz em 10 segundos, já perdeu a atenção.',
+          body: [
+            { type: 'text', label: 'O que é uma proposta de valor?', text: 'É a resposta clara para: "Por que eu deveria comprar de você e não do seu concorrente?"\n\nUma boa proposta de valor não é um slogan bonito. É uma promessa específica, crível e diferenciada que resolve um problema real de um cliente real.' },
+            { type: 'quote', text: 'Clareza vende. Confusão mata a venda.' },
+            { type: 'example', label: 'Fórmula simples', text: 'Nós ajudamos [quem] a [fazer o quê] para que [resultado final].\n\nExemplo: "Ajudamos pequenas empresas a automatizar seu processo de vendas para que nunca percam um lead por falta de follow-up."' },
+            { type: 'tip', label: 'Teste dos 10 segundos', text: 'Diga sua proposta de valor em voz alta em 10 segundos para alguém que não conhece seu produto. Se eles entenderem imediatamente o que você faz e para quem — está ótimo. Se ficarem confusos — volte ao rascunho.' }
+          ]
+        }
+      },
+      {
+        id: 'ancoragem',
+        name: 'Venda por ancoragem',
+        content: {
+          intro: 'O primeiro número que o cliente ouve molda toda a negociação.',
+          body: [
+            { type: 'text', label: 'O poder da âncora', text: 'Ancoragem é um viés cognitivo: tendemos a usar o primeiro número que vemos como referência para julgar os próximos. Em vendas, quem apresenta o preço primeiro controla a percepção de valor.\n\nSe você começa com o plano de R$5.000, o de R$2.500 parece um barato. Se começa pelo de R$500, o de R$2.500 parece caro.' },
+            { type: 'quote', text: 'O preço que o cliente paga não começa na proposta. Começa na percepção.' },
+            { type: 'example', label: 'Ancoragem na prática', text: 'Apresente sempre 3 opções: Premium (âncora alta), Standard (o que você quer vender) e Básico (âncora baixa). A maioria das pessoas vai direto para o meio — que é exatamente onde você quer que elas vão.' },
+            { type: 'tip', label: 'Importante', text: 'Nunca peça desculpas pelo seu preço. Quando você hesita, o cliente hesita. Apresente com confiança e deixe o valor justificar.' }
+          ]
+        }
+      },
+      {
+        id: 'gatilhos',
+        name: 'Gatilhos mentais',
+        content: {
+          intro: 'As pessoas tomam decisões de compra com emoção e justificam com lógica.',
+          body: [
+            { type: 'text', label: 'Os 6 gatilhos de Cialdini', text: 'Robert Cialdini identificou 6 princípios que influenciam decisões:\n\n1. Reciprocidade — dê algo primeiro\n2. Escassez — o que é raro é valorizado\n3. Autoridade — expertise gera confiança\n4. Prova social — outros estão fazendo isso\n5. Afeição — compramos de quem gostamos\n6. Comprometimento — pequenos sins levam a grandes sins' },
+            { type: 'example', label: 'Escassez com ética', text: '"Temos apenas 3 vagas para início imediato" — se for verdade, use. Se for mentira, vai destruir sua credibilidade no longo prazo. Gatilhos éticos constroem negócios duradouros.' },
+            { type: 'tip', label: 'Comece pela prova social', text: 'Para quem está começando, a prova social é o gatilho mais fácil de usar: depoimentos, cases, números ("mais de 200 clientes atendidos"). Mostre que outros já confiaram em você.' }
+          ]
+        }
+      },
+      {
+        id: 'pipeline',
+        name: 'Pipeline de vendas',
+        content: {
+          intro: 'Você não pode melhorar o que não consegue enxergar.',
+          body: [
+            { type: 'text', label: 'O que é um pipeline?', text: 'Pipeline de vendas é a representação visual de onde cada oportunidade está no seu processo de venda — desde o primeiro contato até o fechamento.\n\nSem pipeline, você vende por intuição. Com pipeline, você vende com estratégia. A diferença é escalabilidade.' },
+            { type: 'quote', text: 'Gerencie a atividade, não o resultado. O resultado é consequência.' },
+            { type: 'example', label: 'Etapas básicas', text: '1. Prospecção — identificar potenciais clientes\n2. Qualificação — verificar se têm fit\n3. Apresentação — mostrar a solução\n4. Proposta — formalizar a oferta\n5. Negociação — ajustar detalhes\n6. Fechamento — confirmar a venda\n7. Pós-venda — fidelizar e gerar indicações' },
+            { type: 'tip', label: 'Métrica-chave', text: 'Calcule sua taxa de conversão entre cada etapa. Se você fecha 1 em cada 5 propostas, precisa de 5 propostas para cada venda. Agora você sabe quantos contatos precisa fazer por semana.' }
+          ]
+        }
+      }
     ]
   },
   {
-    id: 'programacao', nome: 'Programação', icone: '💻',
-    habilidades: [
-      'Lógica de programação','HTML e CSS básico','JavaScript fundamentos',
-      'Funções e loops','Arrays e objetos','DOM e eventos',
-      'Requisições HTTP','Git e versionamento','Debugging','Boas práticas de código'
+    id: 'programacao',
+    name: 'Programação',
+    icon: '💻',
+    skills: [
+      { id: 'variaveis', name: 'Variáveis e tipos de dados', content: { intro: 'Tudo começa com dados. Variáveis são os blocos básicos de qualquer programa.', body: [{ type: 'text', label: 'Conceito', text: 'Uma variável é um espaço na memória do computador onde você guarda um valor. Pode ser um número, um texto, um verdadeiro/falso. Entender tipos de dados é o primeiro passo para pensar como um programador.' }, { type: 'tip', label: 'Na prática', text: 'Em JavaScript: let nome = "Ana"; let idade = 25; let ativo = true; — cada um é um tipo diferente de dado (string, number, boolean).' }] } },
+      { id: 'logica', name: 'Lógica de programação', content: { intro: 'Antes de aprender uma linguagem, aprenda a pensar em sequências.', body: [{ type: 'text', label: 'Conceito', text: 'Lógica de programação é a capacidade de decompor um problema em passos sequenciais que um computador consiga executar. É a habilidade mais importante — e ela independe de linguagem.' }, { type: 'quote', text: 'Programação é pensar, não digitar.' }] } },
+      { id: 'loops', name: 'Loops e repetições', content: { intro: 'Computadores são incansáveis. Peça para eles repetirem sem medo.', body: [{ type: 'text', label: 'Conceito', text: 'Loops permitem que você execute o mesmo bloco de código múltiplas vezes sem precisar reescrevê-lo. for, while e forEach são os mais comuns.' }, { type: 'tip', label: 'Cuidado', text: 'Um loop sem condição de parada trava o programa. Sempre defina quando o loop deve terminar.' }] } },
+      { id: 'funcoes', name: 'Funções', content: { intro: 'Escreva uma vez. Use em qualquer lugar.', body: [{ type: 'text', label: 'Conceito', text: 'Funções são blocos de código reutilizáveis. Em vez de repetir a mesma lógica 10 vezes, você cria uma função e a chama quando precisar. Isso torna o código mais limpo, fácil de testar e de manter.' }] } },
+      { id: 'arrays', name: 'Arrays e listas', content: { intro: 'Quando você precisa guardar mais de uma coisa, use um array.', body: [{ type: 'text', label: 'Conceito', text: 'Um array é uma lista ordenada de valores. Em vez de criar 10 variáveis separadas, você guarda tudo numa só estrutura e acessa pelo índice.' }] } },
+      { id: 'objetos', name: 'Objetos e estruturas', content: { intro: 'O mundo real é feito de objetos. A programação também.', body: [{ type: 'text', label: 'Conceito', text: 'Objetos agrupam propriedades relacionadas. Um usuário tem nome, e-mail e senha. Um produto tem nome, preço e estoque. Objetos modelam a realidade no código.' }] } },
+      { id: 'dom', name: 'Manipulação do DOM', content: { intro: 'JavaScript não serve apenas para calcular — ele faz páginas ganharem vida.', body: [{ type: 'text', label: 'Conceito', text: 'DOM (Document Object Model) é a representação da página HTML em JavaScript. Com ele, você pode alterar textos, estilos, criar e remover elementos dinamicamente — é aqui que a mágica do frontend acontece.' }] } },
+      { id: 'apis', name: 'APIs e requisições', content: { intro: 'Nenhum app é uma ilha. Todos precisam conversar com o mundo.', body: [{ type: 'text', label: 'Conceito', text: 'APIs são interfaces que permitem que sistemas se comuniquem. Quando você vê a previsão do tempo num app, ele está consultando a API de uma empresa de meteorologia. Aprender a fazer requisições HTTP é essencial para qualquer dev.' }] } },
+      { id: 'git', name: 'Git e controle de versão', content: { intro: 'Nunca mais perca seu trabalho. Nunca mais quebre algo sem poder desfazer.', body: [{ type: 'text', label: 'Conceito', text: 'Git é o sistema que guarda o histórico completo de todas as mudanças no seu código. É como um time-travel para o seu projeto — você pode voltar a qualquer ponto da história com um comando.' }] } },
+      { id: 'debug', name: 'Debug e resolução de problemas', content: { intro: 'Todo programador passa mais tempo corrigindo bugs do que escrevendo código. Isso é normal.', body: [{ type: 'text', label: 'Conceito', text: 'Debug é o processo de encontrar e corrigir erros no código. As melhores ferramentas são: console.log para inspecionar valores, o DevTools do navegador e a habilidade de ler mensagens de erro sem entrar em pânico.' }] } }
     ]
   }
 ];
 
-const NIVEIS = [
-  { xp: 0,   nome: 'Nível 1 — Faísca',  max: 100 },
-  { xp: 100, nome: 'Nível 2 — Ignição', max: 250 },
-  { xp: 250, nome: 'Nível 3 — Chama',   max: 500 },
-  { xp: 500, nome: 'Nível 4 — Fogo',    max: 800 },
-  { xp: 800, nome: 'Nível 5 — Inferno', max: 800 },
-];
+// ══════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════
+const state = {
+  completed: JSON.parse(localStorage.getItem('battery_completed') || '{}'),
+  currentBattery: null,
+  currentSkill: null,
+  prevView: 'view-detail'
+};
 
-function carregarEstado() {
-  const s = localStorage.getItem('battery_v2');
-  if (s) return JSON.parse(s);
-  const e = { xp: 0, streak: 0, concluidas: {} };
-  BATERIAS.forEach(b => { e.concluidas[b.id] = []; });
-  return e;
-}
-function salvarEstado() { localStorage.setItem('battery_v2', JSON.stringify(estado)); }
-
-let estado = carregarEstado();
-let telaAtual = 'inicio';
-let bateriaAtual = null;
-let telaAnterior = 'inicio';
-
-function goTo(tela) {
-  if (telaAtual === tela) return;
-  const ant = document.getElementById('screen-' + telaAtual);
-  const prox = document.getElementById('screen-' + tela);
-  ant.classList.add('slide-out');
-  prox.classList.add('active');
-  setTimeout(() => ant.classList.remove('active','slide-out'), 280);
-  telaAtual = tela;
-  if (tela === 'inicio') renderInicio();
-  else if (tela === 'baterias') renderBaterias();
-  else if (tela === 'progresso') renderProgresso();
-  else if (tela === 'perfil') renderPerfil();
+function saveState() {
+  localStorage.setItem('battery_completed', JSON.stringify(state.completed));
 }
 
-function abrirBateria(id, origem) {
-  telaAnterior = origem;
-  bateriaAtual = id;
-  const ant = document.getElementById('screen-' + telaAtual);
-  const prox = document.getElementById('screen-detalhe');
-  ant.classList.add('slide-out');
-  prox.classList.add('active');
-  setTimeout(() => ant.classList.remove('active','slide-out'), 280);
-  telaAtual = 'detalhe';
-  renderDetalhe(id);
+function isCompleted(batteryId, skillId) {
+  return !!(state.completed[batteryId] && state.completed[batteryId][skillId]);
 }
 
-function voltarDoBateria() {
-  const ant = document.getElementById('screen-detalhe');
-  const prox = document.getElementById('screen-' + telaAnterior);
-  ant.classList.add('slide-out');
-  prox.classList.add('active');
-  setTimeout(() => ant.classList.remove('active','slide-out'), 280);
-  telaAtual = telaAnterior;
-  if (telaAnterior === 'inicio') renderInicio();
-  else if (telaAnterior === 'baterias') renderBaterias();
+function markComplete(batteryId, skillId) {
+  if (!state.completed[batteryId]) state.completed[batteryId] = {};
+  state.completed[batteryId][skillId] = true;
+  saveState();
 }
 
-function getNivel() {
-  let n = NIVEIS[0];
-  for (const x of NIVEIS) { if (estado.xp >= x.xp) n = x; }
-  return n;
+function getBatteryProgress(battery) {
+  const done = battery.skills.filter(s => isCompleted(battery.id, s.id)).length;
+  return { done, total: battery.skills.length, pct: Math.round((done / battery.skills.length) * 100) };
 }
 
-function getXpPct() {
-  const n = getNivel();
-  const idx = NIVEIS.indexOf(n);
-  if (idx >= NIVEIS.length - 1) return 100;
-  const prox = NIVEIS[idx + 1];
-  return Math.round(((estado.xp - n.xp) / (prox.xp - n.xp)) * 100);
+// ══════════════════════════════════════════
+// NAVIGATION
+// ══════════════════════════════════════════
+function goTo(viewId) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById(viewId).classList.add('active');
 }
 
-function getPct(id) {
-  const b = BATERIAS.find(x => x.id === id);
-  return Math.round(((estado.concluidas[id]||[]).length / b.habilidades.length) * 100);
+function goBack(viewId) {
+  goTo(viewId);
 }
 
-function renderBatteryCard(b, origem) {
-  const pct = getPct(b.id);
-  const c = (estado.concluidas[b.id]||[]).length;
-  const total = b.habilidades.length;
-  const btn = document.createElement('button');
-  btn.className = 'battery-card';
-  btn.onclick = () => abrirBateria(b.id, origem);
-  btn.innerHTML = `
-    <div class="battery-row">
-      <div class="battery-icon">${b.icone}</div>
-      <div class="battery-info">
-        <div class="battery-name">${b.nome}</div>
-        <div class="battery-sub">${c} / ${total} habilidades</div>
-      </div>
-      <div class="battery-pct" style="color:${pct>0?'#F5A623':'#E53935'}">${pct}%</div>
-    </div>
-    <div class="battery-progress-bg">
-      <div class="battery-progress-fill" style="width:${pct}%"></div>
-    </div>`;
-  return btn;
-}
-
-function renderInicio() {
-  document.getElementById('streak-count').textContent = estado.streak;
-  document.getElementById('level-name').textContent = getNivel().nome;
-  document.getElementById('xp-value').textContent = estado.xp;
-  document.getElementById('xp-bar').style.width = getXpPct() + '%';
-  const c = document.getElementById('home-batteries');
-  c.innerHTML = '';
-  BATERIAS.forEach(b => c.appendChild(renderBatteryCard(b, 'inicio')));
-}
-
-function renderBaterias() {
-  const c = document.getElementById('all-batteries');
-  c.innerHTML = '';
-  BATERIAS.forEach(b => c.appendChild(renderBatteryCard(b, 'baterias')));
-}
-
-function renderDetalhe(id) {
-  const b = BATERIAS.find(x => x.id === id);
-  const conc = estado.concluidas[id] || [];
-  const pct = getPct(id);
-  document.getElementById('detail-title').textContent = b.nome;
-  document.getElementById('detail-bar').style.width = pct + '%';
-  document.getElementById('detail-pct').textContent = pct + '%';
-  document.getElementById('detail-pct').style.color = pct > 0 ? '#F5A623' : '#E53935';
-  document.getElementById('skills-count').textContent = conc.length + ' / ' + b.habilidades.length + ' concluídas';
-  const lista = document.getElementById('skills-list');
-  lista.innerHTML = '';
-  b.habilidades.forEach((hab, i) => {
-    const feita = conc.includes(i);
-    const item = document.createElement('button');
-    item.className = 'skill-item' + (feita ? ' done' : '');
-    item.innerHTML = `
-      <div class="skill-circle">${feita ? '✓' : ''}</div>
-      <div class="skill-name">${hab}</div>
-      <div class="skill-xp ${feita ? 'earned' : ''}">${feita ? '✓ XP' : '+10 XP'}</div>`;
-    item.onclick = () => toggleHab(id, i);
-    lista.appendChild(item);
-  });
-}
-
-function renderProgresso() {
-  const total = Object.values(estado.concluidas).reduce((a,c) => a + c.length, 0);
-  document.getElementById('stat-xp').textContent = estado.xp;
-  document.getElementById('stat-skills').textContent = total;
-  document.getElementById('stat-streak').textContent = estado.streak;
-  const c = document.getElementById('progress-batteries');
-  c.innerHTML = '';
-  BATERIAS.forEach(b => {
-    const pct = getPct(b.id);
-    const conc = (estado.concluidas[b.id]||[]).length;
+// ══════════════════════════════════════════
+// RENDER: HOME BATTERIES
+// ══════════════════════════════════════════
+function renderHomeBatteries() {
+  const container = document.getElementById('home-batteries');
+  container.innerHTML = '';
+  batteries.forEach(battery => {
+    const { done, total, pct } = getBatteryProgress(battery);
     const card = document.createElement('div');
-    card.className = 'progress-card';
+    card.className = 'battery-card';
     card.innerHTML = `
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-        <div style="font-size:16px;font-weight:700">${b.icone} ${b.nome}</div>
-        <div style="font-size:14px;font-weight:700;color:${pct>0?'#F5A623':'#555'}">${pct}%</div>
+      <div class="battery-row">
+        <div class="battery-icon">${battery.icon}</div>
+        <div class="battery-info">
+          <div class="battery-name">${battery.name}</div>
+          <div class="battery-sub">${done} / ${total} habilidades</div>
+        </div>
+        <div class="battery-pct" style="color:${pct > 0 ? '#F5A623' : '#E53935'}">${pct}%</div>
       </div>
       <div class="battery-progress-bg">
         <div class="battery-progress-fill" style="width:${pct}%"></div>
       </div>
-      <div style="margin-top:8px;font-size:12px;color:#555">${conc} de ${b.habilidades.length} habilidades concluídas</div>`;
-    c.appendChild(card);
+    `;
+    card.onclick = () => openBattery(battery.id);
+    container.appendChild(card);
   });
 }
 
-function renderPerfil() {
-  const total = Object.values(estado.concluidas).reduce((a,c) => a + c.length, 0);
-  const ativas = BATERIAS.filter(b => (estado.concluidas[b.id]||[]).length > 0).length;
-  document.getElementById('profile-level').textContent = getNivel().nome;
-  document.getElementById('profile-xp').textContent = estado.xp + ' XP acumulados';
-  document.getElementById('profile-streak').textContent = estado.streak + ' dias';
-  document.getElementById('profile-skills').textContent = total;
-  document.getElementById('profile-batteries').textContent = ativas;
+function renderBatteriesList() {
+  const container = document.getElementById('batteries-list');
+  container.innerHTML = '';
+  batteries.forEach(battery => {
+    const { done, total, pct } = getBatteryProgress(battery);
+    const card = document.createElement('div');
+    card.className = 'battery-card';
+    card.innerHTML = `
+      <div class="battery-row">
+        <div class="battery-icon">${battery.icon}</div>
+        <div class="battery-info">
+          <div class="battery-name">${battery.name}</div>
+          <div class="battery-sub">${done} / ${total} habilidades</div>
+        </div>
+        <div class="battery-pct" style="color:${pct > 0 ? '#F5A623' : '#E53935'}">${pct}%</div>
+      </div>
+      <div class="battery-progress-bg">
+        <div class="battery-progress-fill" style="width:${pct}%"></div>
+      </div>
+    `;
+    card.onclick = () => openBattery(battery.id);
+    container.appendChild(card);
+  });
 }
 
-function toggleHab(bId, i) {
-  const c = estado.concluidas[bId];
-  const pos = c.indexOf(i);
-  if (pos === -1) {
-    c.push(i);
-    estado.xp += 10;
-    toast('✅ Habilidade concluída! +10 XP');
+// ══════════════════════════════════════════
+// OPEN BATTERY DETAIL
+// ══════════════════════════════════════════
+function openBattery(batteryId) {
+  const battery = batteries.find(b => b.id === batteryId);
+  state.currentBattery = battery;
+  const { done, total, pct } = getBatteryProgress(battery);
+
+  document.getElementById('detail-title').textContent = battery.name;
+  document.getElementById('detail-bar').style.width = pct + '%';
+  document.getElementById('detail-pct').textContent = pct + '%';
+  document.getElementById('detail-count').textContent = `${done} / ${total} concluídas`;
+
+  const list = document.getElementById('detail-skills-list');
+  list.innerHTML = '';
+  battery.skills.forEach(skill => {
+    const done = isCompleted(battery.id, skill.id);
+    const item = document.createElement('div');
+    item.className = 'skill-item' + (done ? ' done' : '');
+    item.innerHTML = `
+      <div class="skill-circle">${done ? '✓' : ''}</div>
+      <div class="skill-name">${skill.name}</div>
+      <div class="skill-xp">${done ? '✓ XP' : '+10 XP'}</div>
+    `;
+    if (!done) {
+      item.onclick = () => openLesson(battery.id, skill.id);
+    }
+    list.appendChild(item);
+  });
+
+  // Update back button
+  document.querySelector('#view-detail .back-row').onclick = () => goTo('view-home');
+  goTo('view-detail');
+}
+
+// ══════════════════════════════════════════
+// OPEN LESSON
+// ══════════════════════════════════════════
+function openLesson(batteryId, skillId) {
+  const battery = batteries.find(b => b.id === batteryId);
+  const skill = battery.skills.find(s => s.id === skillId);
+  state.currentBattery = battery;
+  state.currentSkill = skill;
+
+  const alreadyDone = isCompleted(batteryId, skillId);
+
+  // Back button
+  document.getElementById('lesson-back-btn').onclick = () => openBattery(batteryId);
+
+  // Build lesson body
+  const body = document.getElementById('lesson-body');
+  let html = `
+    <div class="lesson-title">${skill.name}</div>
+    <span class="lesson-battery-tag">${battery.icon} ${battery.name}</span>
+    <div class="lesson-card" style="background:#1a1a00;border-color:#3a3400;">
+      <div class="lesson-card-label" style="color:#F5D623;">💡 Por que isso importa</div>
+      <p>${skill.content.intro}</p>
+    </div>
+  `;
+
+  skill.content.body.forEach(block => {
+    if (block.type === 'text') {
+      html += `<div class="lesson-card">
+        <div class="lesson-card-label">${block.label}</div>
+        <p>${block.text.replace(/\n/g, '</p><p>')}</p>
+      </div>`;
+    } else if (block.type === 'quote') {
+      html += `<div class="lesson-quote"><p>"${block.text}"</p></div>`;
+    } else if (block.type === 'example') {
+      html += `<div class="lesson-example">
+        <div class="lesson-example-label">📋 ${block.label}</div>
+        <p>${block.text.replace(/\n/g, '</p><p>')}</p>
+      </div>`;
+    } else if (block.type === 'tip') {
+      html += `<div class="lesson-tip">
+        <div class="lesson-tip-label">⚡ ${block.label}</div>
+        <p>${block.text}</p>
+      </div>`;
+    }
+  });
+
+  body.innerHTML = html;
+
+  // Toast & button
+  const toast = document.getElementById('xp-toast');
+  const btn = document.getElementById('btn-complete');
+  toast.classList.remove('show');
+
+  if (alreadyDone) {
+    btn.textContent = '✅ Já concluído';
+    btn.disabled = true;
   } else {
-    c.splice(pos, 1);
-    estado.xp = Math.max(0, estado.xp - 10);
+    btn.textContent = 'Marcar como Concluído ✓';
+    btn.disabled = false;
+    btn.onclick = () => {
+      markComplete(batteryId, skillId);
+      btn.textContent = '✅ Concluído!';
+      btn.disabled = true;
+      toast.classList.add('show');
+      renderHomeBatteries();
+      renderBatteriesList();
+    };
   }
-  salvarEstado();
-  renderDetalhe(bId);
-  renderInicio();
+
+  goTo('view-lesson');
 }
 
-function toast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2200);
-}
-
-// init
-renderInicio();
-renderBaterias();
+// ══════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════
+renderHomeBatteries();
+renderBatteriesList();
 </script>
 </body>
 </html>
